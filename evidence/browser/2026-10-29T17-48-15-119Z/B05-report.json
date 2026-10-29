@@ -1,0 +1,12 @@
+{
+  "id": "B05-report",
+  "expected": "Report displays persisted completed-check ratios; browser demo Payments has 1 fail + 1 pass = 50%.",
+  "expected_recorded_at": "2026-10-29T17:48:36.246Z",
+  "status": "FAIL",
+  "started_at": "2026-10-29T17:48:36.246Z",
+  "error": {
+    "name": "TimeoutError",
+    "message": "locator.waitFor: Timeout 18000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByText('50.00%').or(getByLabel('50.00%')).first() to be visible\u001b[22m\n"
+  },
+  "finished_at": "2026-10-29T17:48:54.344Z"
+}

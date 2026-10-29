@@ -1,0 +1,52 @@
+[
+  {
+    "role": null,
+    "label": null,
+    "text": "PulseboardA clearer view of API health.Enter dashboardFictional services. Controlled faults. Observable recovery."
+  },
+  {
+    "role": null,
+    "label": null,
+    "text": "PulseboardA clearer view of API health.Enter dashboardFictional services. Controlled faults. Observable recovery."
+  },
+  {
+    "role": null,
+    "label": null,
+    "text": "PulseboardA clearer view of API health.Enter dashboardFictional services. Controlled faults. Observable recovery."
+  },
+  {
+    "role": null,
+    "label": null,
+    "text": "PulseboardA clearer view of API health.Enter dashboardFictional services. Controlled faults. Observable recovery."
+  },
+  {
+    "role": "group",
+    "label": null,
+    "text": "PulseboardA clearer view of API health.Enter dashboardFictional services. Controlled faults. Observable recovery."
+  },
+  {
+    "role": null,
+    "label": null,
+    "text": "Pulseboard"
+  },
+  {
+    "role": null,
+    "label": null,
+    "text": "A clearer view of API health."
+  },
+  {
+    "role": "button",
+    "label": "Enter the local demo\nPlaceholder login. No real authentication or password is used. Select a fictional persona to explore the workflow.\nDemo persona\nOperator · can manage the demo",
+    "text": "Enter dashboard"
+  },
+  {
+    "role": "button",
+    "label": null,
+    "text": "Enter dashboard"
+  },
+  {
+    "role": null,
+    "label": null,
+    "text": "Fictional services. Controlled faults. Observable recovery."
+  }
+]

@@ -1,0 +1,141 @@
+{
+  "recorded_at": "2026-10-29T17:49:26.586Z",
+  "origin": "http://127.0.0.1:44039",
+  "results": [
+    {
+      "id": "B01-login",
+      "status": "PASS"
+    },
+    {
+      "id": "B02-success-demo",
+      "status": "PASS"
+    },
+    {
+      "id": "B03-transient-demo",
+      "status": "PASS"
+    },
+    {
+      "id": "B04-persistent-human-recovery-demo",
+      "status": "FAIL"
+    },
+    {
+      "id": "B05-report",
+      "status": "FAIL"
+    },
+    {
+      "id": "B06-responsive",
+      "status": "FAIL"
+    },
+    {
+      "id": "B07-invalid-form",
+      "status": "FAIL"
+    },
+    {
+      "id": "B08-network-error",
+      "status": "PASS"
+    },
+    {
+      "id": "B09-server-error-state",
+      "status": "PASS"
+    }
+  ],
+  "snapshots": [
+    {
+      "file": "01-login-desktop.png",
+      "captured_at": "2026-10-29T17:48:16.757Z",
+      "viewport": {
+        "width": 1280,
+        "height": 1000
+      }
+    },
+    {
+      "file": "02-endpoints-desktop.png",
+      "captured_at": "2026-10-29T17:48:17.113Z",
+      "viewport": {
+        "width": 1280,
+        "height": 1000
+      }
+    },
+    {
+      "file": "03-success-demo.png",
+      "captured_at": "2026-10-29T17:48:17.621Z",
+      "viewport": {
+        "width": 1280,
+        "height": 1000
+      }
+    },
+    {
+      "file": "04-transient-demo.png",
+      "captured_at": "2026-10-29T17:48:20.353Z",
+      "viewport": {
+        "width": 1280,
+        "height": 1000
+      }
+    },
+    {
+      "file": "05-persistent-demo.png",
+      "captured_at": "2026-10-29T17:48:24.170Z",
+      "viewport": {
+        "width": 1280,
+        "height": 1000
+      }
+    },
+    {
+      "file": "B04-persistent-human-recovery-demo-failure.png",
+      "captured_at": "2026-10-29T17:48:36.241Z",
+      "viewport": {
+        "width": 1280,
+        "height": 1000
+      }
+    },
+    {
+      "file": "B05-report-failure.png",
+      "captured_at": "2026-10-29T17:48:54.341Z",
+      "viewport": {
+        "width": 1280,
+        "height": 1000
+      }
+    },
+    {
+      "file": "10-endpoints-768.png",
+      "captured_at": "2026-10-29T17:48:55.212Z",
+      "viewport": {
+        "width": 768,
+        "height": 1000
+      }
+    },
+    {
+      "file": "B06-responsive-failure.png",
+      "captured_at": "2026-10-29T17:49:07.288Z",
+      "viewport": {
+        "width": 768,
+        "height": 1000
+      }
+    },
+    {
+      "file": "B07-invalid-form-failure.png",
+      "captured_at": "2026-10-29T17:49:25.738Z",
+      "viewport": {
+        "width": 1280,
+        "height": 1000
+      }
+    },
+    {
+      "file": "14-network-error.png",
+      "captured_at": "2026-10-29T17:49:26.049Z",
+      "viewport": {
+        "width": 1280,
+        "height": 1000
+      }
+    },
+    {
+      "file": "15-server-error-state.png",
+      "captured_at": "2026-10-29T17:49:26.539Z",
+      "viewport": {
+        "width": 1280,
+        "height": 1000
+      }
+    }
+  ],
+  "errors": []
+}

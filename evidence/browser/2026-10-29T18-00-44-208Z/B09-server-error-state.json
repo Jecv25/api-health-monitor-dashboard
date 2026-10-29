@@ -1,0 +1,13 @@
+{
+  "id": "B09-server-error-state",
+  "expected": "A labeled browser-only 503-response injection shows safe server-error text and a reference; no success is claimed.",
+  "expected_recorded_at": "2026-10-29T18:00:59.639Z",
+  "status": "PASS",
+  "started_at": "2026-10-29T18:00:59.640Z",
+  "actual": {
+    "injection": "Browser response stub, UI rendering verification only. Actual SQLite fault evidence is F02 in the API run.",
+    "response_status": 503,
+    "correlation": "149df183-9e78-4505-9a79-e7a00a040cdd"
+  },
+  "finished_at": "2026-10-29T18:01:00.120Z"
+}

@@ -1,0 +1,29 @@
+Pulseboard
+Loading the monitoring dashboard…
+Pulseboard
+WORKSPACE / FICTIONAL SANDBOX
+OP
+Demo operator
+Refresh records
+API HEALTH MONITOR
+Endpoints
+Register endpoint
+Unacknowledged incidents Incidents 1
+Uptime report
+Structured logs
+Evidence guide
+SANDBOX MODE
+Fictional data only. No production services.
+Leave demo
+All endpoints
+Payments sandbox
+https://api.sandbox.example/pay/health
+Simulate fix
+Run check
+Active incident #1
+Recent check runs
+View correlated logs
+Completed results
+fail Run #3 · 3 attempt(s) 2026-10-30 01:48:22 PHT
+MODULE 13 · CONTROLLED LOCAL DEMO
+Last refreshed 2026-10-30 01:48:36 PHT

@@ -1,0 +1,47 @@
+{
+  "recorded_at": "2026-10-29T18:05:15.638Z",
+  "configuration_checks": [
+    {
+      "name": "loopback-only",
+      "expected": "reject invalid configuration",
+      "actual": "This Module 13 demo requires loopback hosts and DEMO_MODE=true.",
+      "status": "PASS",
+      "timestamp": "2026-10-29T18:05:15.599Z"
+    },
+    {
+      "name": "three-attempt-upper-bound",
+      "expected": "reject invalid configuration",
+      "actual": "Invalid execution bound.",
+      "status": "PASS",
+      "timestamp": "2026-10-29T18:05:15.600Z"
+    },
+    {
+      "name": "two-worker-upper-bound",
+      "expected": "reject invalid configuration",
+      "actual": "Invalid execution bound.",
+      "status": "PASS",
+      "timestamp": "2026-10-29T18:05:15.600Z"
+    },
+    {
+      "name": "demo-mode-required",
+      "expected": "reject invalid configuration",
+      "actual": "This Module 13 demo requires loopback hosts and DEMO_MODE=true.",
+      "status": "PASS",
+      "timestamp": "2026-10-29T18:05:15.600Z"
+    },
+    {
+      "name": "numeric-port-validation",
+      "expected": "Invalid PORT",
+      "actual": "Invalid PORT",
+      "status": "PASS",
+      "timestamp": "2026-10-29T18:05:15.600Z"
+    }
+  ],
+  "env_example_present": true,
+  "private_env_present": false,
+  "private_env_ignored": true,
+  "actual_jsonl_files_checked": 20,
+  "actual_events_checked": 702,
+  "log_schema_or_raw_secret_field_violations": [],
+  "scope": "Field/schema and configured-boundary audit of actual logs, not a complete secret/security audit."
+}

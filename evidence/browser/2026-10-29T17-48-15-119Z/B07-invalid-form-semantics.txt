@@ -1,0 +1,26 @@
+Pulseboard
+Loading the monitoring dashboard…
+Pulseboard
+WORKSPACE / FICTIONAL SANDBOX
+OP
+Demo operator
+Refresh records
+API HEALTH MONITOR
+Endpoints
+Register endpoint
+Unacknowledged incidents Incidents 1
+Uptime report
+Structured logs
+Evidence guide
+SANDBOX MODE
+Fictional data only. No production services.
+Leave demo
+Register endpoint
+Use a fictional HTTPS service label. Checks run against the controlled local sandbox.
+Whole seconds from 10 to 3600.
+Demo behavior Always healthy · 200
+The server repeats validation and rejects duplicate URLs. A new endpoint starts UNKNOWN until a check completes.
+Register endpoint
+Cancel
+MODULE 13 · CONTROLLED LOCAL DEMO
+Last refreshed 2026-10-30 01:49:05 PHT

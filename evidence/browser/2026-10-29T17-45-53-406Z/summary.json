@@ -1,0 +1,27 @@
+{
+  "recorded_at": "2026-10-29T17:46:13.292Z",
+  "origin": "http://127.0.0.1:60171",
+  "results": [
+    {
+      "id": "B01-login",
+      "status": "FAIL"
+    }
+  ],
+  "snapshots": [
+    {
+      "file": "B01-login-failure.png",
+      "captured_at": "2026-10-29T17:46:13.288Z",
+      "viewport": {
+        "width": 1280,
+        "height": 1000
+      }
+    }
+  ],
+  "errors": [
+    {
+      "timestamp": "2026-10-29T17:46:13.292Z",
+      "fatal": true,
+      "message": "Cannot continue UI demo until initial Flutter access is fixed."
+    }
+  ]
+}

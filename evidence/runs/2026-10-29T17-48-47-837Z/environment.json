@@ -1,0 +1,124 @@
+{
+  "recorded_at": "2026-10-29T17:48:47.838Z",
+  "display_timezone": "Asia/Manila",
+  "timestamp_basis": "Actual execution clock in UTC; dates may precede PHT by eight hours.",
+  "node": "v24.21.0",
+  "platform": "win32",
+  "os_release": "10.0.26200",
+  "architecture": "x64",
+  "source_sha256": "033deb33fa21a7e017aafe559d3e2a74040869d9b054c12a4c1a0d146c864e4f",
+  "files": [
+    {
+      "file": "backend/.env.example",
+      "sha256": "f912ad8e4895925c0e1fab8b123d0b2be08df8eae8767f29905bc1f0ef4e3869"
+    },
+    {
+      "file": "backend/package-lock.json",
+      "sha256": "eebf562991564c4560b08dd4f449156c1a52d832d329bf5e36edc6be1de851cb"
+    },
+    {
+      "file": "backend/package.json",
+      "sha256": "d3b74cf909f62e978f92fc907945cb407de7c86b1564e2cddd3d9e6d1fb56db4"
+    },
+    {
+      "file": "backend/scripts/browser-evidence.js",
+      "sha256": "94977d745e930923311663193cc7f93e7bfe6fe550634fa34ea708cda3148e65"
+    },
+    {
+      "file": "backend/scripts/capture-evidence.js",
+      "sha256": "e7fe131ca49abb546805a2bb17869463a52946d29c9f06cbba931d041824209e"
+    },
+    {
+      "file": "backend/scripts/evidence-utils.js",
+      "sha256": "8c67283f798a043f0ddd4b8666224acc976b215dc5abd54e511a1c931b33d646"
+    },
+    {
+      "file": "backend/scripts/restart-evidence.js",
+      "sha256": "4334a27ab58d8f88fe38354ed99571b2cc39cd1b02613bf67792e7c054fead3c"
+    },
+    {
+      "file": "backend/scripts/run-checks.js",
+      "sha256": "c071db4f26da6cc43e5da8e60fdb8139020c9e735651ee2b83153829a4e491e7"
+    },
+    {
+      "file": "backend/src/app.js",
+      "sha256": "efa44df7b59ca22306871db27175ccc529d76e6a5e9e3d48067e172aa56a2c2d"
+    },
+    {
+      "file": "backend/src/config.js",
+      "sha256": "7849dfdaeeede9579f6d135e1b7c722fd64daabad880b6a654f7e0ea057cfbe8"
+    },
+    {
+      "file": "backend/src/errors.js",
+      "sha256": "8a37ab28afc4e2b61257f4b05637844a8d6a995ed471fd0c11f8827b9f2b4064"
+    },
+    {
+      "file": "backend/src/fixture.js",
+      "sha256": "56f48829604b103b465e3068fd3447c4c7d7ebd88ca528f8d056fe0bb22818c8"
+    },
+    {
+      "file": "backend/src/logger.js",
+      "sha256": "ff70fae1817181aeb4544509f3c74b1e316617efd9b51f67a3b6eda7ddc504ef"
+    },
+    {
+      "file": "backend/src/monitor.js",
+      "sha256": "2f1ff355c4262cd069de00450d3d5e4e3d6678a31617c4faacb56c0ec7ad8fe6"
+    },
+    {
+      "file": "backend/src/server.js",
+      "sha256": "79ecb89975c987022ad46dc5e0b026cc6ffb79beb78e9c3ffeb11d49d6cb2850"
+    },
+    {
+      "file": "backend/src/storage.js",
+      "sha256": "4288b7eb89eb113989ca0fc7b0c87ab244aba5102551ee81ea753344649faee6"
+    },
+    {
+      "file": "backend/test/monitor.test.js",
+      "sha256": "91be046fffcbaaafcf59bc8eea7bbd633c86a37324a68570891dbe09e9ca9440"
+    },
+    {
+      "file": "flutter_web/analysis_options.yaml",
+      "sha256": "68158c19aab9184b8fe9951a6bcd7289716677ad0a7c6cb4f5e5aa373232d7be"
+    },
+    {
+      "file": "flutter_web/lib/api.dart",
+      "sha256": "49fc05f9c64aa901460488b19418cd1eb02a99db59c631ce378f1b3c92797613"
+    },
+    {
+      "file": "flutter_web/lib/main.dart",
+      "sha256": "974c9539f6382a064abc348de6746933ea89d7b304b4749beb7d554b427ebe79"
+    },
+    {
+      "file": "flutter_web/lib/platform_stub.dart",
+      "sha256": "98b925ade22cdfe8986a9cc9bf30cdf93254c1dd7104f84498b3fb371a263ae1"
+    },
+    {
+      "file": "flutter_web/lib/platform_web.dart",
+      "sha256": "43a689a81164603538f6d361c47364d6aa6ef48ae00b12007e23bfef3e0b8d30"
+    },
+    {
+      "file": "flutter_web/lib/validation.dart",
+      "sha256": "74a8210239c47c2c2faa266eba16b5e46c522033f36a60f65a3b022b2f15bd8e"
+    },
+    {
+      "file": "flutter_web/pubspec.lock",
+      "sha256": "6c313b5ea7ccc5e8ee503da30b42006060bb3339a5d1bb31bec885c80229f047"
+    },
+    {
+      "file": "flutter_web/pubspec.yaml",
+      "sha256": "7063439c84ba84b2ffd26aa085d8e8215c8d0cf4e48135aefcc5c40ac3c1acba"
+    },
+    {
+      "file": "flutter_web/test/dashboard_test.dart",
+      "sha256": "91d29aaa8a5fa6464abbc093fc610982b6c2da93a53fef3d3205a90e4d5200c9"
+    },
+    {
+      "file": "flutter_web/web/index.html",
+      "sha256": "b77932b6faa563a746d67b6a4da821ebfd32b3a7c9b357f3fea10cbbb9fbe7d2"
+    },
+    {
+      "file": "flutter_web/web/manifest.json",
+      "sha256": "98d82552950b64fdaf0688b9f6484ff429846fa5599dda86f5f1c583dfd5a746"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "id": "B06-responsive",
+  "expected": "Endpoint list and incident/report navigation remain usable at 768 and 390 CSS pixels without document horizontal overflow.",
+  "expected_recorded_at": "2026-10-29T18:00:52.961Z",
+  "status": "PASS",
+  "started_at": "2026-10-29T18:00:52.962Z",
+  "actual": [
+    {
+      "width": 768,
+      "layout": {
+        "viewport": 768,
+        "document": 768
+      }
+    },
+    {
+      "width": 390,
+      "layout": {
+        "viewport": 390,
+        "document": 390
+      }
+    }
+  ],
+  "finished_at": "2026-10-29T18:00:58.666Z"
+}

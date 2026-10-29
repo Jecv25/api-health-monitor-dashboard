@@ -1,0 +1,30 @@
+{
+  "recorded_at": "2026-10-29T23:09:57.158Z",
+  "publication_scope": "Module 13 (SA7) only",
+  "repository": "https://github.com/Jecv25/api-health-monitor-dashboard.git",
+  "reference_fingerprints": [
+    {
+      "reference": "PFEBSIT_002_Weeks_13-18_Student_Module_Flutter_Web.docx",
+      "sha256": "1886c5778a7f61b67a7137ae64d23a30b0ab296e609b2d5d599d0c83d5a9b147",
+      "published_copy": false
+    },
+    {
+      "reference": "My_Project.md",
+      "sha256": "01339d15b285c707d6cdc8c841b46041d4d0d19e599e095c9d91f8cc7745b632",
+      "published_copy": false
+    }
+  ],
+  "reference_review": "Module 13 section of the DOCX and Week 13 scope of My_Project.md reviewed; full teaching documents excluded.",
+  "runtime_source_files_verified": 31,
+  "runtime_source_mismatches": [],
+  "historical_evidence_files_verified": 240,
+  "historical_evidence_byte_mismatches": [],
+  "local_markdown_links_checked": 200,
+  "broken_links_or_fences": [],
+  "forbidden_publication_paths": [],
+  "recognized_credential_patterns_found": [],
+  "credential_scan_limit": "Known token/key/cookie patterns; not a comprehensive security certification.",
+  "application_source_changes": false,
+  "verification_basis": "Exact match to the already executed Module 13 source inventory; historical execution results preserved without rerunning or changing them.",
+  "selected_file_count_before_this_audit": 293
+}

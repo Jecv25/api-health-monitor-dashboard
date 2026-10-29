@@ -1,0 +1,262 @@
+{
+  "id": "N01",
+  "title": "Successful execution",
+  "expected": {
+    "registration_status": 201,
+    "trigger_status": 202,
+    "http_attempts": [
+      200
+    ],
+    "final_ok": true,
+    "incidents": 0,
+    "total_checks": 1,
+    "passed_checks": 1
+  },
+  "expected_recorded_at": "2026-10-29T17:42:47.605Z",
+  "status": "PASS",
+  "exchanges": [
+    {
+      "requested_at": "2026-10-29T17:42:47.605Z",
+      "completed_at": "2026-10-29T17:42:47.612Z",
+      "request": {
+        "method": "POST",
+        "path": "/api/v1/endpoints",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "a3c99d4d-f466-4053-b17b-4af4a74e6ca7"
+        },
+        "demo_persona": "operator",
+        "body": {
+          "name": "library Demo",
+          "url": "https://api.sandbox.example/library/health",
+          "interval_seconds": 60,
+          "demo_behavior": "stable"
+        }
+      },
+      "actual": {
+        "status": 201,
+        "headers": {
+          "x-correlation-id": "23f09bcd-424f-4937-aa90-1b2bf1b418df",
+          "idempotency-replayed": null
+        },
+        "body": {
+          "data": {
+            "id": 1,
+            "name": "library Demo",
+            "url": "https://api.sandbox.example/library/health",
+            "interval_seconds": 60,
+            "demo_behavior": "stable",
+            "status": "UNKNOWN",
+            "created_at": "2026-10-29T17:42:47.607Z",
+            "last_completed_at": null,
+            "next_due_at": null,
+            "checking": false,
+            "active_check_id": null,
+            "active_incident_id": null,
+            "recent_runs": []
+          },
+          "correlation_id": "23f09bcd-424f-4937-aa90-1b2bf1b418df"
+        }
+      }
+    },
+    {
+      "requested_at": "2026-10-29T17:42:47.612Z",
+      "completed_at": "2026-10-29T17:42:47.619Z",
+      "request": {
+        "method": "POST",
+        "path": "/api/v1/endpoints/1/checks",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "eddb92d8-c95e-4b04-b89d-9805ed69544c"
+        },
+        "demo_persona": "operator",
+        "body": {}
+      },
+      "actual": {
+        "status": 202,
+        "headers": {
+          "x-correlation-id": "0b99ecd1-3940-4f64-81a2-33e879b98ce1",
+          "idempotency-replayed": null
+        },
+        "body": {
+          "data": {
+            "id": 1,
+            "endpoint_id": 1,
+            "state": "RUNNING",
+            "correlation_id": "0b99ecd1-3940-4f64-81a2-33e879b98ce1",
+            "status_url": "/api/v1/checks/1"
+          },
+          "correlation_id": "0b99ecd1-3940-4f64-81a2-33e879b98ce1"
+        }
+      }
+    },
+    {
+      "requested_at": "2026-10-29T17:42:47.667Z",
+      "completed_at": "2026-10-29T17:42:47.668Z",
+      "request": {
+        "method": "GET",
+        "path": "/api/v1/checks/1",
+        "headers": {},
+        "demo_persona": "operator"
+      },
+      "actual": {
+        "status": 200,
+        "headers": {
+          "x-correlation-id": "1be98602-2c61-465d-b0d7-22da01a10bb3",
+          "idempotency-replayed": null
+        },
+        "body": {
+          "data": {
+            "id": 1,
+            "endpoint_id": 1,
+            "trigger": "manual",
+            "state": "COMPLETED",
+            "correlation_id": "0b99ecd1-3940-4f64-81a2-33e879b98ce1",
+            "parent_correlation_id": null,
+            "schedule_key": null,
+            "behavior": "stable",
+            "started_at": "2026-10-29T17:42:47.614Z",
+            "finished_at": "2026-10-29T17:42:47.626Z",
+            "interruption_reason": null,
+            "attempts": [
+              {
+                "id": 1,
+                "check_id": 1,
+                "ordinal": 1,
+                "started_at": "2026-10-29T17:42:47.617Z",
+                "finished_at": "2026-10-29T17:42:47.623Z",
+                "status_code": 200,
+                "error_category": null,
+                "latency_ms": 6.06
+              }
+            ],
+            "result": {
+              "id": 1,
+              "check_id": 1,
+              "endpoint_id": 1,
+              "ok": true,
+              "attempt_count": 1,
+              "final_category": "healthy",
+              "completed_at": "2026-10-29T17:42:47.626Z"
+            },
+            "incident_id": null
+          },
+          "correlation_id": "1be98602-2c61-465d-b0d7-22da01a10bb3"
+        }
+      }
+    },
+    {
+      "requested_at": "2026-10-29T17:42:47.668Z",
+      "completed_at": "2026-10-29T17:42:47.670Z",
+      "request": {
+        "method": "GET",
+        "path": "/api/v1/reports/uptime",
+        "headers": {},
+        "demo_persona": "operator"
+      },
+      "actual": {
+        "status": 200,
+        "headers": {
+          "x-correlation-id": "dddf2de3-4fd1-4ca7-9ecd-07553e88263c",
+          "idempotency-replayed": null
+        },
+        "body": {
+          "data": {
+            "basis": "completed_check_ratio",
+            "window": "current_dataset",
+            "dataset_start": "2026-10-29T17:42:47.607Z",
+            "as_of": "2026-10-29T17:42:47.669Z",
+            "endpoints": [
+              {
+                "endpoint_id": 1,
+                "name": "library Demo",
+                "total_checks": 1,
+                "passed_checks": 1,
+                "failed_checks": 0,
+                "uptime_percent": 100
+              }
+            ]
+          },
+          "correlation_id": "dddf2de3-4fd1-4ca7-9ecd-07553e88263c"
+        }
+      }
+    },
+    {
+      "requested_at": "2026-10-29T17:42:47.670Z",
+      "completed_at": "2026-10-29T17:42:47.671Z",
+      "request": {
+        "method": "GET",
+        "path": "/api/v1/incidents",
+        "headers": {},
+        "demo_persona": "operator"
+      },
+      "actual": {
+        "status": 200,
+        "headers": {
+          "x-correlation-id": "b15a859b-ce39-400e-b199-cf0efc95813f",
+          "idempotency-replayed": null
+        },
+        "body": {
+          "data": [],
+          "correlation_id": "b15a859b-ce39-400e-b199-cf0efc95813f"
+        }
+      }
+    }
+  ],
+  "started_at": "2026-10-29T17:42:47.605Z",
+  "observations": {
+    "run": {
+      "id": 1,
+      "endpoint_id": 1,
+      "trigger": "manual",
+      "state": "COMPLETED",
+      "correlation_id": "0b99ecd1-3940-4f64-81a2-33e879b98ce1",
+      "parent_correlation_id": null,
+      "schedule_key": null,
+      "behavior": "stable",
+      "started_at": "2026-10-29T17:42:47.614Z",
+      "finished_at": "2026-10-29T17:42:47.626Z",
+      "interruption_reason": null,
+      "attempts": [
+        {
+          "id": 1,
+          "check_id": 1,
+          "ordinal": 1,
+          "started_at": "2026-10-29T17:42:47.617Z",
+          "finished_at": "2026-10-29T17:42:47.623Z",
+          "status_code": 200,
+          "error_category": null,
+          "latency_ms": 6.06
+        }
+      ],
+      "result": {
+        "id": 1,
+        "check_id": 1,
+        "endpoint_id": 1,
+        "ok": true,
+        "attempt_count": 1,
+        "final_category": "healthy",
+        "completed_at": "2026-10-29T17:42:47.626Z"
+      },
+      "incident_id": null
+    },
+    "report": {
+      "basis": "completed_check_ratio",
+      "window": "current_dataset",
+      "dataset_start": "2026-10-29T17:42:47.607Z",
+      "as_of": "2026-10-29T17:42:47.669Z",
+      "endpoints": [
+        {
+          "endpoint_id": 1,
+          "name": "library Demo",
+          "total_checks": 1,
+          "passed_checks": 1,
+          "failed_checks": 0,
+          "uptime_percent": 100
+        }
+      ]
+    },
+    "incident_count": 0
+  },
+  "finished_at": "2026-10-29T17:42:47.671Z"
+}

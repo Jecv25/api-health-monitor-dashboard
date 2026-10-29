@@ -1,0 +1,11 @@
+analyzer:
+  errors:
+    avoid_print: warning
+  exclude:
+    - build/**
+    - web/**
+linter:
+  rules:
+    - avoid_print
+    - use_build_context_synchronously
+    - unawaited_futures

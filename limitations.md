@@ -1,0 +1,18 @@
+# Module 13 limitations
+
+The submitted output is a local student prototype. Its evidence supports the tested automation paths, not unrestricted real-world operation.
+
+- **Identity:** login freely selects an operator/viewer demo persona. Server denial branches work, but this is not real user authentication, account management, or complete role security. Sessions are in memory and end on restart/logout.
+- **Dependency scope:** fictional HTTPS labels map to a fixed loopback HTTP fixture. HTTP requests and fault observations are real locally; external DNS, certificates, routing, and a real service's availability are untested. No production endpoint or credential is used.
+- **Runtime/storage:** one Node process owns one SQLite database. There is no broker, distributed lock, high availability, or check execution while the process is off. A different process must not concurrently operate on the same lab database. Startup interrupts unfinished work and requires deliberate scheduler restart.
+- **Capacity:** two concurrent check slots, one per endpoint. Run all visibly reports rejected busy/capacity endpoints; it does not queue them. The scheduler revisits due work without backfilling downtime. Very large endpoint sets and sustained workload are untested.
+- **Retry:** three total attempts and fixed 700 ms waits fit this bounded fixture. Provider-specific throttling, Retry-After, exponential backoff/jitter, circuit breaking, and automatic repair are not implemented. A later scheduled run is a new observation.
+- **Recovery:** one completed passing check verifies recovery. Flapping/sustained-health thresholds and dependency-side remediation are absent. Acknowledgement never proves repair.
+- **Metric:** uptime is successful completed checks divided by all completed checks in the dataset. It is not elapsed availability or an SLA. In-progress/interrupted runs are excluded; zero observations is No data.
+- **Notifications:** notices are durable in-app support records. No email, SMS, external recipient, or external delivery guarantee exists.
+- **Evidence/logging:** SQLite and file logs cannot commit atomically; a crash can leave a log gap. A GET can occur before an unsaved attempt is interrupted. No exactly-once external-delivery claim is made. There is no automatic record/log pruning, rotation, or evidence deletion; storage growth remains the maintainer's responsibility.
+- **Browser verification:** actual compiled Flutter was checked in installed Chrome at 1280/768/390 CSS pixels. This is not cross-browser/mobile certification or a full accessibility audit. Browser network/503 response stubs test UI handling only and are labeled separately from real backend fault injection.
+- **Build warning:** captured successful builds may report an optional Cupertino icon-font family during tree shaking. No missing displayed icon was observed in the saved Chrome screenshots. Keep the warning in the evidence; broader theme/platform checks remain outside this lab.
+- **Portfolio:** no Git history or commit is invented for the original non-Git folder. Evidence records source-file SHA-256 inventories and actual execution timestamps. The student must still review the work and prepare their own individual contribution/reflection and viva answers.
+
+Full Module 14 authentication/encryption/secure integration, Module 15 hardening campaign, Module 16 load/deployment evaluation, Module 17 formal UAT/OpenAPI completion, and Module 18 final-examination activities remain deferred. A realistic next improvement within a separately approved scope is a configurable sustained-recovery threshold; identity replacement belongs to Module 14.

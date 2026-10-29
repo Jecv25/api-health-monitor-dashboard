@@ -1,0 +1,13 @@
+{
+  "id": "B01-login",
+  "expected": "Actual Flutter release app displays labeled placeholder login; operator enters dashboard.",
+  "expected_recorded_at": "2026-10-29T18:00:45.891Z",
+  "status": "PASS",
+  "started_at": "2026-10-29T18:00:45.909Z",
+  "actual": {
+    "title": "Pulseboard | API Health Monitor",
+    "endpoints": 3,
+    "frontend": "Compiled Flutter Web release, not an HTML substitute."
+  },
+  "finished_at": "2026-10-29T18:00:46.425Z"
+}

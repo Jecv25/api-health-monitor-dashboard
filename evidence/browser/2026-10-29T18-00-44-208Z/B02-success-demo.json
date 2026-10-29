@@ -1,0 +1,45 @@
+{
+  "id": "B02-success-demo",
+  "expected": "Library API completes one real 200 attempt and displays the saved passing observation.",
+  "expected_recorded_at": "2026-10-29T18:00:46.426Z",
+  "status": "PASS",
+  "started_at": "2026-10-29T18:00:46.427Z",
+  "actual": {
+    "run": {
+      "id": 1,
+      "endpoint_id": 1,
+      "trigger": "manual",
+      "state": "COMPLETED",
+      "correlation_id": "7fc5f20d-9ce3-4baf-bb9d-d68b593f7e8f",
+      "parent_correlation_id": null,
+      "schedule_key": null,
+      "behavior": "stable",
+      "started_at": "2026-10-29T18:00:46.625Z",
+      "finished_at": "2026-10-29T18:00:46.646Z",
+      "interruption_reason": null,
+      "attempts": [
+        {
+          "id": 1,
+          "check_id": 1,
+          "ordinal": 1,
+          "started_at": "2026-10-29T18:00:46.627Z",
+          "finished_at": "2026-10-29T18:00:46.644Z",
+          "status_code": 200,
+          "error_category": null,
+          "latency_ms": 16.36
+        }
+      ],
+      "result": {
+        "id": 1,
+        "check_id": 1,
+        "endpoint_id": 1,
+        "ok": true,
+        "attempt_count": 1,
+        "final_category": "healthy",
+        "completed_at": "2026-10-29T18:00:46.646Z"
+      },
+      "incident_id": null
+    }
+  },
+  "finished_at": "2026-10-29T18:00:46.963Z"
+}

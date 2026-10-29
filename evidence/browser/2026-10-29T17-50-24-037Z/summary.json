@@ -1,0 +1,189 @@
+{
+  "recorded_at": "2026-10-29T17:50:41.224Z",
+  "origin": "http://127.0.0.1:58282",
+  "results": [
+    {
+      "id": "B01-login",
+      "status": "PASS"
+    },
+    {
+      "id": "B02-success-demo",
+      "status": "PASS"
+    },
+    {
+      "id": "B03-transient-demo",
+      "status": "PASS"
+    },
+    {
+      "id": "B04-persistent-human-recovery-demo",
+      "status": "PASS"
+    },
+    {
+      "id": "B05-report",
+      "status": "PASS"
+    },
+    {
+      "id": "B06-responsive",
+      "status": "PASS"
+    },
+    {
+      "id": "B07-invalid-form",
+      "status": "PASS"
+    },
+    {
+      "id": "B08-network-error",
+      "status": "PASS"
+    },
+    {
+      "id": "B09-server-error-state",
+      "status": "PASS"
+    }
+  ],
+  "snapshots": [
+    {
+      "file": "01-login-desktop.png",
+      "captured_at": "2026-10-29T17:50:25.716Z",
+      "viewport": {
+        "width": 1280,
+        "height": 1000
+      }
+    },
+    {
+      "file": "02-endpoints-desktop.png",
+      "captured_at": "2026-10-29T17:50:26.158Z",
+      "viewport": {
+        "width": 1280,
+        "height": 1000
+      }
+    },
+    {
+      "file": "03-success-demo.png",
+      "captured_at": "2026-10-29T17:50:26.633Z",
+      "viewport": {
+        "width": 1280,
+        "height": 1000
+      }
+    },
+    {
+      "file": "04-transient-demo.png",
+      "captured_at": "2026-10-29T17:50:29.384Z",
+      "viewport": {
+        "width": 1280,
+        "height": 1000
+      }
+    },
+    {
+      "file": "05-persistent-demo.png",
+      "captured_at": "2026-10-29T17:50:33.149Z",
+      "viewport": {
+        "width": 1280,
+        "height": 1000
+      }
+    },
+    {
+      "file": "06-acknowledged.png",
+      "captured_at": "2026-10-29T17:50:33.438Z",
+      "viewport": {
+        "width": 1280,
+        "height": 1000
+      }
+    },
+    {
+      "file": "07-repair-awaiting-verification.png",
+      "captured_at": "2026-10-29T17:50:33.733Z",
+      "viewport": {
+        "width": 1280,
+        "height": 1000
+      }
+    },
+    {
+      "file": "08-verified-recovery.png",
+      "captured_at": "2026-10-29T17:50:34.087Z",
+      "viewport": {
+        "width": 1280,
+        "height": 1000
+      }
+    },
+    {
+      "file": "09-uptime-report-desktop.png",
+      "captured_at": "2026-10-29T17:50:34.270Z",
+      "viewport": {
+        "width": 1280,
+        "height": 1000
+      }
+    },
+    {
+      "file": "10-endpoints-768.png",
+      "captured_at": "2026-10-29T17:50:35.192Z",
+      "viewport": {
+        "width": 768,
+        "height": 1000
+      }
+    },
+    {
+      "file": "11-incidents-768.png",
+      "captured_at": "2026-10-29T17:50:36.033Z",
+      "viewport": {
+        "width": 768,
+        "height": 1000
+      }
+    },
+    {
+      "file": "12-report-768.png",
+      "captured_at": "2026-10-29T17:50:37.382Z",
+      "viewport": {
+        "width": 768,
+        "height": 1000
+      }
+    },
+    {
+      "file": "10-endpoints-390.png",
+      "captured_at": "2026-10-29T17:50:38.237Z",
+      "viewport": {
+        "width": 390,
+        "height": 1000
+      }
+    },
+    {
+      "file": "11-incidents-390.png",
+      "captured_at": "2026-10-29T17:50:39.070Z",
+      "viewport": {
+        "width": 390,
+        "height": 1000
+      }
+    },
+    {
+      "file": "12-report-390.png",
+      "captured_at": "2026-10-29T17:50:39.931Z",
+      "viewport": {
+        "width": 390,
+        "height": 1000
+      }
+    },
+    {
+      "file": "13-invalid-form.png",
+      "captured_at": "2026-10-29T17:50:40.398Z",
+      "viewport": {
+        "width": 1280,
+        "height": 1000
+      }
+    },
+    {
+      "file": "14-network-error.png",
+      "captured_at": "2026-10-29T17:50:40.685Z",
+      "viewport": {
+        "width": 1280,
+        "height": 1000
+      }
+    },
+    {
+      "file": "15-server-error-state.png",
+      "captured_at": "2026-10-29T17:50:41.127Z",
+      "viewport": {
+        "width": 1280,
+        "height": 1000
+      }
+    }
+  ],
+  "errors": []
+}

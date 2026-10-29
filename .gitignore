@@ -1,0 +1,19 @@
+.env
+backend/node_modules/
+backend/.npm-cache/
+backend/data/
+flutter_web/.dart_tool/
+flutter_web/.flutter-plugins-dependencies
+flutter_web/build/
+flutter_web/.idea/
+*.iml
+# Preserve evidence, including failures. Do not add evidence/ here.
+
+# Local input/reference materials are outside the Module 13 submission.
+/PFEBSIT_002_Weeks_13-18_Student_Module_Flutter_Web.docx
+/Module_13-18.md
+/Module_00_intro.md
+/Module_13.md
+/My_Project.md
+/api-health-monitor-prototype.html
+/.publish13/

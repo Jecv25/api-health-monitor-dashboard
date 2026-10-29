@@ -1,0 +1,47 @@
+{
+  "id": "U02",
+  "title": "Viewer mutation and forged role rejected",
+  "expected": {
+    "status": 403,
+    "no_run_added": true
+  },
+  "expected_recorded_at": "2026-10-29T17:48:48.021Z",
+  "status": "PASS",
+  "exchanges": [
+    {
+      "requested_at": "2026-10-29T17:48:48.022Z",
+      "completed_at": "2026-10-29T17:48:48.026Z",
+      "request": {
+        "method": "POST",
+        "path": "/api/v1/endpoints/1/checks",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "44cc1cbf-6ab2-45c5-a899-d78739880337",
+          "X-Role": "operator"
+        },
+        "demo_persona": "viewer",
+        "body": {}
+      },
+      "actual": {
+        "status": 403,
+        "headers": {
+          "x-correlation-id": "b5c13fb9-5830-4e1d-88e2-d9d38c82eaaf",
+          "idempotency-replayed": null
+        },
+        "body": {
+          "error": {
+            "code": "FORBIDDEN",
+            "message": "This demo persona can read records but cannot change them."
+          },
+          "correlation_id": "b5c13fb9-5830-4e1d-88e2-d9d38c82eaaf"
+        }
+      }
+    }
+  ],
+  "started_at": "2026-10-29T17:48:48.022Z",
+  "observations": {
+    "status": 403,
+    "actual_role_source": "server demo session; browser role header ignored"
+  },
+  "finished_at": "2026-10-29T17:48:48.026Z"
+}

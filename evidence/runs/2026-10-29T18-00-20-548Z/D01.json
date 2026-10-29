@@ -1,0 +1,275 @@
+{
+  "id": "D01",
+  "title": "Transient failure recovered by retry",
+  "expected": {
+    "http_attempts": [
+      503,
+      503,
+      200
+    ],
+    "retry_waits": 2,
+    "minimum_wait_ms": 700,
+    "completed_results": 1,
+    "final_ok": true,
+    "new_incidents": 0
+  },
+  "expected_recorded_at": "2026-10-29T18:00:20.789Z",
+  "status": "PASS",
+  "exchanges": [
+    {
+      "requested_at": "2026-10-29T18:00:20.790Z",
+      "completed_at": "2026-10-29T18:00:20.797Z",
+      "request": {
+        "method": "POST",
+        "path": "/api/v1/endpoints",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "3645fa64-ed20-425e-b3d4-0636e966cf5c"
+        },
+        "demo_persona": "operator",
+        "body": {
+          "name": "enrollment Demo",
+          "url": "https://api.sandbox.example/enrollment/health",
+          "interval_seconds": 60,
+          "demo_behavior": "flaky"
+        }
+      },
+      "actual": {
+        "status": 201,
+        "headers": {
+          "x-correlation-id": "6a270a56-ef91-4cca-b86a-6f231530ce59",
+          "idempotency-replayed": null
+        },
+        "body": {
+          "data": {
+            "id": 2,
+            "name": "enrollment Demo",
+            "url": "https://api.sandbox.example/enrollment/health",
+            "interval_seconds": 60,
+            "demo_behavior": "flaky",
+            "status": "UNKNOWN",
+            "created_at": "2026-10-29T18:00:20.792Z",
+            "last_completed_at": null,
+            "next_due_at": null,
+            "checking": false,
+            "active_check_id": null,
+            "active_incident_id": null,
+            "recent_runs": []
+          },
+          "correlation_id": "6a270a56-ef91-4cca-b86a-6f231530ce59"
+        }
+      }
+    },
+    {
+      "requested_at": "2026-10-29T18:00:20.797Z",
+      "completed_at": "2026-10-29T18:00:20.799Z",
+      "request": {
+        "method": "GET",
+        "path": "/api/v1/incidents",
+        "headers": {},
+        "demo_persona": "operator"
+      },
+      "actual": {
+        "status": 200,
+        "headers": {
+          "x-correlation-id": "00015610-5d02-4962-ad5c-d835a39baae2",
+          "idempotency-replayed": null
+        },
+        "body": {
+          "data": [],
+          "correlation_id": "00015610-5d02-4962-ad5c-d835a39baae2"
+        }
+      }
+    },
+    {
+      "requested_at": "2026-10-29T18:00:20.799Z",
+      "completed_at": "2026-10-29T18:00:20.804Z",
+      "request": {
+        "method": "POST",
+        "path": "/api/v1/endpoints/2/checks",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "4aad7781-7871-42b1-ad57-820319cf6fba"
+        },
+        "demo_persona": "operator",
+        "body": {}
+      },
+      "actual": {
+        "status": 202,
+        "headers": {
+          "x-correlation-id": "da873999-8a38-46a2-aa70-4d0c198edcab",
+          "idempotency-replayed": null
+        },
+        "body": {
+          "data": {
+            "id": 2,
+            "endpoint_id": 2,
+            "state": "RUNNING",
+            "correlation_id": "da873999-8a38-46a2-aa70-4d0c198edcab",
+            "status_url": "/api/v1/checks/2"
+          },
+          "correlation_id": "da873999-8a38-46a2-aa70-4d0c198edcab"
+        }
+      }
+    },
+    {
+      "requested_at": "2026-10-29T18:00:22.285Z",
+      "completed_at": "2026-10-29T18:00:22.287Z",
+      "request": {
+        "method": "GET",
+        "path": "/api/v1/checks/2",
+        "headers": {},
+        "demo_persona": "operator"
+      },
+      "actual": {
+        "status": 200,
+        "headers": {
+          "x-correlation-id": "cd4f80b6-b14e-4c38-ae06-c3022034a945",
+          "idempotency-replayed": null
+        },
+        "body": {
+          "data": {
+            "id": 2,
+            "endpoint_id": 2,
+            "trigger": "manual",
+            "state": "COMPLETED",
+            "correlation_id": "da873999-8a38-46a2-aa70-4d0c198edcab",
+            "parent_correlation_id": null,
+            "schedule_key": null,
+            "behavior": "flaky",
+            "started_at": "2026-10-29T18:00:20.800Z",
+            "finished_at": "2026-10-29T18:00:22.281Z",
+            "interruption_reason": null,
+            "attempts": [
+              {
+                "id": 2,
+                "check_id": 2,
+                "ordinal": 1,
+                "started_at": "2026-10-29T18:00:20.803Z",
+                "finished_at": "2026-10-29T18:00:20.807Z",
+                "status_code": 503,
+                "error_category": "retryable_http",
+                "latency_ms": 3.68
+              },
+              {
+                "id": 3,
+                "check_id": 2,
+                "ordinal": 2,
+                "started_at": "2026-10-29T18:00:21.518Z",
+                "finished_at": "2026-10-29T18:00:21.521Z",
+                "status_code": 503,
+                "error_category": "retryable_http",
+                "latency_ms": 2.62
+              },
+              {
+                "id": 4,
+                "check_id": 2,
+                "ordinal": 3,
+                "started_at": "2026-10-29T18:00:22.258Z",
+                "finished_at": "2026-10-29T18:00:22.259Z",
+                "status_code": 200,
+                "error_category": null,
+                "latency_ms": 1.54
+              }
+            ],
+            "result": {
+              "id": 2,
+              "check_id": 2,
+              "endpoint_id": 2,
+              "ok": true,
+              "attempt_count": 3,
+              "final_category": "healthy",
+              "completed_at": "2026-10-29T18:00:22.281Z"
+            },
+            "incident_id": null
+          },
+          "correlation_id": "cd4f80b6-b14e-4c38-ae06-c3022034a945"
+        }
+      }
+    },
+    {
+      "requested_at": "2026-10-29T18:00:22.287Z",
+      "completed_at": "2026-10-29T18:00:22.288Z",
+      "request": {
+        "method": "GET",
+        "path": "/api/v1/incidents",
+        "headers": {},
+        "demo_persona": "operator"
+      },
+      "actual": {
+        "status": 200,
+        "headers": {
+          "x-correlation-id": "21bec7f2-96eb-4d69-a8e4-73437ecb8741",
+          "idempotency-replayed": null
+        },
+        "body": {
+          "data": [],
+          "correlation_id": "21bec7f2-96eb-4d69-a8e4-73437ecb8741"
+        }
+      }
+    }
+  ],
+  "started_at": "2026-10-29T18:00:20.790Z",
+  "observations": {
+    "run": {
+      "id": 2,
+      "endpoint_id": 2,
+      "trigger": "manual",
+      "state": "COMPLETED",
+      "correlation_id": "da873999-8a38-46a2-aa70-4d0c198edcab",
+      "parent_correlation_id": null,
+      "schedule_key": null,
+      "behavior": "flaky",
+      "started_at": "2026-10-29T18:00:20.800Z",
+      "finished_at": "2026-10-29T18:00:22.281Z",
+      "interruption_reason": null,
+      "attempts": [
+        {
+          "id": 2,
+          "check_id": 2,
+          "ordinal": 1,
+          "started_at": "2026-10-29T18:00:20.803Z",
+          "finished_at": "2026-10-29T18:00:20.807Z",
+          "status_code": 503,
+          "error_category": "retryable_http",
+          "latency_ms": 3.68
+        },
+        {
+          "id": 3,
+          "check_id": 2,
+          "ordinal": 2,
+          "started_at": "2026-10-29T18:00:21.518Z",
+          "finished_at": "2026-10-29T18:00:21.521Z",
+          "status_code": 503,
+          "error_category": "retryable_http",
+          "latency_ms": 2.62
+        },
+        {
+          "id": 4,
+          "check_id": 2,
+          "ordinal": 3,
+          "started_at": "2026-10-29T18:00:22.258Z",
+          "finished_at": "2026-10-29T18:00:22.259Z",
+          "status_code": 200,
+          "error_category": null,
+          "latency_ms": 1.54
+        }
+      ],
+      "result": {
+        "id": 2,
+        "check_id": 2,
+        "endpoint_id": 2,
+        "ok": true,
+        "attempt_count": 3,
+        "final_category": "healthy",
+        "completed_at": "2026-10-29T18:00:22.281Z"
+      },
+      "incident_id": null
+    },
+    "actual_retry_gaps_ms": [
+      711,
+      737
+    ]
+  },
+  "finished_at": "2026-10-29T18:00:22.288Z"
+}

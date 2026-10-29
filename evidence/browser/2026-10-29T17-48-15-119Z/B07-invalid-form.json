@@ -1,0 +1,12 @@
+{
+  "id": "B07-invalid-form",
+  "expected": "Submitting a blank name, HTTP URL, and interval 5 shows inline client errors and creates no endpoint.",
+  "expected_recorded_at": "2026-10-29T17:49:07.291Z",
+  "status": "FAIL",
+  "started_at": "2026-10-29T17:49:07.292Z",
+  "error": {
+    "name": "TimeoutError",
+    "message": "locator.waitFor: Timeout 18000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByText('Enter 3–40 characters').or(getByLabel('Enter 3–40 characters')).first() to be visible\u001b[22m\n"
+  },
+  "finished_at": "2026-10-29T17:49:25.741Z"
+}

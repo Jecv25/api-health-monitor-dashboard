@@ -1,0 +1,2587 @@
+{
+  "id": "C01",
+  "expected_recorded_at": "2026-10-29T17:48:47.366Z",
+  "expected": "Abruptly terminate an actual child backend after a saved 503 attempt. Restart on the same SQLite file: interrupted run, no fabricated result, scheduler OFF, previous session invalid. Original idempotency key replays old run. A new-key run verifies health.",
+  "exchanges": [
+    {
+      "timestamp": "2026-10-29T17:48:47.672Z",
+      "request": {
+        "method": "POST",
+        "path": "/demo/session",
+        "body": {
+          "persona": "operator"
+        }
+      },
+      "status": 200,
+      "body": {
+        "data": {
+          "persona": "operator",
+          "actor": "demo-operator",
+          "capabilities": [
+            "read",
+            "mutate"
+          ]
+        },
+        "correlation_id": "dfc8ace3-8632-435d-9b4b-e020dfb695f3"
+      },
+      "replayed": null
+    },
+    {
+      "timestamp": "2026-10-29T17:48:47.687Z",
+      "request": {
+        "method": "POST",
+        "path": "/endpoints/2/checks",
+        "body": {},
+        "idempotency_key": "fe33722d-f57f-429f-a746-0cd3e84a03f2"
+      },
+      "status": 202,
+      "body": {
+        "data": {
+          "id": 1,
+          "endpoint_id": 2,
+          "state": "RUNNING",
+          "correlation_id": "7c3924c0-4bfe-4dd4-a5c1-aff170fb44b6",
+          "status_url": "/api/v1/checks/1"
+        },
+        "correlation_id": "7c3924c0-4bfe-4dd4-a5c1-aff170fb44b6"
+      },
+      "replayed": null
+    },
+    {
+      "timestamp": "2026-10-29T17:48:47.692Z",
+      "request": {
+        "method": "GET",
+        "path": "/checks/1"
+      },
+      "status": 200,
+      "body": {
+        "data": {
+          "id": 1,
+          "endpoint_id": 2,
+          "trigger": "manual",
+          "state": "RUNNING",
+          "correlation_id": "7c3924c0-4bfe-4dd4-a5c1-aff170fb44b6",
+          "parent_correlation_id": null,
+          "schedule_key": null,
+          "behavior": "flaky",
+          "started_at": "2026-10-29T17:48:47.678Z",
+          "finished_at": null,
+          "interruption_reason": null,
+          "attempts": [],
+          "result": null,
+          "incident_id": null
+        },
+        "correlation_id": "d4b34d03-a104-4017-aada-d2c7eab3cf0c"
+      },
+      "replayed": null
+    },
+    {
+      "timestamp": "2026-10-29T17:48:47.705Z",
+      "request": {
+        "method": "GET",
+        "path": "/checks/1"
+      },
+      "status": 200,
+      "body": {
+        "data": {
+          "id": 1,
+          "endpoint_id": 2,
+          "trigger": "manual",
+          "state": "RUNNING",
+          "correlation_id": "7c3924c0-4bfe-4dd4-a5c1-aff170fb44b6",
+          "parent_correlation_id": null,
+          "schedule_key": null,
+          "behavior": "flaky",
+          "started_at": "2026-10-29T17:48:47.678Z",
+          "finished_at": null,
+          "interruption_reason": null,
+          "attempts": [
+            {
+              "id": 1,
+              "check_id": 1,
+              "ordinal": 1,
+              "started_at": "2026-10-29T17:48:47.681Z",
+              "finished_at": "2026-10-29T17:48:47.698Z",
+              "status_code": 503,
+              "error_category": "retryable_http",
+              "latency_ms": 17.57
+            }
+          ],
+          "result": null,
+          "incident_id": null
+        },
+        "correlation_id": "6d2adf93-7802-4827-82a9-0b512fc462dd"
+      },
+      "replayed": null
+    },
+    {
+      "timestamp": "2026-10-29T17:48:47.950Z",
+      "request": {
+        "method": "GET",
+        "path": "/endpoints"
+      },
+      "status": 401,
+      "body": {
+        "error": {
+          "code": "SESSION_REQUIRED",
+          "message": "Select a local demo persona to continue."
+        },
+        "correlation_id": "00a98c6e-19cc-48db-a480-c9694a6ba4e8"
+      },
+      "replayed": null
+    },
+    {
+      "timestamp": "2026-10-29T17:48:47.963Z",
+      "request": {
+        "method": "POST",
+        "path": "/demo/session",
+        "body": {
+          "persona": "operator"
+        }
+      },
+      "status": 200,
+      "body": {
+        "data": {
+          "persona": "operator",
+          "actor": "demo-operator",
+          "capabilities": [
+            "read",
+            "mutate"
+          ]
+        },
+        "correlation_id": "8e112d96-09d3-47f0-bd02-956493176dbf"
+      },
+      "replayed": null
+    },
+    {
+      "timestamp": "2026-10-29T17:48:47.965Z",
+      "request": {
+        "method": "GET",
+        "path": "/checks/1"
+      },
+      "status": 200,
+      "body": {
+        "data": {
+          "id": 1,
+          "endpoint_id": 2,
+          "trigger": "manual",
+          "state": "INTERRUPTED",
+          "correlation_id": "7c3924c0-4bfe-4dd4-a5c1-aff170fb44b6",
+          "parent_correlation_id": null,
+          "schedule_key": null,
+          "behavior": "flaky",
+          "started_at": "2026-10-29T17:48:47.678Z",
+          "finished_at": "2026-10-29T17:48:47.910Z",
+          "interruption_reason": "process_restart",
+          "attempts": [
+            {
+              "id": 1,
+              "check_id": 1,
+              "ordinal": 1,
+              "started_at": "2026-10-29T17:48:47.681Z",
+              "finished_at": "2026-10-29T17:48:47.698Z",
+              "status_code": 503,
+              "error_category": "retryable_http",
+              "latency_ms": 17.57
+            }
+          ],
+          "result": null,
+          "incident_id": null
+        },
+        "correlation_id": "20e937f9-19b7-4258-8f9a-39895bc63d66"
+      },
+      "replayed": null
+    },
+    {
+      "timestamp": "2026-10-29T17:48:47.968Z",
+      "request": {
+        "method": "GET",
+        "path": "/endpoints/2"
+      },
+      "status": 200,
+      "body": {
+        "data": {
+          "id": 2,
+          "name": "Enrollment API",
+          "url": "https://api.sandbox.example/enroll/health",
+          "interval_seconds": 60,
+          "demo_behavior": "flaky",
+          "status": "UNKNOWN",
+          "created_at": "2026-10-29T17:48:47.587Z",
+          "last_completed_at": null,
+          "next_due_at": null,
+          "checking": false,
+          "active_check_id": null,
+          "active_incident_id": null,
+          "recent_runs": [
+            {
+              "id": 1,
+              "state": "INTERRUPTED",
+              "started_at": "2026-10-29T17:48:47.678Z",
+              "finished_at": "2026-10-29T17:48:47.910Z",
+              "interruption_reason": "process_restart"
+            }
+          ]
+        },
+        "correlation_id": "620540fa-ff26-43dd-9d4a-c8df08c74f53"
+      },
+      "replayed": null
+    },
+    {
+      "timestamp": "2026-10-29T17:48:47.971Z",
+      "request": {
+        "method": "GET",
+        "path": "/scheduler"
+      },
+      "status": 200,
+      "body": {
+        "data": {
+          "enabled": false,
+          "tick_ms": 1000,
+          "capacity": 2,
+          "active_count": 0,
+          "last_error": null
+        },
+        "correlation_id": "bedcabdd-f850-4eed-ae1b-22a71061dc30"
+      },
+      "replayed": null
+    },
+    {
+      "timestamp": "2026-10-29T17:48:47.975Z",
+      "request": {
+        "method": "POST",
+        "path": "/endpoints/2/checks",
+        "body": {},
+        "idempotency_key": "fe33722d-f57f-429f-a746-0cd3e84a03f2"
+      },
+      "status": 202,
+      "body": {
+        "data": {
+          "id": 1,
+          "endpoint_id": 2,
+          "state": "RUNNING",
+          "correlation_id": "7c3924c0-4bfe-4dd4-a5c1-aff170fb44b6",
+          "status_url": "/api/v1/checks/1"
+        },
+        "correlation_id": "7c3924c0-4bfe-4dd4-a5c1-aff170fb44b6"
+      },
+      "replayed": "true"
+    },
+    {
+      "timestamp": "2026-10-29T17:48:47.986Z",
+      "request": {
+        "method": "POST",
+        "path": "/endpoints/2/checks",
+        "body": {}
+      },
+      "status": 202,
+      "body": {
+        "data": {
+          "id": 2,
+          "endpoint_id": 2,
+          "state": "RUNNING",
+          "correlation_id": "89def0f8-8111-47c0-9cea-1262e0c1642f",
+          "status_url": "/api/v1/checks/2"
+        },
+        "correlation_id": "89def0f8-8111-47c0-9cea-1262e0c1642f"
+      },
+      "replayed": null
+    },
+    {
+      "timestamp": "2026-10-29T17:48:47.990Z",
+      "request": {
+        "method": "GET",
+        "path": "/checks/2"
+      },
+      "status": 200,
+      "body": {
+        "data": {
+          "id": 2,
+          "endpoint_id": 2,
+          "trigger": "manual",
+          "state": "RUNNING",
+          "correlation_id": "89def0f8-8111-47c0-9cea-1262e0c1642f",
+          "parent_correlation_id": null,
+          "schedule_key": null,
+          "behavior": "flaky",
+          "started_at": "2026-10-29T17:48:47.978Z",
+          "finished_at": null,
+          "interruption_reason": null,
+          "attempts": [],
+          "result": null,
+          "incident_id": null
+        },
+        "correlation_id": "1da2a375-690a-45f7-ab9a-d2f3a331907c"
+      },
+      "replayed": null
+    },
+    {
+      "timestamp": "2026-10-29T17:48:48.020Z",
+      "request": {
+        "method": "GET",
+        "path": "/checks/2"
+      },
+      "status": 200,
+      "body": {
+        "data": {
+          "id": 2,
+          "endpoint_id": 2,
+          "trigger": "manual",
+          "state": "RUNNING",
+          "correlation_id": "89def0f8-8111-47c0-9cea-1262e0c1642f",
+          "parent_correlation_id": null,
+          "schedule_key": null,
+          "behavior": "flaky",
+          "started_at": "2026-10-29T17:48:47.978Z",
+          "finished_at": null,
+          "interruption_reason": null,
+          "attempts": [
+            {
+              "id": 2,
+              "check_id": 2,
+              "ordinal": 1,
+              "started_at": "2026-10-29T17:48:47.981Z",
+              "finished_at": "2026-10-29T17:48:47.998Z",
+              "status_code": 503,
+              "error_category": "retryable_http",
+              "latency_ms": 17.45
+            }
+          ],
+          "result": null,
+          "incident_id": null
+        },
+        "correlation_id": "4e8af86b-0b3f-4c7b-b7e7-4838a402908d"
+      },
+      "replayed": null
+    },
+    {
+      "timestamp": "2026-10-29T17:48:48.051Z",
+      "request": {
+        "method": "GET",
+        "path": "/checks/2"
+      },
+      "status": 200,
+      "body": {
+        "data": {
+          "id": 2,
+          "endpoint_id": 2,
+          "trigger": "manual",
+          "state": "RUNNING",
+          "correlation_id": "89def0f8-8111-47c0-9cea-1262e0c1642f",
+          "parent_correlation_id": null,
+          "schedule_key": null,
+          "behavior": "flaky",
+          "started_at": "2026-10-29T17:48:47.978Z",
+          "finished_at": null,
+          "interruption_reason": null,
+          "attempts": [
+            {
+              "id": 2,
+              "check_id": 2,
+              "ordinal": 1,
+              "started_at": "2026-10-29T17:48:47.981Z",
+              "finished_at": "2026-10-29T17:48:47.998Z",
+              "status_code": 503,
+              "error_category": "retryable_http",
+              "latency_ms": 17.45
+            }
+          ],
+          "result": null,
+          "incident_id": null
+        },
+        "correlation_id": "b31e6212-1231-4419-a5cb-38e09cb41936"
+      },
+      "replayed": null
+    },
+    {
+      "timestamp": "2026-10-29T17:48:48.083Z",
+      "request": {
+        "method": "GET",
+        "path": "/checks/2"
+      },
+      "status": 200,
+      "body": {
+        "data": {
+          "id": 2,
+          "endpoint_id": 2,
+          "trigger": "manual",
+          "state": "RUNNING",
+          "correlation_id": "89def0f8-8111-47c0-9cea-1262e0c1642f",
+          "parent_correlation_id": null,
+          "schedule_key": null,
+          "behavior": "flaky",
+          "started_at": "2026-10-29T17:48:47.978Z",
+          "finished_at": null,
+          "interruption_reason": null,
+          "attempts": [
+            {
+              "id": 2,
+              "check_id": 2,
+              "ordinal": 1,
+              "started_at": "2026-10-29T17:48:47.981Z",
+              "finished_at": "2026-10-29T17:48:47.998Z",
+              "status_code": 503,
+              "error_category": "retryable_http",
+              "latency_ms": 17.45
+            }
+          ],
+          "result": null,
+          "incident_id": null
+        },
+        "correlation_id": "c87a6800-daeb-4d9c-9399-aa870c894588"
+      },
+      "replayed": null
+    },
+    {
+      "timestamp": "2026-10-29T17:48:48.115Z",
+      "request": {
+        "method": "GET",
+        "path": "/checks/2"
+      },
+      "status": 200,
+      "body": {
+        "data": {
+          "id": 2,
+          "endpoint_id": 2,
+          "trigger": "manual",
+          "state": "RUNNING",
+          "correlation_id": "89def0f8-8111-47c0-9cea-1262e0c1642f",
+          "parent_correlation_id": null,
+          "schedule_key": null,
+          "behavior": "flaky",
+          "started_at": "2026-10-29T17:48:47.978Z",
+          "finished_at": null,
+          "interruption_reason": null,
+          "attempts": [
+            {
+              "id": 2,
+              "check_id": 2,
+              "ordinal": 1,
+              "started_at": "2026-10-29T17:48:47.981Z",
+              "finished_at": "2026-10-29T17:48:47.998Z",
+              "status_code": 503,
+              "error_category": "retryable_http",
+              "latency_ms": 17.45
+            }
+          ],
+          "result": null,
+          "incident_id": null
+        },
+        "correlation_id": "ee651a73-f79b-4f23-956d-3087385f11e8"
+      },
+      "replayed": null
+    },
+    {
+      "timestamp": "2026-10-29T17:48:48.145Z",
+      "request": {
+        "method": "GET",
+        "path": "/checks/2"
+      },
+      "status": 200,
+      "body": {
+        "data": {
+          "id": 2,
+          "endpoint_id": 2,
+          "trigger": "manual",
+          "state": "RUNNING",
+          "correlation_id": "89def0f8-8111-47c0-9cea-1262e0c1642f",
+          "parent_correlation_id": null,
+          "schedule_key": null,
+          "behavior": "flaky",
+          "started_at": "2026-10-29T17:48:47.978Z",
+          "finished_at": null,
+          "interruption_reason": null,
+          "attempts": [
+            {
+              "id": 2,
+              "check_id": 2,
+              "ordinal": 1,
+              "started_at": "2026-10-29T17:48:47.981Z",
+              "finished_at": "2026-10-29T17:48:47.998Z",
+              "status_code": 503,
+              "error_category": "retryable_http",
+              "latency_ms": 17.45
+            }
+          ],
+          "result": null,
+          "incident_id": null
+        },
+        "correlation_id": "0410a072-cc1b-4ed0-bc5a-2217fab94ea9"
+      },
+      "replayed": null
+    },
+    {
+      "timestamp": "2026-10-29T17:48:48.175Z",
+      "request": {
+        "method": "GET",
+        "path": "/checks/2"
+      },
+      "status": 200,
+      "body": {
+        "data": {
+          "id": 2,
+          "endpoint_id": 2,
+          "trigger": "manual",
+          "state": "RUNNING",
+          "correlation_id": "89def0f8-8111-47c0-9cea-1262e0c1642f",
+          "parent_correlation_id": null,
+          "schedule_key": null,
+          "behavior": "flaky",
+          "started_at": "2026-10-29T17:48:47.978Z",
+          "finished_at": null,
+          "interruption_reason": null,
+          "attempts": [
+            {
+              "id": 2,
+              "check_id": 2,
+              "ordinal": 1,
+              "started_at": "2026-10-29T17:48:47.981Z",
+              "finished_at": "2026-10-29T17:48:47.998Z",
+              "status_code": 503,
+              "error_category": "retryable_http",
+              "latency_ms": 17.45
+            }
+          ],
+          "result": null,
+          "incident_id": null
+        },
+        "correlation_id": "ced46c10-587c-40d6-afe8-b61bdd8e61bf"
+      },
+      "replayed": null
+    },
+    {
+      "timestamp": "2026-10-29T17:48:48.205Z",
+      "request": {
+        "method": "GET",
+        "path": "/checks/2"
+      },
+      "status": 200,
+      "body": {
+        "data": {
+          "id": 2,
+          "endpoint_id": 2,
+          "trigger": "manual",
+          "state": "RUNNING",
+          "correlation_id": "89def0f8-8111-47c0-9cea-1262e0c1642f",
+          "parent_correlation_id": null,
+          "schedule_key": null,
+          "behavior": "flaky",
+          "started_at": "2026-10-29T17:48:47.978Z",
+          "finished_at": null,
+          "interruption_reason": null,
+          "attempts": [
+            {
+              "id": 2,
+              "check_id": 2,
+              "ordinal": 1,
+              "started_at": "2026-10-29T17:48:47.981Z",
+              "finished_at": "2026-10-29T17:48:47.998Z",
+              "status_code": 503,
+              "error_category": "retryable_http",
+              "latency_ms": 17.45
+            }
+          ],
+          "result": null,
+          "incident_id": null
+        },
+        "correlation_id": "14e6e883-a8b9-4c9a-a3dc-96ad8e54e180"
+      },
+      "replayed": null
+    },
+    {
+      "timestamp": "2026-10-29T17:48:48.237Z",
+      "request": {
+        "method": "GET",
+        "path": "/checks/2"
+      },
+      "status": 200,
+      "body": {
+        "data": {
+          "id": 2,
+          "endpoint_id": 2,
+          "trigger": "manual",
+          "state": "RUNNING",
+          "correlation_id": "89def0f8-8111-47c0-9cea-1262e0c1642f",
+          "parent_correlation_id": null,
+          "schedule_key": null,
+          "behavior": "flaky",
+          "started_at": "2026-10-29T17:48:47.978Z",
+          "finished_at": null,
+          "interruption_reason": null,
+          "attempts": [
+            {
+              "id": 2,
+              "check_id": 2,
+              "ordinal": 1,
+              "started_at": "2026-10-29T17:48:47.981Z",
+              "finished_at": "2026-10-29T17:48:47.998Z",
+              "status_code": 503,
+              "error_category": "retryable_http",
+              "latency_ms": 17.45
+            }
+          ],
+          "result": null,
+          "incident_id": null
+        },
+        "correlation_id": "a124c6da-93ed-4918-9a01-0b0cc4da3740"
+      },
+      "replayed": null
+    },
+    {
+      "timestamp": "2026-10-29T17:48:48.268Z",
+      "request": {
+        "method": "GET",
+        "path": "/checks/2"
+      },
+      "status": 200,
+      "body": {
+        "data": {
+          "id": 2,
+          "endpoint_id": 2,
+          "trigger": "manual",
+          "state": "RUNNING",
+          "correlation_id": "89def0f8-8111-47c0-9cea-1262e0c1642f",
+          "parent_correlation_id": null,
+          "schedule_key": null,
+          "behavior": "flaky",
+          "started_at": "2026-10-29T17:48:47.978Z",
+          "finished_at": null,
+          "interruption_reason": null,
+          "attempts": [
+            {
+              "id": 2,
+              "check_id": 2,
+              "ordinal": 1,
+              "started_at": "2026-10-29T17:48:47.981Z",
+              "finished_at": "2026-10-29T17:48:47.998Z",
+              "status_code": 503,
+              "error_category": "retryable_http",
+              "latency_ms": 17.45
+            }
+          ],
+          "result": null,
+          "incident_id": null
+        },
+        "correlation_id": "bcf818b6-cd9b-41f6-bd40-b5c03f4e0a5a"
+      },
+      "replayed": null
+    },
+    {
+      "timestamp": "2026-10-29T17:48:48.300Z",
+      "request": {
+        "method": "GET",
+        "path": "/checks/2"
+      },
+      "status": 200,
+      "body": {
+        "data": {
+          "id": 2,
+          "endpoint_id": 2,
+          "trigger": "manual",
+          "state": "RUNNING",
+          "correlation_id": "89def0f8-8111-47c0-9cea-1262e0c1642f",
+          "parent_correlation_id": null,
+          "schedule_key": null,
+          "behavior": "flaky",
+          "started_at": "2026-10-29T17:48:47.978Z",
+          "finished_at": null,
+          "interruption_reason": null,
+          "attempts": [
+            {
+              "id": 2,
+              "check_id": 2,
+              "ordinal": 1,
+              "started_at": "2026-10-29T17:48:47.981Z",
+              "finished_at": "2026-10-29T17:48:47.998Z",
+              "status_code": 503,
+              "error_category": "retryable_http",
+              "latency_ms": 17.45
+            }
+          ],
+          "result": null,
+          "incident_id": null
+        },
+        "correlation_id": "9b2d1992-1684-4bab-bfb2-76cabe1dfbc1"
+      },
+      "replayed": null
+    },
+    {
+      "timestamp": "2026-10-29T17:48:48.331Z",
+      "request": {
+        "method": "GET",
+        "path": "/checks/2"
+      },
+      "status": 200,
+      "body": {
+        "data": {
+          "id": 2,
+          "endpoint_id": 2,
+          "trigger": "manual",
+          "state": "RUNNING",
+          "correlation_id": "89def0f8-8111-47c0-9cea-1262e0c1642f",
+          "parent_correlation_id": null,
+          "schedule_key": null,
+          "behavior": "flaky",
+          "started_at": "2026-10-29T17:48:47.978Z",
+          "finished_at": null,
+          "interruption_reason": null,
+          "attempts": [
+            {
+              "id": 2,
+              "check_id": 2,
+              "ordinal": 1,
+              "started_at": "2026-10-29T17:48:47.981Z",
+              "finished_at": "2026-10-29T17:48:47.998Z",
+              "status_code": 503,
+              "error_category": "retryable_http",
+              "latency_ms": 17.45
+            }
+          ],
+          "result": null,
+          "incident_id": null
+        },
+        "correlation_id": "e1be32b5-dcb7-4174-9fb6-cc17b73bfc55"
+      },
+      "replayed": null
+    },
+    {
+      "timestamp": "2026-10-29T17:48:48.363Z",
+      "request": {
+        "method": "GET",
+        "path": "/checks/2"
+      },
+      "status": 200,
+      "body": {
+        "data": {
+          "id": 2,
+          "endpoint_id": 2,
+          "trigger": "manual",
+          "state": "RUNNING",
+          "correlation_id": "89def0f8-8111-47c0-9cea-1262e0c1642f",
+          "parent_correlation_id": null,
+          "schedule_key": null,
+          "behavior": "flaky",
+          "started_at": "2026-10-29T17:48:47.978Z",
+          "finished_at": null,
+          "interruption_reason": null,
+          "attempts": [
+            {
+              "id": 2,
+              "check_id": 2,
+              "ordinal": 1,
+              "started_at": "2026-10-29T17:48:47.981Z",
+              "finished_at": "2026-10-29T17:48:47.998Z",
+              "status_code": 503,
+              "error_category": "retryable_http",
+              "latency_ms": 17.45
+            }
+          ],
+          "result": null,
+          "incident_id": null
+        },
+        "correlation_id": "51fa66a5-8121-4be5-8fb3-9b091cdf53a2"
+      },
+      "replayed": null
+    },
+    {
+      "timestamp": "2026-10-29T17:48:48.395Z",
+      "request": {
+        "method": "GET",
+        "path": "/checks/2"
+      },
+      "status": 200,
+      "body": {
+        "data": {
+          "id": 2,
+          "endpoint_id": 2,
+          "trigger": "manual",
+          "state": "RUNNING",
+          "correlation_id": "89def0f8-8111-47c0-9cea-1262e0c1642f",
+          "parent_correlation_id": null,
+          "schedule_key": null,
+          "behavior": "flaky",
+          "started_at": "2026-10-29T17:48:47.978Z",
+          "finished_at": null,
+          "interruption_reason": null,
+          "attempts": [
+            {
+              "id": 2,
+              "check_id": 2,
+              "ordinal": 1,
+              "started_at": "2026-10-29T17:48:47.981Z",
+              "finished_at": "2026-10-29T17:48:47.998Z",
+              "status_code": 503,
+              "error_category": "retryable_http",
+              "latency_ms": 17.45
+            }
+          ],
+          "result": null,
+          "incident_id": null
+        },
+        "correlation_id": "d28758af-c3d1-49de-9f8c-ea95998eb308"
+      },
+      "replayed": null
+    },
+    {
+      "timestamp": "2026-10-29T17:48:48.426Z",
+      "request": {
+        "method": "GET",
+        "path": "/checks/2"
+      },
+      "status": 200,
+      "body": {
+        "data": {
+          "id": 2,
+          "endpoint_id": 2,
+          "trigger": "manual",
+          "state": "RUNNING",
+          "correlation_id": "89def0f8-8111-47c0-9cea-1262e0c1642f",
+          "parent_correlation_id": null,
+          "schedule_key": null,
+          "behavior": "flaky",
+          "started_at": "2026-10-29T17:48:47.978Z",
+          "finished_at": null,
+          "interruption_reason": null,
+          "attempts": [
+            {
+              "id": 2,
+              "check_id": 2,
+              "ordinal": 1,
+              "started_at": "2026-10-29T17:48:47.981Z",
+              "finished_at": "2026-10-29T17:48:47.998Z",
+              "status_code": 503,
+              "error_category": "retryable_http",
+              "latency_ms": 17.45
+            }
+          ],
+          "result": null,
+          "incident_id": null
+        },
+        "correlation_id": "f388f160-3e05-423c-99b7-008994656255"
+      },
+      "replayed": null
+    },
+    {
+      "timestamp": "2026-10-29T17:48:48.457Z",
+      "request": {
+        "method": "GET",
+        "path": "/checks/2"
+      },
+      "status": 200,
+      "body": {
+        "data": {
+          "id": 2,
+          "endpoint_id": 2,
+          "trigger": "manual",
+          "state": "RUNNING",
+          "correlation_id": "89def0f8-8111-47c0-9cea-1262e0c1642f",
+          "parent_correlation_id": null,
+          "schedule_key": null,
+          "behavior": "flaky",
+          "started_at": "2026-10-29T17:48:47.978Z",
+          "finished_at": null,
+          "interruption_reason": null,
+          "attempts": [
+            {
+              "id": 2,
+              "check_id": 2,
+              "ordinal": 1,
+              "started_at": "2026-10-29T17:48:47.981Z",
+              "finished_at": "2026-10-29T17:48:47.998Z",
+              "status_code": 503,
+              "error_category": "retryable_http",
+              "latency_ms": 17.45
+            }
+          ],
+          "result": null,
+          "incident_id": null
+        },
+        "correlation_id": "9724a114-27a5-4a15-b3ac-debbe6192e28"
+      },
+      "replayed": null
+    },
+    {
+      "timestamp": "2026-10-29T17:48:48.489Z",
+      "request": {
+        "method": "GET",
+        "path": "/checks/2"
+      },
+      "status": 200,
+      "body": {
+        "data": {
+          "id": 2,
+          "endpoint_id": 2,
+          "trigger": "manual",
+          "state": "RUNNING",
+          "correlation_id": "89def0f8-8111-47c0-9cea-1262e0c1642f",
+          "parent_correlation_id": null,
+          "schedule_key": null,
+          "behavior": "flaky",
+          "started_at": "2026-10-29T17:48:47.978Z",
+          "finished_at": null,
+          "interruption_reason": null,
+          "attempts": [
+            {
+              "id": 2,
+              "check_id": 2,
+              "ordinal": 1,
+              "started_at": "2026-10-29T17:48:47.981Z",
+              "finished_at": "2026-10-29T17:48:47.998Z",
+              "status_code": 503,
+              "error_category": "retryable_http",
+              "latency_ms": 17.45
+            }
+          ],
+          "result": null,
+          "incident_id": null
+        },
+        "correlation_id": "f393157c-92a9-4c42-a5b8-95da0a6421dc"
+      },
+      "replayed": null
+    },
+    {
+      "timestamp": "2026-10-29T17:48:48.521Z",
+      "request": {
+        "method": "GET",
+        "path": "/checks/2"
+      },
+      "status": 200,
+      "body": {
+        "data": {
+          "id": 2,
+          "endpoint_id": 2,
+          "trigger": "manual",
+          "state": "RUNNING",
+          "correlation_id": "89def0f8-8111-47c0-9cea-1262e0c1642f",
+          "parent_correlation_id": null,
+          "schedule_key": null,
+          "behavior": "flaky",
+          "started_at": "2026-10-29T17:48:47.978Z",
+          "finished_at": null,
+          "interruption_reason": null,
+          "attempts": [
+            {
+              "id": 2,
+              "check_id": 2,
+              "ordinal": 1,
+              "started_at": "2026-10-29T17:48:47.981Z",
+              "finished_at": "2026-10-29T17:48:47.998Z",
+              "status_code": 503,
+              "error_category": "retryable_http",
+              "latency_ms": 17.45
+            }
+          ],
+          "result": null,
+          "incident_id": null
+        },
+        "correlation_id": "23745c4d-f4f1-4b85-b70d-fe86c7d1fb6f"
+      },
+      "replayed": null
+    },
+    {
+      "timestamp": "2026-10-29T17:48:48.551Z",
+      "request": {
+        "method": "GET",
+        "path": "/checks/2"
+      },
+      "status": 200,
+      "body": {
+        "data": {
+          "id": 2,
+          "endpoint_id": 2,
+          "trigger": "manual",
+          "state": "RUNNING",
+          "correlation_id": "89def0f8-8111-47c0-9cea-1262e0c1642f",
+          "parent_correlation_id": null,
+          "schedule_key": null,
+          "behavior": "flaky",
+          "started_at": "2026-10-29T17:48:47.978Z",
+          "finished_at": null,
+          "interruption_reason": null,
+          "attempts": [
+            {
+              "id": 2,
+              "check_id": 2,
+              "ordinal": 1,
+              "started_at": "2026-10-29T17:48:47.981Z",
+              "finished_at": "2026-10-29T17:48:47.998Z",
+              "status_code": 503,
+              "error_category": "retryable_http",
+              "latency_ms": 17.45
+            }
+          ],
+          "result": null,
+          "incident_id": null
+        },
+        "correlation_id": "b61c5372-1ce4-479d-b45a-47716f621b5d"
+      },
+      "replayed": null
+    },
+    {
+      "timestamp": "2026-10-29T17:48:48.582Z",
+      "request": {
+        "method": "GET",
+        "path": "/checks/2"
+      },
+      "status": 200,
+      "body": {
+        "data": {
+          "id": 2,
+          "endpoint_id": 2,
+          "trigger": "manual",
+          "state": "RUNNING",
+          "correlation_id": "89def0f8-8111-47c0-9cea-1262e0c1642f",
+          "parent_correlation_id": null,
+          "schedule_key": null,
+          "behavior": "flaky",
+          "started_at": "2026-10-29T17:48:47.978Z",
+          "finished_at": null,
+          "interruption_reason": null,
+          "attempts": [
+            {
+              "id": 2,
+              "check_id": 2,
+              "ordinal": 1,
+              "started_at": "2026-10-29T17:48:47.981Z",
+              "finished_at": "2026-10-29T17:48:47.998Z",
+              "status_code": 503,
+              "error_category": "retryable_http",
+              "latency_ms": 17.45
+            }
+          ],
+          "result": null,
+          "incident_id": null
+        },
+        "correlation_id": "a15c4b60-fe4c-4eba-b8e7-43135ed8fb4f"
+      },
+      "replayed": null
+    },
+    {
+      "timestamp": "2026-10-29T17:48:48.614Z",
+      "request": {
+        "method": "GET",
+        "path": "/checks/2"
+      },
+      "status": 200,
+      "body": {
+        "data": {
+          "id": 2,
+          "endpoint_id": 2,
+          "trigger": "manual",
+          "state": "RUNNING",
+          "correlation_id": "89def0f8-8111-47c0-9cea-1262e0c1642f",
+          "parent_correlation_id": null,
+          "schedule_key": null,
+          "behavior": "flaky",
+          "started_at": "2026-10-29T17:48:47.978Z",
+          "finished_at": null,
+          "interruption_reason": null,
+          "attempts": [
+            {
+              "id": 2,
+              "check_id": 2,
+              "ordinal": 1,
+              "started_at": "2026-10-29T17:48:47.981Z",
+              "finished_at": "2026-10-29T17:48:47.998Z",
+              "status_code": 503,
+              "error_category": "retryable_http",
+              "latency_ms": 17.45
+            }
+          ],
+          "result": null,
+          "incident_id": null
+        },
+        "correlation_id": "53dcae19-ed03-4e36-a73b-4b8de550dc9c"
+      },
+      "replayed": null
+    },
+    {
+      "timestamp": "2026-10-29T17:48:48.645Z",
+      "request": {
+        "method": "GET",
+        "path": "/checks/2"
+      },
+      "status": 200,
+      "body": {
+        "data": {
+          "id": 2,
+          "endpoint_id": 2,
+          "trigger": "manual",
+          "state": "RUNNING",
+          "correlation_id": "89def0f8-8111-47c0-9cea-1262e0c1642f",
+          "parent_correlation_id": null,
+          "schedule_key": null,
+          "behavior": "flaky",
+          "started_at": "2026-10-29T17:48:47.978Z",
+          "finished_at": null,
+          "interruption_reason": null,
+          "attempts": [
+            {
+              "id": 2,
+              "check_id": 2,
+              "ordinal": 1,
+              "started_at": "2026-10-29T17:48:47.981Z",
+              "finished_at": "2026-10-29T17:48:47.998Z",
+              "status_code": 503,
+              "error_category": "retryable_http",
+              "latency_ms": 17.45
+            }
+          ],
+          "result": null,
+          "incident_id": null
+        },
+        "correlation_id": "48055944-04b0-492c-bfcc-8eeee625eb19"
+      },
+      "replayed": null
+    },
+    {
+      "timestamp": "2026-10-29T17:48:48.677Z",
+      "request": {
+        "method": "GET",
+        "path": "/checks/2"
+      },
+      "status": 200,
+      "body": {
+        "data": {
+          "id": 2,
+          "endpoint_id": 2,
+          "trigger": "manual",
+          "state": "RUNNING",
+          "correlation_id": "89def0f8-8111-47c0-9cea-1262e0c1642f",
+          "parent_correlation_id": null,
+          "schedule_key": null,
+          "behavior": "flaky",
+          "started_at": "2026-10-29T17:48:47.978Z",
+          "finished_at": null,
+          "interruption_reason": null,
+          "attempts": [
+            {
+              "id": 2,
+              "check_id": 2,
+              "ordinal": 1,
+              "started_at": "2026-10-29T17:48:47.981Z",
+              "finished_at": "2026-10-29T17:48:47.998Z",
+              "status_code": 503,
+              "error_category": "retryable_http",
+              "latency_ms": 17.45
+            }
+          ],
+          "result": null,
+          "incident_id": null
+        },
+        "correlation_id": "3528eadf-2bd3-4c94-8e8e-6a27a6b19b12"
+      },
+      "replayed": null
+    },
+    {
+      "timestamp": "2026-10-29T17:48:48.706Z",
+      "request": {
+        "method": "GET",
+        "path": "/checks/2"
+      },
+      "status": 200,
+      "body": {
+        "data": {
+          "id": 2,
+          "endpoint_id": 2,
+          "trigger": "manual",
+          "state": "RUNNING",
+          "correlation_id": "89def0f8-8111-47c0-9cea-1262e0c1642f",
+          "parent_correlation_id": null,
+          "schedule_key": null,
+          "behavior": "flaky",
+          "started_at": "2026-10-29T17:48:47.978Z",
+          "finished_at": null,
+          "interruption_reason": null,
+          "attempts": [
+            {
+              "id": 2,
+              "check_id": 2,
+              "ordinal": 1,
+              "started_at": "2026-10-29T17:48:47.981Z",
+              "finished_at": "2026-10-29T17:48:47.998Z",
+              "status_code": 503,
+              "error_category": "retryable_http",
+              "latency_ms": 17.45
+            }
+          ],
+          "result": null,
+          "incident_id": null
+        },
+        "correlation_id": "6a93804b-077d-4459-a0be-6d5328133608"
+      },
+      "replayed": null
+    },
+    {
+      "timestamp": "2026-10-29T17:48:48.740Z",
+      "request": {
+        "method": "GET",
+        "path": "/checks/2"
+      },
+      "status": 200,
+      "body": {
+        "data": {
+          "id": 2,
+          "endpoint_id": 2,
+          "trigger": "manual",
+          "state": "RUNNING",
+          "correlation_id": "89def0f8-8111-47c0-9cea-1262e0c1642f",
+          "parent_correlation_id": null,
+          "schedule_key": null,
+          "behavior": "flaky",
+          "started_at": "2026-10-29T17:48:47.978Z",
+          "finished_at": null,
+          "interruption_reason": null,
+          "attempts": [
+            {
+              "id": 2,
+              "check_id": 2,
+              "ordinal": 1,
+              "started_at": "2026-10-29T17:48:47.981Z",
+              "finished_at": "2026-10-29T17:48:47.998Z",
+              "status_code": 503,
+              "error_category": "retryable_http",
+              "latency_ms": 17.45
+            },
+            {
+              "id": 3,
+              "check_id": 2,
+              "ordinal": 2,
+              "started_at": "2026-10-29T17:48:48.704Z",
+              "finished_at": "2026-10-29T17:48:48.708Z",
+              "status_code": 503,
+              "error_category": "retryable_http",
+              "latency_ms": 3.54
+            }
+          ],
+          "result": null,
+          "incident_id": null
+        },
+        "correlation_id": "e6ebc8f4-a7a1-4ca8-b23f-d53a49e3e7a0"
+      },
+      "replayed": null
+    },
+    {
+      "timestamp": "2026-10-29T17:48:48.771Z",
+      "request": {
+        "method": "GET",
+        "path": "/checks/2"
+      },
+      "status": 200,
+      "body": {
+        "data": {
+          "id": 2,
+          "endpoint_id": 2,
+          "trigger": "manual",
+          "state": "RUNNING",
+          "correlation_id": "89def0f8-8111-47c0-9cea-1262e0c1642f",
+          "parent_correlation_id": null,
+          "schedule_key": null,
+          "behavior": "flaky",
+          "started_at": "2026-10-29T17:48:47.978Z",
+          "finished_at": null,
+          "interruption_reason": null,
+          "attempts": [
+            {
+              "id": 2,
+              "check_id": 2,
+              "ordinal": 1,
+              "started_at": "2026-10-29T17:48:47.981Z",
+              "finished_at": "2026-10-29T17:48:47.998Z",
+              "status_code": 503,
+              "error_category": "retryable_http",
+              "latency_ms": 17.45
+            },
+            {
+              "id": 3,
+              "check_id": 2,
+              "ordinal": 2,
+              "started_at": "2026-10-29T17:48:48.704Z",
+              "finished_at": "2026-10-29T17:48:48.708Z",
+              "status_code": 503,
+              "error_category": "retryable_http",
+              "latency_ms": 3.54
+            }
+          ],
+          "result": null,
+          "incident_id": null
+        },
+        "correlation_id": "b2819792-a257-43b5-a9d8-6ff3b37e94d7"
+      },
+      "replayed": null
+    },
+    {
+      "timestamp": "2026-10-29T17:48:48.803Z",
+      "request": {
+        "method": "GET",
+        "path": "/checks/2"
+      },
+      "status": 200,
+      "body": {
+        "data": {
+          "id": 2,
+          "endpoint_id": 2,
+          "trigger": "manual",
+          "state": "RUNNING",
+          "correlation_id": "89def0f8-8111-47c0-9cea-1262e0c1642f",
+          "parent_correlation_id": null,
+          "schedule_key": null,
+          "behavior": "flaky",
+          "started_at": "2026-10-29T17:48:47.978Z",
+          "finished_at": null,
+          "interruption_reason": null,
+          "attempts": [
+            {
+              "id": 2,
+              "check_id": 2,
+              "ordinal": 1,
+              "started_at": "2026-10-29T17:48:47.981Z",
+              "finished_at": "2026-10-29T17:48:47.998Z",
+              "status_code": 503,
+              "error_category": "retryable_http",
+              "latency_ms": 17.45
+            },
+            {
+              "id": 3,
+              "check_id": 2,
+              "ordinal": 2,
+              "started_at": "2026-10-29T17:48:48.704Z",
+              "finished_at": "2026-10-29T17:48:48.708Z",
+              "status_code": 503,
+              "error_category": "retryable_http",
+              "latency_ms": 3.54
+            }
+          ],
+          "result": null,
+          "incident_id": null
+        },
+        "correlation_id": "7be90618-7485-4501-b225-63c6ef92ad46"
+      },
+      "replayed": null
+    },
+    {
+      "timestamp": "2026-10-29T17:48:48.835Z",
+      "request": {
+        "method": "GET",
+        "path": "/checks/2"
+      },
+      "status": 200,
+      "body": {
+        "data": {
+          "id": 2,
+          "endpoint_id": 2,
+          "trigger": "manual",
+          "state": "RUNNING",
+          "correlation_id": "89def0f8-8111-47c0-9cea-1262e0c1642f",
+          "parent_correlation_id": null,
+          "schedule_key": null,
+          "behavior": "flaky",
+          "started_at": "2026-10-29T17:48:47.978Z",
+          "finished_at": null,
+          "interruption_reason": null,
+          "attempts": [
+            {
+              "id": 2,
+              "check_id": 2,
+              "ordinal": 1,
+              "started_at": "2026-10-29T17:48:47.981Z",
+              "finished_at": "2026-10-29T17:48:47.998Z",
+              "status_code": 503,
+              "error_category": "retryable_http",
+              "latency_ms": 17.45
+            },
+            {
+              "id": 3,
+              "check_id": 2,
+              "ordinal": 2,
+              "started_at": "2026-10-29T17:48:48.704Z",
+              "finished_at": "2026-10-29T17:48:48.708Z",
+              "status_code": 503,
+              "error_category": "retryable_http",
+              "latency_ms": 3.54
+            }
+          ],
+          "result": null,
+          "incident_id": null
+        },
+        "correlation_id": "a764a7e3-d748-4ea4-8b77-8597d00046eb"
+      },
+      "replayed": null
+    },
+    {
+      "timestamp": "2026-10-29T17:48:48.866Z",
+      "request": {
+        "method": "GET",
+        "path": "/checks/2"
+      },
+      "status": 200,
+      "body": {
+        "data": {
+          "id": 2,
+          "endpoint_id": 2,
+          "trigger": "manual",
+          "state": "RUNNING",
+          "correlation_id": "89def0f8-8111-47c0-9cea-1262e0c1642f",
+          "parent_correlation_id": null,
+          "schedule_key": null,
+          "behavior": "flaky",
+          "started_at": "2026-10-29T17:48:47.978Z",
+          "finished_at": null,
+          "interruption_reason": null,
+          "attempts": [
+            {
+              "id": 2,
+              "check_id": 2,
+              "ordinal": 1,
+              "started_at": "2026-10-29T17:48:47.981Z",
+              "finished_at": "2026-10-29T17:48:47.998Z",
+              "status_code": 503,
+              "error_category": "retryable_http",
+              "latency_ms": 17.45
+            },
+            {
+              "id": 3,
+              "check_id": 2,
+              "ordinal": 2,
+              "started_at": "2026-10-29T17:48:48.704Z",
+              "finished_at": "2026-10-29T17:48:48.708Z",
+              "status_code": 503,
+              "error_category": "retryable_http",
+              "latency_ms": 3.54
+            }
+          ],
+          "result": null,
+          "incident_id": null
+        },
+        "correlation_id": "ff904051-097b-443b-842d-10e6dacafa82"
+      },
+      "replayed": null
+    },
+    {
+      "timestamp": "2026-10-29T17:48:48.897Z",
+      "request": {
+        "method": "GET",
+        "path": "/checks/2"
+      },
+      "status": 200,
+      "body": {
+        "data": {
+          "id": 2,
+          "endpoint_id": 2,
+          "trigger": "manual",
+          "state": "RUNNING",
+          "correlation_id": "89def0f8-8111-47c0-9cea-1262e0c1642f",
+          "parent_correlation_id": null,
+          "schedule_key": null,
+          "behavior": "flaky",
+          "started_at": "2026-10-29T17:48:47.978Z",
+          "finished_at": null,
+          "interruption_reason": null,
+          "attempts": [
+            {
+              "id": 2,
+              "check_id": 2,
+              "ordinal": 1,
+              "started_at": "2026-10-29T17:48:47.981Z",
+              "finished_at": "2026-10-29T17:48:47.998Z",
+              "status_code": 503,
+              "error_category": "retryable_http",
+              "latency_ms": 17.45
+            },
+            {
+              "id": 3,
+              "check_id": 2,
+              "ordinal": 2,
+              "started_at": "2026-10-29T17:48:48.704Z",
+              "finished_at": "2026-10-29T17:48:48.708Z",
+              "status_code": 503,
+              "error_category": "retryable_http",
+              "latency_ms": 3.54
+            }
+          ],
+          "result": null,
+          "incident_id": null
+        },
+        "correlation_id": "6436503b-98bf-4014-9282-f0c73c316668"
+      },
+      "replayed": null
+    },
+    {
+      "timestamp": "2026-10-29T17:48:48.940Z",
+      "request": {
+        "method": "GET",
+        "path": "/checks/2"
+      },
+      "status": 200,
+      "body": {
+        "data": {
+          "id": 2,
+          "endpoint_id": 2,
+          "trigger": "manual",
+          "state": "RUNNING",
+          "correlation_id": "89def0f8-8111-47c0-9cea-1262e0c1642f",
+          "parent_correlation_id": null,
+          "schedule_key": null,
+          "behavior": "flaky",
+          "started_at": "2026-10-29T17:48:47.978Z",
+          "finished_at": null,
+          "interruption_reason": null,
+          "attempts": [
+            {
+              "id": 2,
+              "check_id": 2,
+              "ordinal": 1,
+              "started_at": "2026-10-29T17:48:47.981Z",
+              "finished_at": "2026-10-29T17:48:47.998Z",
+              "status_code": 503,
+              "error_category": "retryable_http",
+              "latency_ms": 17.45
+            },
+            {
+              "id": 3,
+              "check_id": 2,
+              "ordinal": 2,
+              "started_at": "2026-10-29T17:48:48.704Z",
+              "finished_at": "2026-10-29T17:48:48.708Z",
+              "status_code": 503,
+              "error_category": "retryable_http",
+              "latency_ms": 3.54
+            }
+          ],
+          "result": null,
+          "incident_id": null
+        },
+        "correlation_id": "88350441-5c9e-4664-a1cf-cf825e48ddd6"
+      },
+      "replayed": null
+    },
+    {
+      "timestamp": "2026-10-29T17:48:48.972Z",
+      "request": {
+        "method": "GET",
+        "path": "/checks/2"
+      },
+      "status": 200,
+      "body": {
+        "data": {
+          "id": 2,
+          "endpoint_id": 2,
+          "trigger": "manual",
+          "state": "RUNNING",
+          "correlation_id": "89def0f8-8111-47c0-9cea-1262e0c1642f",
+          "parent_correlation_id": null,
+          "schedule_key": null,
+          "behavior": "flaky",
+          "started_at": "2026-10-29T17:48:47.978Z",
+          "finished_at": null,
+          "interruption_reason": null,
+          "attempts": [
+            {
+              "id": 2,
+              "check_id": 2,
+              "ordinal": 1,
+              "started_at": "2026-10-29T17:48:47.981Z",
+              "finished_at": "2026-10-29T17:48:47.998Z",
+              "status_code": 503,
+              "error_category": "retryable_http",
+              "latency_ms": 17.45
+            },
+            {
+              "id": 3,
+              "check_id": 2,
+              "ordinal": 2,
+              "started_at": "2026-10-29T17:48:48.704Z",
+              "finished_at": "2026-10-29T17:48:48.708Z",
+              "status_code": 503,
+              "error_category": "retryable_http",
+              "latency_ms": 3.54
+            }
+          ],
+          "result": null,
+          "incident_id": null
+        },
+        "correlation_id": "1e2da64f-2418-4225-a318-a73c60dbaf74"
+      },
+      "replayed": null
+    },
+    {
+      "timestamp": "2026-10-29T17:48:49.006Z",
+      "request": {
+        "method": "GET",
+        "path": "/checks/2"
+      },
+      "status": 200,
+      "body": {
+        "data": {
+          "id": 2,
+          "endpoint_id": 2,
+          "trigger": "manual",
+          "state": "RUNNING",
+          "correlation_id": "89def0f8-8111-47c0-9cea-1262e0c1642f",
+          "parent_correlation_id": null,
+          "schedule_key": null,
+          "behavior": "flaky",
+          "started_at": "2026-10-29T17:48:47.978Z",
+          "finished_at": null,
+          "interruption_reason": null,
+          "attempts": [
+            {
+              "id": 2,
+              "check_id": 2,
+              "ordinal": 1,
+              "started_at": "2026-10-29T17:48:47.981Z",
+              "finished_at": "2026-10-29T17:48:47.998Z",
+              "status_code": 503,
+              "error_category": "retryable_http",
+              "latency_ms": 17.45
+            },
+            {
+              "id": 3,
+              "check_id": 2,
+              "ordinal": 2,
+              "started_at": "2026-10-29T17:48:48.704Z",
+              "finished_at": "2026-10-29T17:48:48.708Z",
+              "status_code": 503,
+              "error_category": "retryable_http",
+              "latency_ms": 3.54
+            }
+          ],
+          "result": null,
+          "incident_id": null
+        },
+        "correlation_id": "632a928d-4993-456b-8cee-03124e4621ca"
+      },
+      "replayed": null
+    },
+    {
+      "timestamp": "2026-10-29T17:48:49.038Z",
+      "request": {
+        "method": "GET",
+        "path": "/checks/2"
+      },
+      "status": 200,
+      "body": {
+        "data": {
+          "id": 2,
+          "endpoint_id": 2,
+          "trigger": "manual",
+          "state": "RUNNING",
+          "correlation_id": "89def0f8-8111-47c0-9cea-1262e0c1642f",
+          "parent_correlation_id": null,
+          "schedule_key": null,
+          "behavior": "flaky",
+          "started_at": "2026-10-29T17:48:47.978Z",
+          "finished_at": null,
+          "interruption_reason": null,
+          "attempts": [
+            {
+              "id": 2,
+              "check_id": 2,
+              "ordinal": 1,
+              "started_at": "2026-10-29T17:48:47.981Z",
+              "finished_at": "2026-10-29T17:48:47.998Z",
+              "status_code": 503,
+              "error_category": "retryable_http",
+              "latency_ms": 17.45
+            },
+            {
+              "id": 3,
+              "check_id": 2,
+              "ordinal": 2,
+              "started_at": "2026-10-29T17:48:48.704Z",
+              "finished_at": "2026-10-29T17:48:48.708Z",
+              "status_code": 503,
+              "error_category": "retryable_http",
+              "latency_ms": 3.54
+            }
+          ],
+          "result": null,
+          "incident_id": null
+        },
+        "correlation_id": "9302e9e8-5a0a-43e5-bcdd-258a3eb8f230"
+      },
+      "replayed": null
+    },
+    {
+      "timestamp": "2026-10-29T17:48:49.074Z",
+      "request": {
+        "method": "GET",
+        "path": "/checks/2"
+      },
+      "status": 200,
+      "body": {
+        "data": {
+          "id": 2,
+          "endpoint_id": 2,
+          "trigger": "manual",
+          "state": "RUNNING",
+          "correlation_id": "89def0f8-8111-47c0-9cea-1262e0c1642f",
+          "parent_correlation_id": null,
+          "schedule_key": null,
+          "behavior": "flaky",
+          "started_at": "2026-10-29T17:48:47.978Z",
+          "finished_at": null,
+          "interruption_reason": null,
+          "attempts": [
+            {
+              "id": 2,
+              "check_id": 2,
+              "ordinal": 1,
+              "started_at": "2026-10-29T17:48:47.981Z",
+              "finished_at": "2026-10-29T17:48:47.998Z",
+              "status_code": 503,
+              "error_category": "retryable_http",
+              "latency_ms": 17.45
+            },
+            {
+              "id": 3,
+              "check_id": 2,
+              "ordinal": 2,
+              "started_at": "2026-10-29T17:48:48.704Z",
+              "finished_at": "2026-10-29T17:48:48.708Z",
+              "status_code": 503,
+              "error_category": "retryable_http",
+              "latency_ms": 3.54
+            }
+          ],
+          "result": null,
+          "incident_id": null
+        },
+        "correlation_id": "504a92b8-0bf3-40ff-9ea3-59316760734b"
+      },
+      "replayed": null
+    },
+    {
+      "timestamp": "2026-10-29T17:48:49.107Z",
+      "request": {
+        "method": "GET",
+        "path": "/checks/2"
+      },
+      "status": 200,
+      "body": {
+        "data": {
+          "id": 2,
+          "endpoint_id": 2,
+          "trigger": "manual",
+          "state": "RUNNING",
+          "correlation_id": "89def0f8-8111-47c0-9cea-1262e0c1642f",
+          "parent_correlation_id": null,
+          "schedule_key": null,
+          "behavior": "flaky",
+          "started_at": "2026-10-29T17:48:47.978Z",
+          "finished_at": null,
+          "interruption_reason": null,
+          "attempts": [
+            {
+              "id": 2,
+              "check_id": 2,
+              "ordinal": 1,
+              "started_at": "2026-10-29T17:48:47.981Z",
+              "finished_at": "2026-10-29T17:48:47.998Z",
+              "status_code": 503,
+              "error_category": "retryable_http",
+              "latency_ms": 17.45
+            },
+            {
+              "id": 3,
+              "check_id": 2,
+              "ordinal": 2,
+              "started_at": "2026-10-29T17:48:48.704Z",
+              "finished_at": "2026-10-29T17:48:48.708Z",
+              "status_code": 503,
+              "error_category": "retryable_http",
+              "latency_ms": 3.54
+            }
+          ],
+          "result": null,
+          "incident_id": null
+        },
+        "correlation_id": "6c729cb3-794e-4812-adb0-ce44a31853df"
+      },
+      "replayed": null
+    },
+    {
+      "timestamp": "2026-10-29T17:48:49.137Z",
+      "request": {
+        "method": "GET",
+        "path": "/checks/2"
+      },
+      "status": 200,
+      "body": {
+        "data": {
+          "id": 2,
+          "endpoint_id": 2,
+          "trigger": "manual",
+          "state": "RUNNING",
+          "correlation_id": "89def0f8-8111-47c0-9cea-1262e0c1642f",
+          "parent_correlation_id": null,
+          "schedule_key": null,
+          "behavior": "flaky",
+          "started_at": "2026-10-29T17:48:47.978Z",
+          "finished_at": null,
+          "interruption_reason": null,
+          "attempts": [
+            {
+              "id": 2,
+              "check_id": 2,
+              "ordinal": 1,
+              "started_at": "2026-10-29T17:48:47.981Z",
+              "finished_at": "2026-10-29T17:48:47.998Z",
+              "status_code": 503,
+              "error_category": "retryable_http",
+              "latency_ms": 17.45
+            },
+            {
+              "id": 3,
+              "check_id": 2,
+              "ordinal": 2,
+              "started_at": "2026-10-29T17:48:48.704Z",
+              "finished_at": "2026-10-29T17:48:48.708Z",
+              "status_code": 503,
+              "error_category": "retryable_http",
+              "latency_ms": 3.54
+            }
+          ],
+          "result": null,
+          "incident_id": null
+        },
+        "correlation_id": "ed5d914f-37de-4b06-a12f-98e4e4d07d6d"
+      },
+      "replayed": null
+    },
+    {
+      "timestamp": "2026-10-29T17:48:49.169Z",
+      "request": {
+        "method": "GET",
+        "path": "/checks/2"
+      },
+      "status": 200,
+      "body": {
+        "data": {
+          "id": 2,
+          "endpoint_id": 2,
+          "trigger": "manual",
+          "state": "RUNNING",
+          "correlation_id": "89def0f8-8111-47c0-9cea-1262e0c1642f",
+          "parent_correlation_id": null,
+          "schedule_key": null,
+          "behavior": "flaky",
+          "started_at": "2026-10-29T17:48:47.978Z",
+          "finished_at": null,
+          "interruption_reason": null,
+          "attempts": [
+            {
+              "id": 2,
+              "check_id": 2,
+              "ordinal": 1,
+              "started_at": "2026-10-29T17:48:47.981Z",
+              "finished_at": "2026-10-29T17:48:47.998Z",
+              "status_code": 503,
+              "error_category": "retryable_http",
+              "latency_ms": 17.45
+            },
+            {
+              "id": 3,
+              "check_id": 2,
+              "ordinal": 2,
+              "started_at": "2026-10-29T17:48:48.704Z",
+              "finished_at": "2026-10-29T17:48:48.708Z",
+              "status_code": 503,
+              "error_category": "retryable_http",
+              "latency_ms": 3.54
+            }
+          ],
+          "result": null,
+          "incident_id": null
+        },
+        "correlation_id": "44df5520-4e3b-43da-a33f-5f030c957324"
+      },
+      "replayed": null
+    },
+    {
+      "timestamp": "2026-10-29T17:48:49.201Z",
+      "request": {
+        "method": "GET",
+        "path": "/checks/2"
+      },
+      "status": 200,
+      "body": {
+        "data": {
+          "id": 2,
+          "endpoint_id": 2,
+          "trigger": "manual",
+          "state": "RUNNING",
+          "correlation_id": "89def0f8-8111-47c0-9cea-1262e0c1642f",
+          "parent_correlation_id": null,
+          "schedule_key": null,
+          "behavior": "flaky",
+          "started_at": "2026-10-29T17:48:47.978Z",
+          "finished_at": null,
+          "interruption_reason": null,
+          "attempts": [
+            {
+              "id": 2,
+              "check_id": 2,
+              "ordinal": 1,
+              "started_at": "2026-10-29T17:48:47.981Z",
+              "finished_at": "2026-10-29T17:48:47.998Z",
+              "status_code": 503,
+              "error_category": "retryable_http",
+              "latency_ms": 17.45
+            },
+            {
+              "id": 3,
+              "check_id": 2,
+              "ordinal": 2,
+              "started_at": "2026-10-29T17:48:48.704Z",
+              "finished_at": "2026-10-29T17:48:48.708Z",
+              "status_code": 503,
+              "error_category": "retryable_http",
+              "latency_ms": 3.54
+            }
+          ],
+          "result": null,
+          "incident_id": null
+        },
+        "correlation_id": "d2e6f56b-11cb-4f2d-9629-7089c6cf4d98"
+      },
+      "replayed": null
+    },
+    {
+      "timestamp": "2026-10-29T17:48:49.232Z",
+      "request": {
+        "method": "GET",
+        "path": "/checks/2"
+      },
+      "status": 200,
+      "body": {
+        "data": {
+          "id": 2,
+          "endpoint_id": 2,
+          "trigger": "manual",
+          "state": "RUNNING",
+          "correlation_id": "89def0f8-8111-47c0-9cea-1262e0c1642f",
+          "parent_correlation_id": null,
+          "schedule_key": null,
+          "behavior": "flaky",
+          "started_at": "2026-10-29T17:48:47.978Z",
+          "finished_at": null,
+          "interruption_reason": null,
+          "attempts": [
+            {
+              "id": 2,
+              "check_id": 2,
+              "ordinal": 1,
+              "started_at": "2026-10-29T17:48:47.981Z",
+              "finished_at": "2026-10-29T17:48:47.998Z",
+              "status_code": 503,
+              "error_category": "retryable_http",
+              "latency_ms": 17.45
+            },
+            {
+              "id": 3,
+              "check_id": 2,
+              "ordinal": 2,
+              "started_at": "2026-10-29T17:48:48.704Z",
+              "finished_at": "2026-10-29T17:48:48.708Z",
+              "status_code": 503,
+              "error_category": "retryable_http",
+              "latency_ms": 3.54
+            }
+          ],
+          "result": null,
+          "incident_id": null
+        },
+        "correlation_id": "c44db3c2-ea62-4192-a0ad-cffa5cfd4371"
+      },
+      "replayed": null
+    },
+    {
+      "timestamp": "2026-10-29T17:48:49.264Z",
+      "request": {
+        "method": "GET",
+        "path": "/checks/2"
+      },
+      "status": 200,
+      "body": {
+        "data": {
+          "id": 2,
+          "endpoint_id": 2,
+          "trigger": "manual",
+          "state": "RUNNING",
+          "correlation_id": "89def0f8-8111-47c0-9cea-1262e0c1642f",
+          "parent_correlation_id": null,
+          "schedule_key": null,
+          "behavior": "flaky",
+          "started_at": "2026-10-29T17:48:47.978Z",
+          "finished_at": null,
+          "interruption_reason": null,
+          "attempts": [
+            {
+              "id": 2,
+              "check_id": 2,
+              "ordinal": 1,
+              "started_at": "2026-10-29T17:48:47.981Z",
+              "finished_at": "2026-10-29T17:48:47.998Z",
+              "status_code": 503,
+              "error_category": "retryable_http",
+              "latency_ms": 17.45
+            },
+            {
+              "id": 3,
+              "check_id": 2,
+              "ordinal": 2,
+              "started_at": "2026-10-29T17:48:48.704Z",
+              "finished_at": "2026-10-29T17:48:48.708Z",
+              "status_code": 503,
+              "error_category": "retryable_http",
+              "latency_ms": 3.54
+            }
+          ],
+          "result": null,
+          "incident_id": null
+        },
+        "correlation_id": "98728674-f90a-48da-a7df-b24dfa29466b"
+      },
+      "replayed": null
+    },
+    {
+      "timestamp": "2026-10-29T17:48:49.296Z",
+      "request": {
+        "method": "GET",
+        "path": "/checks/2"
+      },
+      "status": 200,
+      "body": {
+        "data": {
+          "id": 2,
+          "endpoint_id": 2,
+          "trigger": "manual",
+          "state": "RUNNING",
+          "correlation_id": "89def0f8-8111-47c0-9cea-1262e0c1642f",
+          "parent_correlation_id": null,
+          "schedule_key": null,
+          "behavior": "flaky",
+          "started_at": "2026-10-29T17:48:47.978Z",
+          "finished_at": null,
+          "interruption_reason": null,
+          "attempts": [
+            {
+              "id": 2,
+              "check_id": 2,
+              "ordinal": 1,
+              "started_at": "2026-10-29T17:48:47.981Z",
+              "finished_at": "2026-10-29T17:48:47.998Z",
+              "status_code": 503,
+              "error_category": "retryable_http",
+              "latency_ms": 17.45
+            },
+            {
+              "id": 3,
+              "check_id": 2,
+              "ordinal": 2,
+              "started_at": "2026-10-29T17:48:48.704Z",
+              "finished_at": "2026-10-29T17:48:48.708Z",
+              "status_code": 503,
+              "error_category": "retryable_http",
+              "latency_ms": 3.54
+            }
+          ],
+          "result": null,
+          "incident_id": null
+        },
+        "correlation_id": "0cf39f10-ac92-4251-bb9f-8a18f1789afa"
+      },
+      "replayed": null
+    },
+    {
+      "timestamp": "2026-10-29T17:48:49.327Z",
+      "request": {
+        "method": "GET",
+        "path": "/checks/2"
+      },
+      "status": 200,
+      "body": {
+        "data": {
+          "id": 2,
+          "endpoint_id": 2,
+          "trigger": "manual",
+          "state": "RUNNING",
+          "correlation_id": "89def0f8-8111-47c0-9cea-1262e0c1642f",
+          "parent_correlation_id": null,
+          "schedule_key": null,
+          "behavior": "flaky",
+          "started_at": "2026-10-29T17:48:47.978Z",
+          "finished_at": null,
+          "interruption_reason": null,
+          "attempts": [
+            {
+              "id": 2,
+              "check_id": 2,
+              "ordinal": 1,
+              "started_at": "2026-10-29T17:48:47.981Z",
+              "finished_at": "2026-10-29T17:48:47.998Z",
+              "status_code": 503,
+              "error_category": "retryable_http",
+              "latency_ms": 17.45
+            },
+            {
+              "id": 3,
+              "check_id": 2,
+              "ordinal": 2,
+              "started_at": "2026-10-29T17:48:48.704Z",
+              "finished_at": "2026-10-29T17:48:48.708Z",
+              "status_code": 503,
+              "error_category": "retryable_http",
+              "latency_ms": 3.54
+            }
+          ],
+          "result": null,
+          "incident_id": null
+        },
+        "correlation_id": "195ff3fa-393e-4cbd-8351-71a9ff2d2d20"
+      },
+      "replayed": null
+    },
+    {
+      "timestamp": "2026-10-29T17:48:49.359Z",
+      "request": {
+        "method": "GET",
+        "path": "/checks/2"
+      },
+      "status": 200,
+      "body": {
+        "data": {
+          "id": 2,
+          "endpoint_id": 2,
+          "trigger": "manual",
+          "state": "RUNNING",
+          "correlation_id": "89def0f8-8111-47c0-9cea-1262e0c1642f",
+          "parent_correlation_id": null,
+          "schedule_key": null,
+          "behavior": "flaky",
+          "started_at": "2026-10-29T17:48:47.978Z",
+          "finished_at": null,
+          "interruption_reason": null,
+          "attempts": [
+            {
+              "id": 2,
+              "check_id": 2,
+              "ordinal": 1,
+              "started_at": "2026-10-29T17:48:47.981Z",
+              "finished_at": "2026-10-29T17:48:47.998Z",
+              "status_code": 503,
+              "error_category": "retryable_http",
+              "latency_ms": 17.45
+            },
+            {
+              "id": 3,
+              "check_id": 2,
+              "ordinal": 2,
+              "started_at": "2026-10-29T17:48:48.704Z",
+              "finished_at": "2026-10-29T17:48:48.708Z",
+              "status_code": 503,
+              "error_category": "retryable_http",
+              "latency_ms": 3.54
+            }
+          ],
+          "result": null,
+          "incident_id": null
+        },
+        "correlation_id": "6fd056a2-9434-4a81-b38a-636e3f5b4507"
+      },
+      "replayed": null
+    },
+    {
+      "timestamp": "2026-10-29T17:48:49.388Z",
+      "request": {
+        "method": "GET",
+        "path": "/checks/2"
+      },
+      "status": 200,
+      "body": {
+        "data": {
+          "id": 2,
+          "endpoint_id": 2,
+          "trigger": "manual",
+          "state": "RUNNING",
+          "correlation_id": "89def0f8-8111-47c0-9cea-1262e0c1642f",
+          "parent_correlation_id": null,
+          "schedule_key": null,
+          "behavior": "flaky",
+          "started_at": "2026-10-29T17:48:47.978Z",
+          "finished_at": null,
+          "interruption_reason": null,
+          "attempts": [
+            {
+              "id": 2,
+              "check_id": 2,
+              "ordinal": 1,
+              "started_at": "2026-10-29T17:48:47.981Z",
+              "finished_at": "2026-10-29T17:48:47.998Z",
+              "status_code": 503,
+              "error_category": "retryable_http",
+              "latency_ms": 17.45
+            },
+            {
+              "id": 3,
+              "check_id": 2,
+              "ordinal": 2,
+              "started_at": "2026-10-29T17:48:48.704Z",
+              "finished_at": "2026-10-29T17:48:48.708Z",
+              "status_code": 503,
+              "error_category": "retryable_http",
+              "latency_ms": 3.54
+            }
+          ],
+          "result": null,
+          "incident_id": null
+        },
+        "correlation_id": "11d24890-5596-42e8-979d-8d85741b6fcb"
+      },
+      "replayed": null
+    },
+    {
+      "timestamp": "2026-10-29T17:48:49.424Z",
+      "request": {
+        "method": "GET",
+        "path": "/checks/2"
+      },
+      "status": 200,
+      "body": {
+        "data": {
+          "id": 2,
+          "endpoint_id": 2,
+          "trigger": "manual",
+          "state": "RUNNING",
+          "correlation_id": "89def0f8-8111-47c0-9cea-1262e0c1642f",
+          "parent_correlation_id": null,
+          "schedule_key": null,
+          "behavior": "flaky",
+          "started_at": "2026-10-29T17:48:47.978Z",
+          "finished_at": null,
+          "interruption_reason": null,
+          "attempts": [
+            {
+              "id": 2,
+              "check_id": 2,
+              "ordinal": 1,
+              "started_at": "2026-10-29T17:48:47.981Z",
+              "finished_at": "2026-10-29T17:48:47.998Z",
+              "status_code": 503,
+              "error_category": "retryable_http",
+              "latency_ms": 17.45
+            },
+            {
+              "id": 3,
+              "check_id": 2,
+              "ordinal": 2,
+              "started_at": "2026-10-29T17:48:48.704Z",
+              "finished_at": "2026-10-29T17:48:48.708Z",
+              "status_code": 503,
+              "error_category": "retryable_http",
+              "latency_ms": 3.54
+            }
+          ],
+          "result": null,
+          "incident_id": null
+        },
+        "correlation_id": "10b2bc48-5d31-4d30-924b-a5c497330294"
+      },
+      "replayed": null
+    },
+    {
+      "timestamp": "2026-10-29T17:48:49.454Z",
+      "request": {
+        "method": "GET",
+        "path": "/checks/2"
+      },
+      "status": 200,
+      "body": {
+        "data": {
+          "id": 2,
+          "endpoint_id": 2,
+          "trigger": "manual",
+          "state": "COMPLETED",
+          "correlation_id": "89def0f8-8111-47c0-9cea-1262e0c1642f",
+          "parent_correlation_id": null,
+          "schedule_key": null,
+          "behavior": "flaky",
+          "started_at": "2026-10-29T17:48:47.978Z",
+          "finished_at": "2026-10-29T17:48:49.429Z",
+          "interruption_reason": null,
+          "attempts": [
+            {
+              "id": 2,
+              "check_id": 2,
+              "ordinal": 1,
+              "started_at": "2026-10-29T17:48:47.981Z",
+              "finished_at": "2026-10-29T17:48:47.998Z",
+              "status_code": 503,
+              "error_category": "retryable_http",
+              "latency_ms": 17.45
+            },
+            {
+              "id": 3,
+              "check_id": 2,
+              "ordinal": 2,
+              "started_at": "2026-10-29T17:48:48.704Z",
+              "finished_at": "2026-10-29T17:48:48.708Z",
+              "status_code": 503,
+              "error_category": "retryable_http",
+              "latency_ms": 3.54
+            },
+            {
+              "id": 4,
+              "check_id": 2,
+              "ordinal": 3,
+              "started_at": "2026-10-29T17:48:49.421Z",
+              "finished_at": "2026-10-29T17:48:49.426Z",
+              "status_code": 200,
+              "error_category": null,
+              "latency_ms": 4.67
+            }
+          ],
+          "result": {
+            "id": 1,
+            "check_id": 2,
+            "endpoint_id": 2,
+            "ok": true,
+            "attempt_count": 3,
+            "final_category": "healthy",
+            "completed_at": "2026-10-29T17:48:49.429Z"
+          },
+          "incident_id": null
+        },
+        "correlation_id": "0e63987d-2b60-4bc0-8a47-9733f371dbb5"
+      },
+      "replayed": null
+    },
+    {
+      "timestamp": "2026-10-29T17:48:49.457Z",
+      "request": {
+        "method": "GET",
+        "path": "/reports/uptime"
+      },
+      "status": 200,
+      "body": {
+        "data": {
+          "basis": "completed_check_ratio",
+          "window": "current_dataset",
+          "dataset_start": "2026-10-29T17:48:47.586Z",
+          "as_of": "2026-10-29T17:48:49.456Z",
+          "endpoints": [
+            {
+              "endpoint_id": 1,
+              "name": "Library API",
+              "total_checks": 0,
+              "passed_checks": 0,
+              "failed_checks": 0,
+              "uptime_percent": null
+            },
+            {
+              "endpoint_id": 2,
+              "name": "Enrollment API",
+              "total_checks": 1,
+              "passed_checks": 1,
+              "failed_checks": 0,
+              "uptime_percent": 100
+            },
+            {
+              "endpoint_id": 3,
+              "name": "Payments sandbox",
+              "total_checks": 0,
+              "passed_checks": 0,
+              "failed_checks": 0,
+              "uptime_percent": null
+            }
+          ]
+        },
+        "correlation_id": "8208fddd-19d2-40ec-a8d2-54f85e306042"
+      },
+      "replayed": null
+    }
+  ],
+  "status": "PASS",
+  "started_at": "2026-10-29T17:48:47.366Z",
+  "kill": {
+    "pid": 31724,
+    "signal": "SIGKILL",
+    "timestamp": "2026-10-29T17:48:47.705Z",
+    "target": "Only the backend child spawned by this script."
+  },
+  "actual": {
+    "before_crash": {
+      "id": 1,
+      "endpoint_id": 2,
+      "trigger": "manual",
+      "state": "RUNNING",
+      "correlation_id": "7c3924c0-4bfe-4dd4-a5c1-aff170fb44b6",
+      "parent_correlation_id": null,
+      "schedule_key": null,
+      "behavior": "flaky",
+      "started_at": "2026-10-29T17:48:47.678Z",
+      "finished_at": null,
+      "interruption_reason": null,
+      "attempts": [
+        {
+          "id": 1,
+          "check_id": 1,
+          "ordinal": 1,
+          "started_at": "2026-10-29T17:48:47.681Z",
+          "finished_at": "2026-10-29T17:48:47.698Z",
+          "status_code": 503,
+          "error_category": "retryable_http",
+          "latency_ms": 17.57
+        }
+      ],
+      "result": null,
+      "incident_id": null
+    },
+    "after_restart": {
+      "id": 1,
+      "endpoint_id": 2,
+      "trigger": "manual",
+      "state": "INTERRUPTED",
+      "correlation_id": "7c3924c0-4bfe-4dd4-a5c1-aff170fb44b6",
+      "parent_correlation_id": null,
+      "schedule_key": null,
+      "behavior": "flaky",
+      "started_at": "2026-10-29T17:48:47.678Z",
+      "finished_at": "2026-10-29T17:48:47.910Z",
+      "interruption_reason": "process_restart",
+      "attempts": [
+        {
+          "id": 1,
+          "check_id": 1,
+          "ordinal": 1,
+          "started_at": "2026-10-29T17:48:47.681Z",
+          "finished_at": "2026-10-29T17:48:47.698Z",
+          "status_code": 503,
+          "error_category": "retryable_http",
+          "latency_ms": 17.57
+        }
+      ],
+      "result": null,
+      "incident_id": null
+    },
+    "endpoint_after_restart": {
+      "id": 2,
+      "name": "Enrollment API",
+      "url": "https://api.sandbox.example/enroll/health",
+      "interval_seconds": 60,
+      "demo_behavior": "flaky",
+      "status": "UNKNOWN",
+      "created_at": "2026-10-29T17:48:47.587Z",
+      "last_completed_at": null,
+      "next_due_at": null,
+      "checking": false,
+      "active_check_id": null,
+      "active_incident_id": null,
+      "recent_runs": [
+        {
+          "id": 1,
+          "state": "INTERRUPTED",
+          "started_at": "2026-10-29T17:48:47.678Z",
+          "finished_at": "2026-10-29T17:48:47.910Z",
+          "interruption_reason": "process_restart"
+        }
+      ]
+    },
+    "scheduler_after_restart": {
+      "enabled": false,
+      "tick_ms": 1000,
+      "capacity": 2,
+      "active_count": 0,
+      "last_error": null
+    },
+    "new_verification": {
+      "id": 2,
+      "endpoint_id": 2,
+      "trigger": "manual",
+      "state": "COMPLETED",
+      "correlation_id": "89def0f8-8111-47c0-9cea-1262e0c1642f",
+      "parent_correlation_id": null,
+      "schedule_key": null,
+      "behavior": "flaky",
+      "started_at": "2026-10-29T17:48:47.978Z",
+      "finished_at": "2026-10-29T17:48:49.429Z",
+      "interruption_reason": null,
+      "attempts": [
+        {
+          "id": 2,
+          "check_id": 2,
+          "ordinal": 1,
+          "started_at": "2026-10-29T17:48:47.981Z",
+          "finished_at": "2026-10-29T17:48:47.998Z",
+          "status_code": 503,
+          "error_category": "retryable_http",
+          "latency_ms": 17.45
+        },
+        {
+          "id": 3,
+          "check_id": 2,
+          "ordinal": 2,
+          "started_at": "2026-10-29T17:48:48.704Z",
+          "finished_at": "2026-10-29T17:48:48.708Z",
+          "status_code": 503,
+          "error_category": "retryable_http",
+          "latency_ms": 3.54
+        },
+        {
+          "id": 4,
+          "check_id": 2,
+          "ordinal": 3,
+          "started_at": "2026-10-29T17:48:49.421Z",
+          "finished_at": "2026-10-29T17:48:49.426Z",
+          "status_code": 200,
+          "error_category": null,
+          "latency_ms": 4.67
+        }
+      ],
+      "result": {
+        "id": 1,
+        "check_id": 2,
+        "endpoint_id": 2,
+        "ok": true,
+        "attempt_count": 3,
+        "final_category": "healthy",
+        "completed_at": "2026-10-29T17:48:49.429Z"
+      },
+      "incident_id": null
+    },
+    "report": {
+      "basis": "completed_check_ratio",
+      "window": "current_dataset",
+      "dataset_start": "2026-10-29T17:48:47.586Z",
+      "as_of": "2026-10-29T17:48:49.456Z",
+      "endpoints": [
+        {
+          "endpoint_id": 1,
+          "name": "Library API",
+          "total_checks": 0,
+          "passed_checks": 0,
+          "failed_checks": 0,
+          "uptime_percent": null
+        },
+        {
+          "endpoint_id": 2,
+          "name": "Enrollment API",
+          "total_checks": 1,
+          "passed_checks": 1,
+          "failed_checks": 0,
+          "uptime_percent": 100
+        },
+        {
+          "endpoint_id": 3,
+          "name": "Payments sandbox",
+          "total_checks": 0,
+          "passed_checks": 0,
+          "failed_checks": 0,
+          "uptime_percent": null
+        }
+      ]
+    }
+  },
+  "finished_at": "2026-10-29T17:48:49.463Z"
+}

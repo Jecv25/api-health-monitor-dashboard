@@ -1,0 +1,11 @@
+{"timestamp":"2026-10-29T17:48:47.588Z","level":"info","source":"system","correlation_id":"7211a432-3aec-4bc3-ba13-fa05b5351e2f","previous_scheduler_enabled":false,"scheduler_enabled":false,"max_attempts":3,"timeout_ms":3000,"retry_delay_ms":700,"concurrency":2,"event":"process_started"}
+{"timestamp":"2026-10-29T17:48:47.596Z","level":"info","source":"system","correlation_id":"590f6bac-9760-4688-8ed3-f903b7ff3333","port":59151,"event":"api_listening"}
+
+Module 13 dashboard/API: http://localhost:59151
+Local demo only. Scheduler starts OFF.
+{"timestamp":"2026-10-29T17:48:47.665Z","level":"info","source":"api","correlation_id":"dfc8ace3-8632-435d-9b4b-e020dfb695f3","actor_id":"demo-operator","event":"demo_session_selected"}
+{"timestamp":"2026-10-29T17:48:47.680Z","level":"info","source":"dependency","correlation_id":"7c3924c0-4bfe-4dd4-a5c1-aff170fb44b6","parent_correlation_id":null,"check_id":1,"endpoint_id":2,"trigger":"manual","behavior":"flaky","event":"check_started"}
+{"timestamp":"2026-10-29T17:48:47.692Z","level":"info","source":"fixture","correlation_id":"7c3924c0-4bfe-4dd4-a5c1-aff170fb44b6","check_id":1,"attempt":1,"behavior":"flaky","path":"/enroll/health","transport":"loopback_http","injected_delay_ms":0,"event":"fixture_request"}
+{"timestamp":"2026-10-29T17:48:47.693Z","level":"info","source":"fixture","correlation_id":"7c3924c0-4bfe-4dd4-a5c1-aff170fb44b6","check_id":1,"attempt":1,"behavior":"flaky","path":"/enroll/health","transport":"loopback_http","injected_delay_ms":0,"status_code":503,"event":"fixture_response"}
+{"timestamp":"2026-10-29T17:48:47.700Z","level":"info","source":"dependency","correlation_id":"7c3924c0-4bfe-4dd4-a5c1-aff170fb44b6","parent_correlation_id":null,"check_id":1,"endpoint_id":2,"attempt":1,"status_code":503,"error_category":"retryable_http","latency_ms":17.57,"outcome":"fail","event":"attempt"}
+{"timestamp":"2026-10-29T17:48:47.701Z","level":"info","source":"dependency","correlation_id":"7c3924c0-4bfe-4dd4-a5c1-aff170fb44b6","parent_correlation_id":null,"check_id":1,"endpoint_id":2,"attempt":1,"wait_ms":700,"event":"retry_scheduled"}

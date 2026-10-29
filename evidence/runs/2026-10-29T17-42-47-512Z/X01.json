@@ -1,0 +1,61 @@
+{
+  "id": "X01",
+  "title": "Idempotent accepted request replay",
+  "expected": {
+    "trigger_status": 202,
+    "original_run_id": 1,
+    "replay_header": "true",
+    "no_run_added": true
+  },
+  "expected_recorded_at": "2026-10-29T17:42:52.133Z",
+  "status": "PASS",
+  "exchanges": [
+    {
+      "requested_at": "2026-10-29T17:42:52.134Z",
+      "completed_at": "2026-10-29T17:42:52.135Z",
+      "request": {
+        "method": "POST",
+        "path": "/api/v1/endpoints/1/checks",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "eddb92d8-c95e-4b04-b89d-9805ed69544c"
+        },
+        "demo_persona": "operator",
+        "body": {}
+      },
+      "actual": {
+        "status": 202,
+        "headers": {
+          "x-correlation-id": "bbc0c8c6-3488-48a0-b06c-73a26bb18576",
+          "idempotency-replayed": "true"
+        },
+        "body": {
+          "data": {
+            "id": 1,
+            "endpoint_id": 1,
+            "state": "RUNNING",
+            "correlation_id": "0b99ecd1-3940-4f64-81a2-33e879b98ce1",
+            "status_url": "/api/v1/checks/1"
+          },
+          "correlation_id": "0b99ecd1-3940-4f64-81a2-33e879b98ce1"
+        }
+      }
+    }
+  ],
+  "started_at": "2026-10-29T17:42:52.134Z",
+  "observations": {
+    "replay_response": {
+      "data": {
+        "id": 1,
+        "endpoint_id": 1,
+        "state": "RUNNING",
+        "correlation_id": "0b99ecd1-3940-4f64-81a2-33e879b98ce1",
+        "status_url": "/api/v1/checks/1"
+      },
+      "correlation_id": "0b99ecd1-3940-4f64-81a2-33e879b98ce1"
+    },
+    "before_runs": 6,
+    "after_runs": 6
+  },
+  "finished_at": "2026-10-29T17:42:52.135Z"
+}

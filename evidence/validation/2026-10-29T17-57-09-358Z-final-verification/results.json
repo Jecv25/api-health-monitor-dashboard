@@ -1,0 +1,48 @@
+[
+  {
+    "name": "toolchain",
+    "command": "flutter.bat --version --machine",
+    "started_at": "2026-10-29T17:57:09.365Z",
+    "finished_at": "2026-10-29T17:57:10.823Z",
+    "exit_code": 0,
+    "signal": null,
+    "output": "evidence/validation/2026-10-29T17-57-09-358Z-final-verification/toolchain.log"
+  },
+  {
+    "name": "backend-tests",
+    "command": "npm.cmd test",
+    "started_at": "2026-10-29T17:57:10.825Z",
+    "finished_at": "2026-10-29T17:57:30.883Z",
+    "exit_code": 0,
+    "signal": null,
+    "output": "evidence/validation/2026-10-29T17-57-09-358Z-final-verification/backend-tests.log",
+    "retained_datasets": "evidence/validation/2026-10-29T17-57-09-358Z-final-verification/backend-test-datasets"
+  },
+  {
+    "name": "flutter-analyze",
+    "command": "flutter.bat analyze",
+    "started_at": "2026-10-29T17:57:30.938Z",
+    "finished_at": "2026-10-29T17:57:38.935Z",
+    "exit_code": 0,
+    "signal": null,
+    "output": "evidence/validation/2026-10-29T17-57-09-358Z-final-verification/flutter-analyze.log"
+  },
+  {
+    "name": "flutter-tests",
+    "command": "flutter.bat test --reporter expanded",
+    "started_at": "2026-10-29T17:57:38.935Z",
+    "finished_at": "2026-10-29T17:57:43.117Z",
+    "exit_code": 0,
+    "signal": null,
+    "output": "evidence/validation/2026-10-29T17-57-09-358Z-final-verification/flutter-tests.log"
+  },
+  {
+    "name": "flutter-build",
+    "command": "flutter.bat build web --release --no-web-resources-cdn",
+    "started_at": "2026-10-29T17:57:43.118Z",
+    "finished_at": "2026-10-29T17:58:16.985Z",
+    "exit_code": 0,
+    "signal": null,
+    "output": "evidence/validation/2026-10-29T17-57-09-358Z-final-verification/flutter-build.log"
+  }
+]

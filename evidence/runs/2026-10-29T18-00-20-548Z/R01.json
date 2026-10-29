@@ -1,0 +1,501 @@
+{
+  "id": "R01",
+  "title": "Human repair followed by verified recovery",
+  "expected": {
+    "immediately_after_fix": {
+      "health": "DOWN",
+      "incident": "ACKNOWLEDGED"
+    },
+    "after_check": {
+      "http_attempts": [
+        200
+      ],
+      "health": "UP",
+      "incident": "RECOVERED",
+      "recovery_notices": 1
+    },
+    "report": {
+      "total": 3,
+      "passed": 1,
+      "failed": 2,
+      "percent": 33.33
+    }
+  },
+  "expected_recorded_at": "2026-10-29T18:00:25.239Z",
+  "status": "PASS",
+  "exchanges": [
+    {
+      "requested_at": "2026-10-29T18:00:25.240Z",
+      "completed_at": "2026-10-29T18:00:25.244Z",
+      "request": {
+        "method": "PATCH",
+        "path": "/api/v1/endpoints/3/demo-behavior",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "f25ff367-fa19-490b-b22f-f4946477afe5"
+        },
+        "demo_persona": "operator",
+        "body": {
+          "demo_behavior": "stable"
+        }
+      },
+      "actual": {
+        "status": 200,
+        "headers": {
+          "x-correlation-id": "2b91efb6-0bb7-4a10-9f98-0f75dc1ae516",
+          "idempotency-replayed": null
+        },
+        "body": {
+          "data": {
+            "id": 3,
+            "name": "payments Demo",
+            "url": "https://api.sandbox.example/payments/health",
+            "interval_seconds": 60,
+            "demo_behavior": "stable",
+            "status": "DOWN",
+            "created_at": "2026-10-29T18:00:22.290Z",
+            "last_completed_at": "2026-10-29T18:00:25.196Z",
+            "next_due_at": "2026-10-29T18:01:25.196Z",
+            "checking": false,
+            "active_check_id": null,
+            "active_incident_id": 1,
+            "recent_runs": [
+              {
+                "id": 4,
+                "state": "COMPLETED",
+                "started_at": "2026-10-29T18:00:23.771Z",
+                "finished_at": "2026-10-29T18:00:25.196Z",
+                "interruption_reason": null
+              },
+              {
+                "id": 3,
+                "state": "COMPLETED",
+                "started_at": "2026-10-29T18:00:22.294Z",
+                "finished_at": "2026-10-29T18:00:23.739Z",
+                "interruption_reason": null
+              }
+            ]
+          },
+          "correlation_id": "2b91efb6-0bb7-4a10-9f98-0f75dc1ae516"
+        }
+      }
+    },
+    {
+      "requested_at": "2026-10-29T18:00:25.244Z",
+      "completed_at": "2026-10-29T18:00:25.245Z",
+      "request": {
+        "method": "GET",
+        "path": "/api/v1/endpoints/3",
+        "headers": {},
+        "demo_persona": "operator"
+      },
+      "actual": {
+        "status": 200,
+        "headers": {
+          "x-correlation-id": "91577afd-19c2-40ac-9397-deda192d9692",
+          "idempotency-replayed": null
+        },
+        "body": {
+          "data": {
+            "id": 3,
+            "name": "payments Demo",
+            "url": "https://api.sandbox.example/payments/health",
+            "interval_seconds": 60,
+            "demo_behavior": "stable",
+            "status": "DOWN",
+            "created_at": "2026-10-29T18:00:22.290Z",
+            "last_completed_at": "2026-10-29T18:00:25.196Z",
+            "next_due_at": "2026-10-29T18:01:25.196Z",
+            "checking": false,
+            "active_check_id": null,
+            "active_incident_id": 1,
+            "recent_runs": [
+              {
+                "id": 4,
+                "state": "COMPLETED",
+                "started_at": "2026-10-29T18:00:23.771Z",
+                "finished_at": "2026-10-29T18:00:25.196Z",
+                "interruption_reason": null
+              },
+              {
+                "id": 3,
+                "state": "COMPLETED",
+                "started_at": "2026-10-29T18:00:22.294Z",
+                "finished_at": "2026-10-29T18:00:23.739Z",
+                "interruption_reason": null
+              }
+            ]
+          },
+          "correlation_id": "91577afd-19c2-40ac-9397-deda192d9692"
+        }
+      }
+    },
+    {
+      "requested_at": "2026-10-29T18:00:25.245Z",
+      "completed_at": "2026-10-29T18:00:25.245Z",
+      "request": {
+        "method": "GET",
+        "path": "/api/v1/incidents",
+        "headers": {},
+        "demo_persona": "operator"
+      },
+      "actual": {
+        "status": 200,
+        "headers": {
+          "x-correlation-id": "9ed23cc4-448b-4656-9db9-cc26b8e6986f",
+          "idempotency-replayed": null
+        },
+        "body": {
+          "data": [
+            {
+              "id": 1,
+              "endpoint_id": 3,
+              "state": "ACKNOWLEDGED",
+              "reason": "Down after 3 attempts (503); human action required",
+              "opening_check_id": 3,
+              "opened_at": "2026-10-29T18:00:23.739Z",
+              "acknowledged_by": "demo-operator",
+              "acknowledged_at": "2026-10-29T18:00:23.766Z",
+              "recovery_check_id": null,
+              "recovered_at": null
+            }
+          ],
+          "correlation_id": "9ed23cc4-448b-4656-9db9-cc26b8e6986f"
+        }
+      }
+    },
+    {
+      "requested_at": "2026-10-29T18:00:25.245Z",
+      "completed_at": "2026-10-29T18:00:25.248Z",
+      "request": {
+        "method": "POST",
+        "path": "/api/v1/endpoints/3/checks",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "cc69877a-8e0e-4b4d-8853-38b6d043f038"
+        },
+        "demo_persona": "operator",
+        "body": {}
+      },
+      "actual": {
+        "status": 202,
+        "headers": {
+          "x-correlation-id": "3a4ef799-b01e-487a-bb8e-a97b80cc73cf",
+          "idempotency-replayed": null
+        },
+        "body": {
+          "data": {
+            "id": 5,
+            "endpoint_id": 3,
+            "state": "RUNNING",
+            "correlation_id": "3a4ef799-b01e-487a-bb8e-a97b80cc73cf",
+            "status_url": "/api/v1/checks/5"
+          },
+          "correlation_id": "3a4ef799-b01e-487a-bb8e-a97b80cc73cf"
+        }
+      }
+    },
+    {
+      "requested_at": "2026-10-29T18:00:25.256Z",
+      "completed_at": "2026-10-29T18:00:25.256Z",
+      "request": {
+        "method": "GET",
+        "path": "/api/v1/checks/5",
+        "headers": {},
+        "demo_persona": "operator"
+      },
+      "actual": {
+        "status": 200,
+        "headers": {
+          "x-correlation-id": "818b8ff0-4f19-4b78-9f92-8f61b00b3d66",
+          "idempotency-replayed": null
+        },
+        "body": {
+          "data": {
+            "id": 5,
+            "endpoint_id": 3,
+            "trigger": "manual",
+            "state": "COMPLETED",
+            "correlation_id": "3a4ef799-b01e-487a-bb8e-a97b80cc73cf",
+            "parent_correlation_id": null,
+            "schedule_key": null,
+            "behavior": "stable",
+            "started_at": "2026-10-29T18:00:25.246Z",
+            "finished_at": "2026-10-29T18:00:25.252Z",
+            "interruption_reason": null,
+            "attempts": [
+              {
+                "id": 11,
+                "check_id": 5,
+                "ordinal": 1,
+                "started_at": "2026-10-29T18:00:25.248Z",
+                "finished_at": "2026-10-29T18:00:25.250Z",
+                "status_code": 200,
+                "error_category": null,
+                "latency_ms": 2.39
+              }
+            ],
+            "result": {
+              "id": 5,
+              "check_id": 5,
+              "endpoint_id": 3,
+              "ok": true,
+              "attempt_count": 1,
+              "final_category": "healthy",
+              "completed_at": "2026-10-29T18:00:25.252Z"
+            },
+            "incident_id": 1
+          },
+          "correlation_id": "818b8ff0-4f19-4b78-9f92-8f61b00b3d66"
+        }
+      }
+    },
+    {
+      "requested_at": "2026-10-29T18:00:25.257Z",
+      "completed_at": "2026-10-29T18:00:25.257Z",
+      "request": {
+        "method": "GET",
+        "path": "/api/v1/incidents",
+        "headers": {},
+        "demo_persona": "operator"
+      },
+      "actual": {
+        "status": 200,
+        "headers": {
+          "x-correlation-id": "61db513a-937a-4da3-a80e-5530f72eba0d",
+          "idempotency-replayed": null
+        },
+        "body": {
+          "data": [
+            {
+              "id": 1,
+              "endpoint_id": 3,
+              "state": "RECOVERED",
+              "reason": "Down after 3 attempts (503); human action required",
+              "opening_check_id": 3,
+              "opened_at": "2026-10-29T18:00:23.739Z",
+              "acknowledged_by": "demo-operator",
+              "acknowledged_at": "2026-10-29T18:00:23.766Z",
+              "recovery_check_id": 5,
+              "recovered_at": "2026-10-29T18:00:25.252Z"
+            }
+          ],
+          "correlation_id": "61db513a-937a-4da3-a80e-5530f72eba0d"
+        }
+      }
+    },
+    {
+      "requested_at": "2026-10-29T18:00:25.257Z",
+      "completed_at": "2026-10-29T18:00:25.258Z",
+      "request": {
+        "method": "GET",
+        "path": "/api/v1/notifications",
+        "headers": {},
+        "demo_persona": "operator"
+      },
+      "actual": {
+        "status": 200,
+        "headers": {
+          "x-correlation-id": "767db984-2ea5-45c2-a5c0-e6a6be2534bd",
+          "idempotency-replayed": null
+        },
+        "body": {
+          "data": [
+            {
+              "id": 2,
+              "incident_id": 1,
+              "check_id": 5,
+              "event": "recovered",
+              "audience": "support",
+              "channel": "in_app_demo",
+              "created_at": "2026-10-29T18:00:25.252Z"
+            },
+            {
+              "id": 1,
+              "incident_id": 1,
+              "check_id": 3,
+              "event": "opened",
+              "audience": "support",
+              "channel": "in_app_demo",
+              "created_at": "2026-10-29T18:00:23.739Z"
+            }
+          ],
+          "correlation_id": "767db984-2ea5-45c2-a5c0-e6a6be2534bd"
+        }
+      }
+    },
+    {
+      "requested_at": "2026-10-29T18:00:25.258Z",
+      "completed_at": "2026-10-29T18:00:25.259Z",
+      "request": {
+        "method": "GET",
+        "path": "/api/v1/reports/uptime",
+        "headers": {},
+        "demo_persona": "operator"
+      },
+      "actual": {
+        "status": 200,
+        "headers": {
+          "x-correlation-id": "8b976a0b-165c-4ae8-b68c-1ce6953bd05e",
+          "idempotency-replayed": null
+        },
+        "body": {
+          "data": {
+            "basis": "completed_check_ratio",
+            "window": "current_dataset",
+            "dataset_start": "2026-10-29T18:00:20.688Z",
+            "as_of": "2026-10-29T18:00:25.258Z",
+            "endpoints": [
+              {
+                "endpoint_id": 1,
+                "name": "library Demo",
+                "total_checks": 1,
+                "passed_checks": 1,
+                "failed_checks": 0,
+                "uptime_percent": 100
+              },
+              {
+                "endpoint_id": 2,
+                "name": "enrollment Demo",
+                "total_checks": 1,
+                "passed_checks": 1,
+                "failed_checks": 0,
+                "uptime_percent": 100
+              },
+              {
+                "endpoint_id": 3,
+                "name": "payments Demo",
+                "total_checks": 3,
+                "passed_checks": 1,
+                "failed_checks": 2,
+                "uptime_percent": 33.33
+              }
+            ]
+          },
+          "correlation_id": "8b976a0b-165c-4ae8-b68c-1ce6953bd05e"
+        }
+      }
+    }
+  ],
+  "started_at": "2026-10-29T18:00:25.240Z",
+  "observations": {
+    "beforeEndpoint": {
+      "id": 3,
+      "name": "payments Demo",
+      "url": "https://api.sandbox.example/payments/health",
+      "interval_seconds": 60,
+      "demo_behavior": "stable",
+      "status": "DOWN",
+      "created_at": "2026-10-29T18:00:22.290Z",
+      "last_completed_at": "2026-10-29T18:00:25.196Z",
+      "next_due_at": "2026-10-29T18:01:25.196Z",
+      "checking": false,
+      "active_check_id": null,
+      "active_incident_id": 1,
+      "recent_runs": [
+        {
+          "id": 4,
+          "state": "COMPLETED",
+          "started_at": "2026-10-29T18:00:23.771Z",
+          "finished_at": "2026-10-29T18:00:25.196Z",
+          "interruption_reason": null
+        },
+        {
+          "id": 3,
+          "state": "COMPLETED",
+          "started_at": "2026-10-29T18:00:22.294Z",
+          "finished_at": "2026-10-29T18:00:23.739Z",
+          "interruption_reason": null
+        }
+      ]
+    },
+    "beforeIncident": {
+      "id": 1,
+      "endpoint_id": 3,
+      "state": "ACKNOWLEDGED",
+      "reason": "Down after 3 attempts (503); human action required",
+      "opening_check_id": 3,
+      "opened_at": "2026-10-29T18:00:23.739Z",
+      "acknowledged_by": "demo-operator",
+      "acknowledged_at": "2026-10-29T18:00:23.766Z",
+      "recovery_check_id": null,
+      "recovered_at": null
+    },
+    "passing_run": {
+      "id": 5,
+      "endpoint_id": 3,
+      "trigger": "manual",
+      "state": "COMPLETED",
+      "correlation_id": "3a4ef799-b01e-487a-bb8e-a97b80cc73cf",
+      "parent_correlation_id": null,
+      "schedule_key": null,
+      "behavior": "stable",
+      "started_at": "2026-10-29T18:00:25.246Z",
+      "finished_at": "2026-10-29T18:00:25.252Z",
+      "interruption_reason": null,
+      "attempts": [
+        {
+          "id": 11,
+          "check_id": 5,
+          "ordinal": 1,
+          "started_at": "2026-10-29T18:00:25.248Z",
+          "finished_at": "2026-10-29T18:00:25.250Z",
+          "status_code": 200,
+          "error_category": null,
+          "latency_ms": 2.39
+        }
+      ],
+      "result": {
+        "id": 5,
+        "check_id": 5,
+        "endpoint_id": 3,
+        "ok": true,
+        "attempt_count": 1,
+        "final_category": "healthy",
+        "completed_at": "2026-10-29T18:00:25.252Z"
+      },
+      "incident_id": 1
+    },
+    "incident": {
+      "id": 1,
+      "endpoint_id": 3,
+      "state": "RECOVERED",
+      "reason": "Down after 3 attempts (503); human action required",
+      "opening_check_id": 3,
+      "opened_at": "2026-10-29T18:00:23.739Z",
+      "acknowledged_by": "demo-operator",
+      "acknowledged_at": "2026-10-29T18:00:23.766Z",
+      "recovery_check_id": 5,
+      "recovered_at": "2026-10-29T18:00:25.252Z"
+    },
+    "notices": [
+      {
+        "id": 2,
+        "incident_id": 1,
+        "check_id": 5,
+        "event": "recovered",
+        "audience": "support",
+        "channel": "in_app_demo",
+        "created_at": "2026-10-29T18:00:25.252Z"
+      },
+      {
+        "id": 1,
+        "incident_id": 1,
+        "check_id": 3,
+        "event": "opened",
+        "audience": "support",
+        "channel": "in_app_demo",
+        "created_at": "2026-10-29T18:00:23.739Z"
+      }
+    ],
+    "summary": {
+      "endpoint_id": 3,
+      "name": "payments Demo",
+      "total_checks": 3,
+      "passed_checks": 1,
+      "failed_checks": 2,
+      "uptime_percent": 33.33
+    }
+  },
+  "finished_at": "2026-10-29T18:00:25.259Z"
+}

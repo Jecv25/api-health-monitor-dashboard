@@ -1,0 +1,54 @@
+{
+  "id": "B04-persistent-human-recovery-demo",
+  "expected": "Payments fails after three attempts, operator acknowledges and simulates repair; only a new passing check recovers the incident and records a notice.",
+  "expected_recorded_at": "2026-10-29T17:50:29.385Z",
+  "status": "PASS",
+  "started_at": "2026-10-29T17:50:29.385Z",
+  "actual": {
+    "before_passing_check": {
+      "id": 1,
+      "endpoint_id": 3,
+      "state": "ACKNOWLEDGED",
+      "reason": "Down after 3 attempts (503); human action required",
+      "opening_check_id": 3,
+      "opened_at": "2026-10-29T17:50:31.082Z",
+      "acknowledged_by": "demo-operator",
+      "acknowledged_at": "2026-10-29T17:50:33.299Z",
+      "recovery_check_id": null,
+      "recovered_at": null
+    },
+    "after_passing_check": {
+      "id": 1,
+      "endpoint_id": 3,
+      "state": "RECOVERED",
+      "reason": "Down after 3 attempts (503); human action required",
+      "opening_check_id": 3,
+      "opened_at": "2026-10-29T17:50:31.082Z",
+      "acknowledged_by": "demo-operator",
+      "acknowledged_at": "2026-10-29T17:50:33.299Z",
+      "recovery_check_id": 4,
+      "recovered_at": "2026-10-29T17:50:33.789Z"
+    },
+    "notices": [
+      {
+        "id": 1,
+        "incident_id": 1,
+        "check_id": 3,
+        "event": "opened",
+        "audience": "support",
+        "channel": "in_app_demo",
+        "created_at": "2026-10-29T17:50:31.082Z"
+      },
+      {
+        "id": 2,
+        "incident_id": 1,
+        "check_id": 4,
+        "event": "recovered",
+        "audience": "support",
+        "channel": "in_app_demo",
+        "created_at": "2026-10-29T17:50:33.789Z"
+      }
+    ]
+  },
+  "finished_at": "2026-10-29T17:50:34.088Z"
+}

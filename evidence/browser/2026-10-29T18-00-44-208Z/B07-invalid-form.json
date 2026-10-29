@@ -1,0 +1,12 @@
+{
+  "id": "B07-invalid-form",
+  "expected": "Submitting a blank name, HTTP URL, and interval 5 shows inline client errors and creates no endpoint.",
+  "expected_recorded_at": "2026-10-29T18:00:58.667Z",
+  "status": "PASS",
+  "started_at": "2026-10-29T18:00:58.667Z",
+  "actual": {
+    "before_endpoint_count": 3,
+    "after_endpoint_count": 3
+  },
+  "finished_at": "2026-10-29T18:00:59.216Z"
+}

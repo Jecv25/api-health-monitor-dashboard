@@ -1,0 +1,156 @@
+{
+  "id": "I01",
+  "title": "Invalid input rejected server-side",
+  "expected": {
+    "status": 422,
+    "field_errors": [
+      "name",
+      "url",
+      "interval_seconds"
+    ],
+    "no_endpoint_or_run_added": true
+  },
+  "expected_recorded_at": "2026-10-29T17:48:48.000Z",
+  "status": "PASS",
+  "exchanges": [
+    {
+      "requested_at": "2026-10-29T17:48:48.001Z",
+      "completed_at": "2026-10-29T17:48:48.006Z",
+      "request": {
+        "method": "GET",
+        "path": "/api/v1/endpoints",
+        "headers": {},
+        "demo_persona": "operator"
+      },
+      "actual": {
+        "status": 200,
+        "headers": {
+          "x-correlation-id": "9d44dfaa-90f3-40e3-91d6-3211c8b3edef",
+          "idempotency-replayed": null
+        },
+        "body": {
+          "data": [
+            {
+              "id": 1,
+              "name": "library Demo",
+              "url": "https://api.sandbox.example/library/health",
+              "interval_seconds": 60,
+              "demo_behavior": "stable",
+              "status": "UP",
+              "created_at": "2026-10-29T17:48:47.937Z",
+              "last_completed_at": "2026-10-29T17:48:47.958Z",
+              "next_due_at": "2026-10-29T17:49:47.958Z",
+              "checking": false,
+              "active_check_id": null,
+              "active_incident_id": null,
+              "recent_runs": [
+                {
+                  "id": 1,
+                  "state": "COMPLETED",
+                  "started_at": "2026-10-29T17:48:47.944Z",
+                  "finished_at": "2026-10-29T17:48:47.958Z",
+                  "interruption_reason": null
+                }
+              ]
+            }
+          ],
+          "correlation_id": "9d44dfaa-90f3-40e3-91d6-3211c8b3edef"
+        }
+      }
+    },
+    {
+      "requested_at": "2026-10-29T17:48:48.006Z",
+      "completed_at": "2026-10-29T17:48:48.012Z",
+      "request": {
+        "method": "POST",
+        "path": "/api/v1/endpoints",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "312701a7-7720-4134-89d2-5579cc59e309"
+        },
+        "demo_persona": "operator",
+        "body": {
+          "name": "",
+          "url": "http://api.sandbox.example/bad/health",
+          "interval_seconds": 5,
+          "demo_behavior": "stable"
+        }
+      },
+      "actual": {
+        "status": 422,
+        "headers": {
+          "x-correlation-id": "bc21da82-5558-44e8-a1cd-afad4c800a0f",
+          "idempotency-replayed": null
+        },
+        "body": {
+          "error": {
+            "code": "VALIDATION_ERROR",
+            "message": "Please correct the highlighted fields.",
+            "fields": {
+              "name": "Enter a name of 3 to 40 characters without control characters.",
+              "url": "Use https://api.sandbox.example/service/health with a lowercase fictional service path and no query or fragment.",
+              "interval_seconds": "Enter whole seconds from 10 to 3600."
+            }
+          },
+          "correlation_id": "bc21da82-5558-44e8-a1cd-afad4c800a0f"
+        }
+      }
+    },
+    {
+      "requested_at": "2026-10-29T17:48:48.012Z",
+      "completed_at": "2026-10-29T17:48:48.016Z",
+      "request": {
+        "method": "GET",
+        "path": "/api/v1/endpoints",
+        "headers": {},
+        "demo_persona": "operator"
+      },
+      "actual": {
+        "status": 200,
+        "headers": {
+          "x-correlation-id": "568f3efa-27fe-4e2b-b2b1-c3157dc6a4d4",
+          "idempotency-replayed": null
+        },
+        "body": {
+          "data": [
+            {
+              "id": 1,
+              "name": "library Demo",
+              "url": "https://api.sandbox.example/library/health",
+              "interval_seconds": 60,
+              "demo_behavior": "stable",
+              "status": "UP",
+              "created_at": "2026-10-29T17:48:47.937Z",
+              "last_completed_at": "2026-10-29T17:48:47.958Z",
+              "next_due_at": "2026-10-29T17:49:47.958Z",
+              "checking": false,
+              "active_check_id": null,
+              "active_incident_id": null,
+              "recent_runs": [
+                {
+                  "id": 1,
+                  "state": "COMPLETED",
+                  "started_at": "2026-10-29T17:48:47.944Z",
+                  "finished_at": "2026-10-29T17:48:47.958Z",
+                  "interruption_reason": null
+                }
+              ]
+            }
+          ],
+          "correlation_id": "568f3efa-27fe-4e2b-b2b1-c3157dc6a4d4"
+        }
+      }
+    }
+  ],
+  "started_at": "2026-10-29T17:48:48.001Z",
+  "observations": {
+    "before_endpoint_count": 1,
+    "after_endpoint_count": 1,
+    "field_errors": {
+      "name": "Enter a name of 3 to 40 characters without control characters.",
+      "url": "Use https://api.sandbox.example/service/health with a lowercase fictional service path and no query or fragment.",
+      "interval_seconds": "Enter whole seconds from 10 to 3600."
+    }
+  },
+  "finished_at": "2026-10-29T17:48:48.016Z"
+}

@@ -1,0 +1,22 @@
+
+> api-health-monitor-module13@1.0.0 test
+> node --test --test-concurrency=1 test/monitor.test.js
+
+✔ normal check persists actual fixture response and contributes one passed observation (145.5939ms)
+✔ invalid and unauthorized requests do not create work; browser role claim grants nothing (48.2185ms)
+✔ registration rejects unsafe namespaces, unknown fields, types and canonical duplicates (63.0494ms)
+✔ transient fault has three real attempts and bounded gaps but only one passed result (1485.9189ms)
+✔ persistent failures deduplicate incident; acknowledgement and repair do not bypass verification (2970.4972ms)
+✔ 404 is non-retryable; replay and changed payload do not duplicate accepted changes (95.7574ms)
+✔ overlap and global capacity stay bounded and are visible in run-all outcomes (1528.9377ms)
+✔ scheduler honors 10/60-second intervals and stop prevents further dispatch (12389.0158ms)
+✔ real timeout exhausts three attempts; failed final transaction rolls back and pauses work (449.5974ms)
+✔ restart preserves history and marks leftover running work interrupted without replaying it (90.4261ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 19440.1872
