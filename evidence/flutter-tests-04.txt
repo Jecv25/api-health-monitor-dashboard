@@ -1,0 +1,20 @@
+Resolving dependencies...
+Downloading packages...
+  material_color_utilities 0.13.0 (0.13.1 available)
+  meta 1.18.3 (1.19.0 available)
+  test_api 0.7.12 (0.7.15 available)
+  vector_math 2.4.0 (2.4.4 available)
+Got dependencies!
+4 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+00:00 +0: loading C:/Users/HP/OneDrive/Documents/Sir Nacorda/Final/WEEKLY PROJECT 13-18/API_Health_Monitoring_Dashboard/frontend/test/workflow_test.dart
+00:00 +0: SA7-08 repair feedback remains inside the open service dialog
+00:01 +1: SA7-12 loading becomes an honest empty state
+00:01 +2: SA7-12 unavailable state supports recovery by retry
+00:01 +3: SA7-12 desktop navigation renders service and incident states
+00:01 +4: SA7-12 narrow browser uses drawer without overflow
+00:01 +5: SA7-02 form rejects an unapproved URL
+00:02 +6: SA7-03 unauthorized operator shows a safe error
+00:02 +7: SA7-08 service detail displays recovery verification
+00:02 +8: API client forwards idempotency and clears rejected credentials
+00:02 +9: All tests passed!

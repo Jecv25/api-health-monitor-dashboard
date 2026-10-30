@@ -1,0 +1,47 @@
+- dialog:
+  - group:
+    - text: Billing API
+    - button "Close service details"
+    - textbox [disabled]
+    - text: recovering Every 60s · Timeout 3s Last check 10/30 23:59:03 18 recent check results
+    - button "Check now"
+    - button "Pause service"
+    - text: "Recovery verification: 1 / 2 successful cycles. Controlled outage scenario Repair the fictional dependency, then run checks to verify recovery."
+    - button "Repair demo service"
+    - button "Reset demo outage"
+    - text: Demo repaired. Run two successful checks to verify recovery. Check history & attempts success 10/30 23:59:02 1 attempt(s) · 1561 ms · manual Attempt 1 · 200 · 166 ms
+    - textbox [disabled]
+    - text: failed 10/30 23:58:52 3 attempt(s) · 3460 ms · manual Attempt 1 · 503 · 204 ms Attempt 2 · 503 · 20 ms Attempt 3 · 503 · 20 ms
+    - textbox [disabled]
+    - text: success 10/30 23:58:43 1 attempt(s) · 1354 ms · manual Attempt 1 · 200 · 18 ms
+    - textbox [disabled]
+    - text: success 10/30 23:58:42 1 attempt(s) · 1386 ms · manual Attempt 1 · 200 · 43 ms
+    - textbox [disabled]
+    - text: success 10/30 23:53:19 1 attempt(s) · 1534 ms · manual Attempt 1 · 200 · 165 ms
+    - textbox [disabled]
+    - text: failed 10/30 23:53:10 3 attempt(s) · 3178 ms · manual Attempt 1 · 503 · 166 ms Attempt 2 · 503 · 58 ms Attempt 3 · 503 · 56 ms
+    - textbox [disabled]
+    - text: success 10/30 23:53:01 1 attempt(s) · 1323 ms · manual Attempt 1 · 200 · 18 ms
+    - textbox [disabled]
+    - text: success 10/30 23:53:00 1 attempt(s) · 1338 ms · manual Attempt 1 · 200 · 20 ms
+    - textbox [disabled]
+    - text: success 10/30 23:50:28 1 attempt(s) · 1628 ms · manual Attempt 1 · 200 · 286 ms
+    - textbox [disabled]
+    - text: failed 10/30 23:50:18 3 attempt(s) · 3473 ms · manual Attempt 1 · 503 · 430 ms Attempt 2 · 503 · 47 ms Attempt 3 · 503 · 49 ms
+    - textbox [disabled]
+    - text: success 10/30 23:50:10 1 attempt(s) · 1350 ms · manual Attempt 1 · 200 · 39 ms
+    - textbox [disabled]
+    - text: success 10/30 23:50:08 1 attempt(s) · 1333 ms · manual Attempt 1 · 200 · 38 ms
+    - textbox [disabled]
+    - text: failed 10/30 23:44:37 3 attempt(s) · 3279 ms · manual Attempt 1 · 503 · 172 ms Attempt 2 · 503 · 125 ms Attempt 3 · 503 · 45 ms
+    - textbox [disabled]
+    - text: failed 10/30 23:42:11 3 attempt(s) · 3298 ms · manual Attempt 1 · 503 · 321 ms Attempt 2 · 503 · 36 ms Attempt 3 · 503 · 30 ms
+    - textbox [disabled]
+    - text: success 10/30 23:40:03 1 attempt(s) · 1405 ms · manual Attempt 1 · 200 · 39 ms
+    - textbox [disabled]
+    - text: success 10/30 23:40:01 1 attempt(s) · 1349 ms · manual Attempt 1 · 200 · 18 ms
+    - textbox [disabled]
+    - text: failed 10/30 23:39:56 3 attempt(s) · 3033 ms · manual Attempt 1 · 503 · 40 ms Attempt 2 · 503 · 38 ms Attempt 3 · 503 · 18 ms
+    - textbox [disabled]
+    - text: failed 10/30 23:39:53 3 attempt(s) · 3008 ms · manual Attempt 1 · 503 · 40 ms Attempt 2 · 503 · 40 ms Attempt 3 · 503 · 40 ms
+    - textbox [disabled]

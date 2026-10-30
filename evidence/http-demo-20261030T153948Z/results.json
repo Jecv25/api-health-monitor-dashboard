@@ -1,0 +1,587 @@
+{
+  "python": "3.12.10",
+  "environment": "loopback HTTP + real MySQL + controlled HTTP service",
+  "scenarios": [
+    {
+      "scenario": "unauthorized mutation",
+      "timestamp": "2026-10-30T15:39:48.819557+00:00",
+      "expected": "401; no registration",
+      "actual": {
+        "status": 401,
+        "body": {
+          "error": {
+            "code": "unauthorized",
+            "message": "Connect with the local operator key to perform this action.",
+            "correlation_id": "a100c66d-ee61-4d56-b825-ed5fda930488"
+          }
+        }
+      },
+      "passed": true
+    },
+    {
+      "scenario": "unapproved endpoint",
+      "timestamp": "2026-10-30T15:39:48.825789+00:00",
+      "expected": "422; origin rejected",
+      "actual": {
+        "status": 422,
+        "body": {
+          "error": {
+            "code": "origin_not_approved",
+            "message": "Choose a service origin approved in the backend configuration.",
+            "correlation_id": "0fd1f283-be6d-4715-9e47-479792ecaa4a"
+          }
+        }
+      },
+      "passed": true
+    },
+    {
+      "scenario": "normal health check",
+      "timestamp": "2026-10-30T15:39:50.305107+00:00",
+      "expected": "200; one successful attempt",
+      "actual": {
+        "id": "ff3e4ab5-fc8d-4c8f-a1c2-408a38a4988b",
+        "endpoint_id": 2,
+        "correlation_id": "9926092c-a8e0-4b34-9e37-27d2ac161eb9",
+        "source": "manual",
+        "status": "success",
+        "success": true,
+        "http_status": 200,
+        "duration_ms": 1390.2,
+        "error_code": null,
+        "started_at": "2026-10-30T15:39:48.858Z",
+        "finished_at": "2026-10-30T15:39:50.255Z",
+        "attempt_count": 1,
+        "attempts": [
+          {
+            "number": 1,
+            "success": true,
+            "http_status": 200,
+            "duration_ms": 43.37,
+            "error_code": null,
+            "recorded_at": "2026-10-30T15:39:50.238Z"
+          }
+        ]
+      },
+      "passed": true
+    },
+    {
+      "scenario": "transient failure recovered",
+      "timestamp": "2026-10-30T15:39:52.353064+00:00",
+      "expected": "503 then 200; two attempts",
+      "actual": {
+        "id": "655e0f86-a8dd-4b83-995a-6d6acba2edec",
+        "endpoint_id": 3,
+        "correlation_id": "80e0bf47-9ed8-4ed4-b019-bf9aae87956e",
+        "source": "manual",
+        "status": "transient_recovered",
+        "success": true,
+        "http_status": 200,
+        "duration_ms": 1960.56,
+        "error_code": null,
+        "started_at": "2026-10-30T15:39:50.332Z",
+        "finished_at": "2026-10-30T15:39:52.303Z",
+        "attempt_count": 2,
+        "attempts": [
+          {
+            "number": 1,
+            "success": false,
+            "http_status": 503,
+            "duration_ms": 42.32,
+            "error_code": "http_503",
+            "recorded_at": "2026-10-30T15:39:51.721Z"
+          },
+          {
+            "number": 2,
+            "success": true,
+            "http_status": 200,
+            "duration_ms": 39.31,
+            "error_code": null,
+            "recorded_at": "2026-10-30T15:39:52.286Z"
+          }
+        ]
+      },
+      "passed": true
+    },
+    {
+      "scenario": "persistent failure bounded",
+      "timestamp": "2026-10-30T15:39:56.859170+00:00",
+      "expected": "three attempts then human action",
+      "actual": {
+        "id": "57785358-45b6-4f40-bd91-b5d0b11ce097",
+        "endpoint_id": 4,
+        "correlation_id": "b25fbf22-5603-4098-aa10-bdd544c13f8b",
+        "source": "manual",
+        "status": "failed",
+        "success": false,
+        "http_status": 503,
+        "duration_ms": 3007.98,
+        "error_code": "http_503",
+        "started_at": "2026-10-30T15:39:53.772Z",
+        "finished_at": "2026-10-30T15:39:56.794Z",
+        "attempt_count": 3,
+        "attempts": [
+          {
+            "number": 1,
+            "success": false,
+            "http_status": 503,
+            "duration_ms": 40.21,
+            "error_code": "http_503",
+            "recorded_at": "2026-10-30T15:39:55.169Z"
+          },
+          {
+            "number": 2,
+            "success": false,
+            "http_status": 503,
+            "duration_ms": 39.83,
+            "error_code": "http_503",
+            "recorded_at": "2026-10-30T15:39:55.717Z"
+          },
+          {
+            "number": 3,
+            "success": false,
+            "http_status": 503,
+            "duration_ms": 40.17,
+            "error_code": "http_503",
+            "recorded_at": "2026-10-30T15:39:56.784Z"
+          }
+        ]
+      },
+      "passed": true
+    },
+    {
+      "scenario": "idempotent resubmission",
+      "timestamp": "2026-10-30T15:40:00.030796+00:00",
+      "expected": "same run ID; no second execution",
+      "actual": {
+        "original": "4d0a1ab8-390a-4678-a98c-c4de15937406",
+        "replayed": "4d0a1ab8-390a-4678-a98c-c4de15937406"
+      },
+      "passed": true
+    },
+    {
+      "scenario": "outage incident deduplicated",
+      "timestamp": "2026-10-30T15:40:00.056198+00:00",
+      "expected": "one active incident for service",
+      "actual": [
+        {
+          "id": 1,
+          "endpoint_id": 4,
+          "endpoint_name": "Billing API",
+          "status": "open",
+          "owner_group": "support",
+          "opened_at": "2026-10-30T15:39:56.812Z",
+          "acknowledged_at": null,
+          "acknowledged_by": null,
+          "note": null,
+          "recovered_at": null,
+          "opening_run_id": "57785358-45b6-4f40-bd91-b5d0b11ce097",
+          "recovery_run_id": null,
+          "recovery_streak": 0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "scenario": "human acknowledgement",
+      "timestamp": "2026-10-30T15:40:00.108441+00:00",
+      "expected": "acknowledged; incident remains open for recovery",
+      "actual": {
+        "id": 1,
+        "endpoint_id": 4,
+        "endpoint_name": "Billing API",
+        "status": "acknowledged",
+        "owner_group": "support",
+        "opened_at": "2026-10-30T15:39:56.812Z",
+        "acknowledged_at": "2026-10-30T15:40:00.080Z",
+        "acknowledged_by": "support-demo",
+        "note": "Controlled dependency repair.",
+        "recovered_at": null,
+        "opening_run_id": "57785358-45b6-4f40-bd91-b5d0b11ce097",
+        "recovery_run_id": null,
+        "recovery_streak": 0
+      },
+      "passed": true
+    },
+    {
+      "scenario": "first recovery check",
+      "timestamp": "2026-10-30T15:40:03.004712+00:00",
+      "expected": "recovering; one successful cycle",
+      "actual": {
+        "id": 4,
+        "name": "Billing API",
+        "url": "http://127.0.0.1:9001/health/persistent",
+        "owner_group": "support",
+        "interval_seconds": 60,
+        "timeout_seconds": 3,
+        "enabled": true,
+        "status": "recovering",
+        "recovery_streak": 1,
+        "created_at": "2026-10-30T15:39:48.759Z",
+        "last_check_at": "2026-10-30T15:40:02.896Z",
+        "next_check_at": "2026-10-30T15:41:02.896Z",
+        "last_run": {
+          "id": "4e485f87-f4e0-4e51-b470-ae341b914569",
+          "endpoint_id": 4,
+          "correlation_id": "1eee59c4-647e-4de4-a8eb-ddfcbe66bc6d",
+          "source": "manual",
+          "status": "success",
+          "success": true,
+          "http_status": 200,
+          "duration_ms": 1348.54,
+          "error_code": null,
+          "started_at": "2026-10-30T15:40:01.531Z",
+          "finished_at": "2026-10-30T15:40:02.896Z",
+          "attempt_count": 1,
+          "attempts": [
+            {
+              "number": 1,
+              "success": true,
+              "http_status": 200,
+              "duration_ms": 18.08,
+              "error_code": null,
+              "recorded_at": "2026-10-30T15:40:02.879Z"
+            }
+          ]
+        },
+        "recent_samples": [
+          false,
+          false,
+          true
+        ]
+      },
+      "passed": true
+    },
+    {
+      "scenario": "verified recovery notification",
+      "timestamp": "2026-10-30T15:40:04.537564+00:00",
+      "expected": "recovered; one durable recovery notification",
+      "actual": {
+        "incident": {
+          "id": 1,
+          "endpoint_id": 4,
+          "endpoint_name": "Billing API",
+          "status": "recovered",
+          "owner_group": "support",
+          "opened_at": "2026-10-30T15:39:56.812Z",
+          "acknowledged_at": "2026-10-30T15:40:00.080Z",
+          "acknowledged_by": "support-demo",
+          "note": "Controlled dependency repair.",
+          "recovered_at": "2026-10-30T15:40:04.458Z",
+          "opening_run_id": "57785358-45b6-4f40-bd91-b5d0b11ce097",
+          "recovery_run_id": "88299197-62c7-4cf0-9dad-5d252012b459",
+          "recovery_streak": 0
+        },
+        "notifications": [
+          {
+            "id": 2,
+            "endpoint_id": 4,
+            "incident_id": 1,
+            "kind": "recovery",
+            "message": "Billing API recovered after 2 successful checks.",
+            "created_at": "2026-10-30T15:40:04.466Z",
+            "read_at": null
+          },
+          {
+            "id": 1,
+            "endpoint_id": 4,
+            "incident_id": 1,
+            "kind": "human_action",
+            "message": "Billing API is unavailable. support action required.",
+            "created_at": "2026-10-30T15:39:56.817Z",
+            "read_at": null
+          }
+        ]
+      },
+      "passed": true
+    },
+    {
+      "scenario": "uptime summary",
+      "timestamp": "2026-10-30T15:40:04.604111+00:00",
+      "expected": "computed from actual completed check cycles",
+      "actual": {
+        "hours": 24,
+        "since": "2026-10-29T15:40:04.549Z",
+        "generated_at": "2026-10-30T15:40:04.582Z",
+        "definition": "Successful completed check cycles / all completed check cycles. Sampled availability, not time-based SLA uptime.",
+        "summary": {
+          "total_endpoints": 4,
+          "healthy": 4,
+          "unavailable": 0,
+          "recovering": 0,
+          "open_incidents": 0,
+          "completed_checks": 7,
+          "successful_checks": 5,
+          "failed_checks": 2,
+          "retry_attempts": 5,
+          "transient_recoveries": 1,
+          "uptime_percent": 71.43,
+          "avg_response_ms": 37.55
+        },
+        "endpoints": [
+          {
+            "endpoint_id": 1,
+            "name": "UI smoke API",
+            "status": "up",
+            "completed_checks": 1,
+            "successful_checks": 1,
+            "failed_checks": 0,
+            "transient_recoveries": 0,
+            "retry_attempts": 0,
+            "uptime_percent": 100.0
+          },
+          {
+            "endpoint_id": 2,
+            "name": "Gateway API",
+            "status": "up",
+            "completed_checks": 1,
+            "successful_checks": 1,
+            "failed_checks": 0,
+            "transient_recoveries": 0,
+            "retry_attempts": 0,
+            "uptime_percent": 100.0
+          },
+          {
+            "endpoint_id": 3,
+            "name": "Orders API",
+            "status": "up",
+            "completed_checks": 1,
+            "successful_checks": 1,
+            "failed_checks": 0,
+            "transient_recoveries": 1,
+            "retry_attempts": 1,
+            "uptime_percent": 100.0
+          },
+          {
+            "endpoint_id": 4,
+            "name": "Billing API",
+            "status": "up",
+            "completed_checks": 4,
+            "successful_checks": 2,
+            "failed_checks": 2,
+            "transient_recoveries": 0,
+            "retry_attempts": 4,
+            "uptime_percent": 50.0
+          }
+        ],
+        "recent_runs": [
+          {
+            "id": "88299197-62c7-4cf0-9dad-5d252012b459",
+            "endpoint_id": 4,
+            "correlation_id": "6d7e2866-de81-4eb3-8114-f9dc4cdfa714",
+            "source": "manual",
+            "status": "success",
+            "success": true,
+            "http_status": 200,
+            "duration_ms": 1404.54,
+            "error_code": null,
+            "started_at": "2026-10-30T15:40:03.029Z",
+            "finished_at": "2026-10-30T15:40:04.450Z",
+            "attempt_count": 1,
+            "attempts": [
+              {
+                "number": 1,
+                "success": true,
+                "http_status": 200,
+                "duration_ms": 39.12,
+                "error_code": null,
+                "recorded_at": "2026-10-30T15:40:04.433Z"
+              }
+            ],
+            "endpoint_name": "Billing API"
+          },
+          {
+            "id": "4e485f87-f4e0-4e51-b470-ae341b914569",
+            "endpoint_id": 4,
+            "correlation_id": "1eee59c4-647e-4de4-a8eb-ddfcbe66bc6d",
+            "source": "manual",
+            "status": "success",
+            "success": true,
+            "http_status": 200,
+            "duration_ms": 1348.54,
+            "error_code": null,
+            "started_at": "2026-10-30T15:40:01.531Z",
+            "finished_at": "2026-10-30T15:40:02.896Z",
+            "attempt_count": 1,
+            "attempts": [
+              {
+                "number": 1,
+                "success": true,
+                "http_status": 200,
+                "duration_ms": 18.08,
+                "error_code": null,
+                "recorded_at": "2026-10-30T15:40:02.879Z"
+              }
+            ],
+            "endpoint_name": "Billing API"
+          },
+          {
+            "id": "4d0a1ab8-390a-4678-a98c-c4de15937406",
+            "endpoint_id": 4,
+            "correlation_id": "c3e24b7c-b871-4d56-8b19-5ccffae7e32f",
+            "source": "manual",
+            "status": "failed",
+            "success": false,
+            "http_status": 503,
+            "duration_ms": 3032.77,
+            "error_code": "http_503",
+            "started_at": "2026-10-30T15:39:56.909Z",
+            "finished_at": "2026-10-30T15:39:59.947Z",
+            "attempt_count": 3,
+            "attempts": [
+              {
+                "number": 1,
+                "success": false,
+                "http_status": 503,
+                "duration_ms": 39.64,
+                "error_code": "http_503",
+                "recorded_at": "2026-10-30T15:39:58.342Z"
+              },
+              {
+                "number": 2,
+                "success": false,
+                "http_status": 503,
+                "duration_ms": 37.68,
+                "error_code": "http_503",
+                "recorded_at": "2026-10-30T15:39:58.890Z"
+              },
+              {
+                "number": 3,
+                "success": false,
+                "http_status": 503,
+                "duration_ms": 17.87,
+                "error_code": "http_503",
+                "recorded_at": "2026-10-30T15:39:59.941Z"
+              }
+            ],
+            "endpoint_name": "Billing API"
+          },
+          {
+            "id": "57785358-45b6-4f40-bd91-b5d0b11ce097",
+            "endpoint_id": 4,
+            "correlation_id": "b25fbf22-5603-4098-aa10-bdd544c13f8b",
+            "source": "manual",
+            "status": "failed",
+            "success": false,
+            "http_status": 503,
+            "duration_ms": 3007.98,
+            "error_code": "http_503",
+            "started_at": "2026-10-30T15:39:53.772Z",
+            "finished_at": "2026-10-30T15:39:56.794Z",
+            "attempt_count": 3,
+            "attempts": [
+              {
+                "number": 1,
+                "success": false,
+                "http_status": 503,
+                "duration_ms": 40.21,
+                "error_code": "http_503",
+                "recorded_at": "2026-10-30T15:39:55.169Z"
+              },
+              {
+                "number": 2,
+                "success": false,
+                "http_status": 503,
+                "duration_ms": 39.83,
+                "error_code": "http_503",
+                "recorded_at": "2026-10-30T15:39:55.717Z"
+              },
+              {
+                "number": 3,
+                "success": false,
+                "http_status": 503,
+                "duration_ms": 40.17,
+                "error_code": "http_503",
+                "recorded_at": "2026-10-30T15:39:56.784Z"
+              }
+            ],
+            "endpoint_name": "Billing API"
+          },
+          {
+            "id": "655e0f86-a8dd-4b83-995a-6d6acba2edec",
+            "endpoint_id": 3,
+            "correlation_id": "80e0bf47-9ed8-4ed4-b019-bf9aae87956e",
+            "source": "manual",
+            "status": "transient_recovered",
+            "success": true,
+            "http_status": 200,
+            "duration_ms": 1960.56,
+            "error_code": null,
+            "started_at": "2026-10-30T15:39:50.332Z",
+            "finished_at": "2026-10-30T15:39:52.303Z",
+            "attempt_count": 2,
+            "attempts": [
+              {
+                "number": 1,
+                "success": false,
+                "http_status": 503,
+                "duration_ms": 42.32,
+                "error_code": "http_503",
+                "recorded_at": "2026-10-30T15:39:51.721Z"
+              },
+              {
+                "number": 2,
+                "success": true,
+                "http_status": 200,
+                "duration_ms": 39.31,
+                "error_code": null,
+                "recorded_at": "2026-10-30T15:39:52.286Z"
+              }
+            ],
+            "endpoint_name": "Orders API"
+          },
+          {
+            "id": "ff3e4ab5-fc8d-4c8f-a1c2-408a38a4988b",
+            "endpoint_id": 2,
+            "correlation_id": "9926092c-a8e0-4b34-9e37-27d2ac161eb9",
+            "source": "manual",
+            "status": "success",
+            "success": true,
+            "http_status": 200,
+            "duration_ms": 1390.2,
+            "error_code": null,
+            "started_at": "2026-10-30T15:39:48.858Z",
+            "finished_at": "2026-10-30T15:39:50.255Z",
+            "attempt_count": 1,
+            "attempts": [
+              {
+                "number": 1,
+                "success": true,
+                "http_status": 200,
+                "duration_ms": 43.37,
+                "error_code": null,
+                "recorded_at": "2026-10-30T15:39:50.238Z"
+              }
+            ],
+            "endpoint_name": "Gateway API"
+          },
+          {
+            "id": "693ea517-eef0-4b33-aeda-b7e9d507c626",
+            "endpoint_id": 1,
+            "correlation_id": "32f93014-2e6f-4747-834b-b20008c94367",
+            "source": "manual",
+            "status": "success",
+            "success": true,
+            "http_status": 200,
+            "duration_ms": 1594.88,
+            "error_code": null,
+            "started_at": "2026-10-30T15:38:03.152Z",
+            "finished_at": "2026-10-30T15:38:04.763Z",
+            "attempt_count": 1,
+            "attempts": [
+              {
+                "number": 1,
+                "success": true,
+                "http_status": 200,
+                "duration_ms": 53.03,
+                "error_code": null,
+                "recorded_at": "2026-10-30T15:38:04.746Z"
+              }
+            ],
+            "endpoint_name": "UI smoke API"
+          }
+        ]
+      },
+      "passed": true
+    }
+  ]
+}

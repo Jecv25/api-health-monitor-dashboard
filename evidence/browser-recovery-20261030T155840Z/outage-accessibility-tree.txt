@@ -1,0 +1,25 @@
+- text: pulsewatch Monitoring workspace / Overview offline
+- button "Notifications 9"
+- button "Operator connected"
+- text: WORKSPACE
+- button "Overview"
+- button "Services"
+- button "Incidents 1"
+- button "Reports"
+- text: Classroom lab Controlled services. Clear, reproducible signals. API HEALTH MONITOR
+- group:
+  - text: MONITORING / OVERVIEW Service overview
+  - button "Refresh results Refresh results"
+  - button "Add service"
+  - text: A clear signal for every service. Auto-refresh every 5 seconds · Last synced 10/30 23:58:56 Healthy services Observed uptime Open incidents Avg. response 3 / 4 68.2% 1 83 ms 1 unavailable · 0 recovering Successful checks · last 24 hours Awaiting action or verified recovery Per-attempt elapsed time Scheduled monitoring is offline. Start the worker to keep checks running independently of this browser. Service health 4 registered services
+  - button "View all services →"
+  - group "UI smoke API http://127.0.0.1:9001/health/healthy-ui Healthy 1 recent check results Last 24 check results 53 ms":
+    - button "Check UI smoke API now"
+  - group "Gateway API http://127.0.0.1:9001/health/healthy Healthy 3 recent check results Last 24 check results 96 ms":
+    - button "Check Gateway API now"
+  - group "Orders API http://127.0.0.1:9001/health/transient Healthy 1 recent check results Last 24 check results 39 ms":
+    - button "Check Orders API now"
+  - group "Billing API http://127.0.0.1:9001/health/persistent Unavailable 17 recent check results Last 24 check results 20 ms":
+    - button "Check Billing API now"
+  - text: Recent activity Latest check cycles Recovery, with evidence. failed Billing API 3 attempt(s) · 3460 ms · manual A successful retry clears a transient failure. An outage stays open until consecutive checks confirm the service is back. success Billing API 1 attempt(s) · 1354 ms · manual Maximum attempts 3 per cycle success Billing API 1 attempt(s) · 1386 ms · manual Recovery verification 2 successful cycles success Billing API 1 attempt(s) · 1534 ms · manual Human ownership Support personnel failed Billing API 3 attempt(s) · 3178 ms · manual Availability is based on recorded checks. Controlled demo services contain fictional data.
+- text: "Billing API: unavailable. Review the incident for human action."

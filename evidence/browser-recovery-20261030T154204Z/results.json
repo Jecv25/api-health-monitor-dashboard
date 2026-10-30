@@ -1,0 +1,10 @@
+{
+  "environment": "actual Flutter Web / Edge / FastAPI / MySQL / controlled dependency",
+  "scenarios": [
+    {
+      "scenario": "browser recovery interrupted",
+      "passed": false,
+      "error": "Locator.wait_for: Timeout 30000ms exceeded.\nCall log:\n  - waiting for get_by_text(\"Unavailable\", exact=True).first to be visible\n"
+    }
+  ]
+}

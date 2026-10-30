@@ -1,0 +1,10 @@
+{
+  "browser": "installed Microsoft Edge / Playwright",
+  "scenarios": [
+    {
+      "scenario": "browser verification interrupted",
+      "passed": false,
+      "error": "Locator.wait_for: Timeout 30000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=\"Connect operator\", exact=True) to be visible\n"
+    }
+  ]
+}

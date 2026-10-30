@@ -1,0 +1,120 @@
+Resolving dependencies...
+Downloading packages...
+  material_color_utilities 0.13.0 (0.13.1 available)
+  meta 1.18.3 (1.19.0 available)
+  test_api 0.7.12 (0.7.15 available)
+  vector_math 2.4.0 (2.4.4 available)
+Got dependencies!
+4 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+00:00 +0: loading C:/Users/HP/OneDrive/Documents/Sir Nacorda/Final/WEEKLY PROJECT 13-18/API_Health_Monitoring_Dashboard/frontend/test/workflow_test.dart
+00:00 +0: SA7-12 loading becomes an honest empty state
+00:00 +1: SA7-12 unavailable state supports recovery by retry
+00:01 +2: SA7-12 desktop navigation renders service and incident states
+00:01 +3: SA7-12 narrow browser uses drawer without overflow
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: null
+  Actual: FlutterError:<A RenderFlex overflowed by 48 pixels on the right.>
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///C:/Users/HP/OneDrive/Documents/Sir%20Nacorda/Final/WEEKLY%20PROJECT%2013-18/API_Health_Monitoring_Dashboard/frontend/test/workflow_test.dart:157:5)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Users/HP/OneDrive/Documents/Sir%20Nacorda/Final/WEEKLY%20PROJECT%2013-18/API_Health_Monitoring_Dashboard/frontend/test/workflow_test.dart line 157
+The test description was:
+  SA7-12 narrow browser uses drawer without overflow
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:02 +3 -1: SA7-12 narrow browser uses drawer without overflow [E]
+  Test failed. See exception logs above.
+  The test description was: SA7-12 narrow browser uses drawer without overflow
+  
+00:02 +3 -1: SA7-02 form rejects an unapproved URL
+══╡ EXCEPTION CAUGHT BY RENDERING LIBRARY ╞═════════════════════════════════════════════════════════
+The following assertion was thrown during layout:
+A RenderFlex overflowed by 47 pixels on the right.
+
+The relevant error-causing widget was:
+  DropdownButtonFormField<int>
+  DropdownButtonFormField:file:///C:/Users/HP/OneDrive/Documents/Sir%20Nacorda/Final/WEEKLY%20PROJECT%2013-18/API_Health_Monitoring_Dashboard/frontend/lib/forms.dart:220:28
+
+The overflowing RenderFlex has an orientation of Axis.horizontal.
+The edge of the RenderFlex that is overflowing has been marked in the rendering with a yellow and
+black striped pattern. This is usually caused by the contents being too big for the RenderFlex.
+Consider applying a flex factor (e.g. using an Expanded widget) to force the children of the
+RenderFlex to fit within the available space instead of being sized to their natural size.
+This is considered an error condition because it indicates that there is content that cannot be
+seen. If the content is legitimately bigger than the available space, consider clipping it with a
+ClipRect widget before putting it in the flex, or using a scrollable container rather than a Flex,
+like a ListView.
+The specific RenderFlex in question is: RenderFlex#d691a OVERFLOWING:
+  creator: Row ← Padding ← SizedBox ← DefaultTextStyle ← _Decorator ← Semantics ← InputDecorator ←
+    Listener ← _GestureSemantics ← RawGestureDetector ← GestureDetector ← MouseRegion ← ⋯
+  parentData: offset=Offset(0.0, 0.0) (can use size)
+  constraints: BoxConstraints(w=147.0, h=24.0)
+  size: Size(147.0, 24.0)
+  direction: horizontal
+  mainAxisAlignment: spaceBetween
+  mainAxisSize: min
+  crossAxisAlignment: center
+  textDirection: ltr
+  verticalDirection: down
+  spacing: 0.0
+◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤
+════════════════════════════════════════════════════════════════════════════════════════════════════
+══╡ EXCEPTION CAUGHT BY RENDERING LIBRARY ╞═════════════════════════════════════════════════════════
+The following assertion was thrown during layout:
+A RenderFlex overflowed by 50 pixels on the right.
+
+The relevant error-causing widget was:
+  DropdownButtonFormField<int>
+  DropdownButtonFormField:file:///C:/Users/HP/OneDrive/Documents/Sir%20Nacorda/Final/WEEKLY%20PROJECT%2013-18/API_Health_Monitoring_Dashboard/frontend/lib/forms.dart:240:28
+
+The overflowing RenderFlex has an orientation of Axis.horizontal.
+The edge of the RenderFlex that is overflowing has been marked in the rendering with a yellow and
+black striped pattern. This is usually caused by the contents being too big for the RenderFlex.
+Consider applying a flex factor (e.g. using an Expanded widget) to force the children of the
+RenderFlex to fit within the available space instead of being sized to their natural size.
+This is considered an error condition because it indicates that there is content that cannot be
+seen. If the content is legitimately bigger than the available space, consider clipping it with a
+ClipRect widget before putting it in the flex, or using a scrollable container rather than a Flex,
+like a ListView.
+The specific RenderFlex in question is: RenderFlex#ab694 OVERFLOWING:
+  creator: Row ← Padding ← SizedBox ← DefaultTextStyle ← _Decorator ← Semantics ← InputDecorator ←
+    Listener ← _GestureSemantics ← RawGestureDetector ← GestureDetector ← MouseRegion ← ⋯
+  parentData: offset=Offset(0.0, 0.0) (can use size)
+  constraints: BoxConstraints(w=112.0, h=24.0)
+  size: Size(112.0, 24.0)
+  direction: horizontal
+  mainAxisAlignment: spaceBetween
+  mainAxisSize: min
+  crossAxisAlignment: center
+  textDirection: ltr
+  verticalDirection: down
+  spacing: 0.0
+◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤
+════════════════════════════════════════════════════════════════════════════════════════════════════
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following message was thrown:
+Multiple exceptions (2) were detected during the running of the current test, and at least one was
+unexpected.
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:03 +3 -2: SA7-02 form rejects an unapproved URL [E]
+  Test failed. See exception logs above.
+  The test description was: SA7-02 form rejects an unapproved URL
+  
+00:03 +3 -2: SA7-03 unauthorized operator shows a safe error
+00:05 +4 -2: SA7-08 service detail displays recovery verification
+00:05 +5 -2: API client forwards idempotency and clears rejected credentials
+00:06 +6 -2: Some tests failed.
+
+Failing tests:
+  C:/Users/HP/OneDrive/Documents/Sir Nacorda/Final/WEEKLY PROJECT 13-18/API_Health_Monitoring_Dashboard/frontend/test/workflow_test.dart: SA7-02 form rejects an unapproved URL
+  C:/Users/HP/OneDrive/Documents/Sir Nacorda/Final/WEEKLY PROJECT 13-18/API_Health_Monitoring_Dashboard/frontend/test/workflow_test.dart: SA7-12 narrow browser uses drawer without overflow

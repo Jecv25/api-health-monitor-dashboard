@@ -1,0 +1,19 @@
+- text: pulsewatch Monitoring workspace / Overview offline
+- button "Notifications"
+- button "Connect operator"
+- text: WORKSPACE
+- button "Overview"
+- button "Services"
+- button "Incidents"
+- button "Reports"
+- text: Classroom lab Controlled services. Clear, reproducible signals. API HEALTH MONITOR
+- group:
+  - text: MONITORING / OVERVIEW Service overview
+  - button "Refresh results"
+  - button "Add service"
+  - text: A clear signal for every service. Auto-refresh every 5 seconds · Last synced 10/30 23:37:32 Healthy services Observed uptime Open incidents Avg. response 0 / 0 — 0 — 0 unavailable · 0 recovering Successful checks · last 24 hours Awaiting action or verified recovery Per-attempt elapsed time Scheduled monitoring is offline. Start the worker to keep checks running independently of this browser. Service health 0 registered services
+  - button "View all services →"
+  - text: Bring your first service online Register an approved endpoint, or start with controlled services to explore healthy, retry, and outage scenarios.
+  - button "Register a service"
+  - button "Add demo services"
+  - text: Recent activity Latest check cycles Recovery, with evidence. Your check results will appear here. A successful retry clears a transient failure. An outage stays open until consecutive checks confirm the service is back. Maximum attempts 3 per cycle Recovery verification 2 successful cycles Human ownership Support personnel Availability is based on recorded checks. Controlled demo services contain fictional data.

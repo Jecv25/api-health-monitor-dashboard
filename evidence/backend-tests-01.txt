@@ -1,0 +1,62 @@
+..........................F...                                           [100%]
+
+================================== FAILURES ===================================
+
+_________ test_worker_checks_due_without_browser_and_does_not_replay __________
+
+
+
+context = {'app': <fastapi.applications.FastAPI object at 0x000001FD71364470>, 'client': <starlette.testclient.TestClient object...'state': {'persistent': 503, 'calls': 0}, 'headers': {'X-Operator-Key': '[REDACTED]'}}
+
+register = <function register.<locals>.create at 0x000001FD713C6A20>
+
+
+
+    def test_worker_checks_due_without_browser_and_does_not_replay(context, register):
+
+        endpoint = register()
+
+        runner = context["app"].state.runner
+
+        asyncio.run(runner.check_due())
+
+        asyncio.run(runner.check_due())
+
+>       assert context["state"]["calls"] == 1
+
+E       assert 0 == 1
+
+
+
+backend\tests\test_monitoring.py:146: AssertionError
+
+------------------------------ Captured log call ------------------------------
+
+INFO     pulsewatch.C:\Users\HP\OneDrive\Documents\Sir Nacorda\Final\WEEKLY PROJECT 13-18\API_Health_Monitoring_Dashboard\.runtime\test-logs:logging_json.py:32 {'event': 'endpoint.registered', 'endpoint_id': 16, 'correlation_id': 'e7046bd9-8ad9-40d9-a85a-b7926ed9fe16'}
+
+============================== warnings summary ===============================
+
+.tools\python\Lib\site-packages\fastapi\testclient.py:1
+
+  C:\Users\HP\OneDrive\Documents\Sir Nacorda\Final\WEEKLY PROJECT 13-18\API_Health_Monitoring_Dashboard\.tools\python\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+
+
+backend/tests/test_monitoring.py::test_schedule_is_rechecked_after_lock
+
+  C:\Users\HP\OneDrive\Documents\Sir Nacorda\Final\WEEKLY PROJECT 13-18\API_Health_Monitoring_Dashboard\.tools\python\Lib\site-packages\_pytest\raises.py:613: PytestWarning: matching against an empty string will *always* pass. If you want to check for an empty message you need to pass '^$'. If you don't want to match you should pass `None` or leave out the parameter.
+
+    super().__init__(match=match, check=check)
+
+
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+
+=========================== short test summary info ===========================
+
+FAILED backend/tests/test_monitoring.py::test_worker_checks_due_without_browser_and_does_not_replay
+
+1 failed, 29 passed, 2 warnings in 19.68s
+

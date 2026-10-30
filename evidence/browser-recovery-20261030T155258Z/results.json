@@ -1,0 +1,156 @@
+{
+  "environment": "actual Flutter Web / Edge / FastAPI / MySQL / controlled dependency",
+  "scenarios": [
+    {
+      "scenario": "controlled baseline preparation",
+      "method": "API repair plus two checks close a prior interrupted demonstration incident",
+      "passed": true
+    },
+    {
+      "scenario": "persistent failure checked via Flutter",
+      "expected": "down; three recorded attempts",
+      "actual": {
+        "id": 4,
+        "name": "Billing API",
+        "url": "http://127.0.0.1:9001/health/persistent",
+        "owner_group": "support",
+        "interval_seconds": 60,
+        "timeout_seconds": 3,
+        "enabled": true,
+        "status": "down",
+        "recovery_streak": 0,
+        "created_at": "2026-10-30T15:39:48.759Z",
+        "last_check_at": "2026-10-30T15:53:13.311Z",
+        "next_check_at": "2026-10-30T15:54:13.311Z",
+        "last_run": {
+          "id": "774cce01-26ae-4d75-aef7-49aa87b34ff2",
+          "endpoint_id": 4,
+          "correlation_id": "e75a79e3-71ea-4ca2-850c-6f7b019847b3",
+          "source": "manual",
+          "status": "failed",
+          "success": false,
+          "http_status": 503,
+          "duration_ms": 3177.58,
+          "error_code": "http_503",
+          "started_at": "2026-10-30T15:53:10.121Z",
+          "finished_at": "2026-10-30T15:53:13.311Z",
+          "attempt_count": 3,
+          "attempts": [
+            {
+              "number": 1,
+              "success": false,
+              "http_status": 503,
+              "duration_ms": 165.56,
+              "error_code": "http_503",
+              "recorded_at": "2026-10-30T15:53:11.645Z"
+            },
+            {
+              "number": 2,
+              "success": false,
+              "http_status": 503,
+              "duration_ms": 57.96,
+              "error_code": "http_503",
+              "recorded_at": "2026-10-30T15:53:12.226Z"
+            },
+            {
+              "number": 3,
+              "success": false,
+              "http_status": 503,
+              "duration_ms": 55.91,
+              "error_code": "http_503",
+              "recorded_at": "2026-10-30T15:53:13.295Z"
+            }
+          ]
+        },
+        "recent_samples": [
+          false,
+          false,
+          true,
+          true,
+          false,
+          false,
+          true,
+          true,
+          false,
+          true,
+          true,
+          true,
+          false
+        ]
+      },
+      "passed": true
+    },
+    {
+      "scenario": "support acknowledgement through Flutter",
+      "expected": "acknowledged, not recovered",
+      "actual": [
+        {
+          "id": 4,
+          "endpoint_id": 4,
+          "endpoint_name": "Billing API",
+          "status": "acknowledged",
+          "owner_group": "support",
+          "opened_at": "2026-10-30T15:53:13.328Z",
+          "acknowledged_at": "2026-10-30T15:53:16.496Z",
+          "acknowledged_by": "support-demo",
+          "note": "Investigating the controlled service.",
+          "recovered_at": null,
+          "opening_run_id": "774cce01-26ae-4d75-aef7-49aa87b34ff2",
+          "recovery_run_id": null,
+          "recovery_streak": 0
+        },
+        {
+          "id": 3,
+          "endpoint_id": 4,
+          "endpoint_name": "Billing API",
+          "status": "recovered",
+          "owner_group": "support",
+          "opened_at": "2026-10-30T15:50:21.952Z",
+          "acknowledged_at": "2026-10-30T15:50:24.986Z",
+          "acknowledged_by": "support-demo",
+          "note": "Investigating the controlled service.",
+          "recovered_at": "2026-10-30T15:53:01.582Z",
+          "opening_run_id": "69120cea-9571-450d-953a-172cde4e9d0f",
+          "recovery_run_id": "f4e7fe61-aa36-43df-b2f4-c2ef1764086d",
+          "recovery_streak": 0
+        },
+        {
+          "id": 2,
+          "endpoint_id": 4,
+          "endpoint_name": "Billing API",
+          "status": "recovered",
+          "owner_group": "support",
+          "opened_at": "2026-10-30T15:42:15.163Z",
+          "acknowledged_at": "2026-10-30T15:44:42.057Z",
+          "acknowledged_by": "support-demo",
+          "note": "Investigating the controlled service.",
+          "recovered_at": "2026-10-30T15:50:11.414Z",
+          "opening_run_id": "ebef135d-6096-461f-b0aa-9d87d76dc625",
+          "recovery_run_id": "084425f3-2bf8-4a76-b22e-493034724697",
+          "recovery_streak": 0
+        },
+        {
+          "id": 1,
+          "endpoint_id": 4,
+          "endpoint_name": "Billing API",
+          "status": "recovered",
+          "owner_group": "support",
+          "opened_at": "2026-10-30T15:39:56.812Z",
+          "acknowledged_at": "2026-10-30T15:40:00.080Z",
+          "acknowledged_by": "support-demo",
+          "note": "Controlled dependency repair.",
+          "recovered_at": "2026-10-30T15:40:04.458Z",
+          "opening_run_id": "57785358-45b6-4f40-bd91-b5d0b11ce097",
+          "recovery_run_id": "88299197-62c7-4cf0-9dad-5d252012b459",
+          "recovery_streak": 0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "scenario": "browser recovery interrupted",
+      "passed": false,
+      "error": "The service dialog did not expose the expected recovery verification state. Inspect screenshot 03 and its accessibility tree."
+    }
+  ]
+}

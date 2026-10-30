@@ -1,0 +1,27 @@
+{
+  "method": "real worker subprocess; controlled due-time injection; no browser dependency",
+  "scenarios": [
+    {
+      "scenario": "scheduled_without_browser",
+      "timestamp": "2026-10-30T15:47:12.318381+00:00",
+      "expected": "one completed scheduled run, fresh heartbeat, no replay burst",
+      "run_ids": [
+        "27f232b7-efc8-494c-be0a-932e7d113859"
+      ],
+      "worker_signal": "online",
+      "elapsed_seconds": 8.058,
+      "passed": true
+    },
+    {
+      "scenario": "restart_resumes_due_work",
+      "timestamp": "2026-10-30T15:47:20.921839+00:00",
+      "expected": "one completed scheduled run, fresh heartbeat, no replay burst",
+      "run_ids": [
+        "77394bd9-9dcd-4586-9193-43cd526506bc"
+      ],
+      "worker_signal": "online",
+      "elapsed_seconds": 8.546,
+      "passed": true
+    }
+  ]
+}

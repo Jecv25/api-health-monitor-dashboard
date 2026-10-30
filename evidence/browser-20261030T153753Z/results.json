@@ -1,0 +1,37 @@
+{
+  "browser": "installed Microsoft Edge / Playwright",
+  "scenarios": [
+    {
+      "scenario": "desktop initial view",
+      "viewport": "1440x1100",
+      "screenshot": "01-desktop.png",
+      "passed": true
+    },
+    {
+      "scenario": "invalid operator key",
+      "expected": "safe unauthorized message",
+      "passed": true
+    },
+    {
+      "scenario": "unapproved URL validation",
+      "expected": "form remains open; no registration",
+      "passed": true
+    },
+    {
+      "scenario": "registration and manual check via Flutter",
+      "expected": "persisted service and successful result",
+      "passed": true
+    },
+    {
+      "scenario": "narrow navigation and reports",
+      "viewport": "390x844",
+      "passed": true
+    },
+    {
+      "scenario": "browser runtime errors",
+      "expected": [],
+      "actual": [],
+      "passed": true
+    }
+  ]
+}

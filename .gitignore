@@ -1,0 +1,17 @@
+.tools/
+.runtime/
+.venv/
+.env
+backend/.env
+__pycache__/
+.pytest_cache/
+*.pyc
+backend/logs/
+frontend/.dart_tool/
+frontend/build/
+frontend/.flutter-plugins-dependencies
+frontend/.idea/
+*.iml
+.DS_Store
+deliverables/*.zip
+

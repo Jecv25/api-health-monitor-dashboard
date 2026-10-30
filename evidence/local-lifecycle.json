@@ -1,0 +1,8 @@
+{
+    "timestamp":  "2026-10-30T15:49:59.4389989Z",
+    "scenario":  "owned process stop/restart preserving MySQL",
+    "expected":  "same registered endpoint count, API and UI available",
+    "before_endpoints":  1,
+    "after_endpoints":  1,
+    "passed":  true
+}

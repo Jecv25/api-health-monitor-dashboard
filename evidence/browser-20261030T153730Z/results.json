@@ -1,0 +1,21 @@
+{
+  "browser": "installed Microsoft Edge / Playwright",
+  "scenarios": [
+    {
+      "scenario": "desktop initial view",
+      "viewport": "1440x1100",
+      "screenshot": "01-desktop.png",
+      "passed": true
+    },
+    {
+      "scenario": "invalid operator key",
+      "expected": "safe unauthorized message",
+      "passed": true
+    },
+    {
+      "scenario": "browser verification interrupted",
+      "passed": false,
+      "error": "Locator.wait_for: Error: strict mode violation: get_by_text(\"Choose an approved service origin.\") resolved to 2 elements:\n    1) <span>Choose an approved service origin.</span> aka get_by_label(\"Alert\").get_by_text(\"Choose an approved service\")\n    2) <flt-announcement-assertive aria-live=\"assertive\">Choose an approved service origin.</flt-announcement-assertive> aka locator(\"flt-announcement-assertive\")\n\nCall log:\n  - waiting for get_by_text(\"Choose an approved service origin.\") to be visible\n"
+    }
+  ]
+}

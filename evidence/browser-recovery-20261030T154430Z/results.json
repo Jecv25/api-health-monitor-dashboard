@@ -1,0 +1,113 @@
+{
+  "environment": "actual Flutter Web / Edge / FastAPI / MySQL / controlled dependency",
+  "scenarios": [
+    {
+      "scenario": "persistent failure checked via Flutter",
+      "expected": "down; three recorded attempts",
+      "actual": {
+        "id": 4,
+        "name": "Billing API",
+        "url": "http://127.0.0.1:9001/health/persistent",
+        "owner_group": "support",
+        "interval_seconds": 60,
+        "timeout_seconds": 3,
+        "enabled": true,
+        "status": "down",
+        "recovery_streak": 0,
+        "created_at": "2026-10-30T15:39:48.759Z",
+        "last_check_at": "2026-10-30T15:42:15.138Z",
+        "next_check_at": "2026-10-30T15:43:15.138Z",
+        "last_run": {
+          "id": "ebef135d-6096-461f-b0aa-9d87d76dc625",
+          "endpoint_id": 4,
+          "correlation_id": "0eddda54-0717-415a-b244-090d362cc59a",
+          "source": "manual",
+          "status": "failed",
+          "success": false,
+          "http_status": 503,
+          "duration_ms": 3297.55,
+          "error_code": "http_503",
+          "started_at": "2026-10-30T15:42:11.834Z",
+          "finished_at": "2026-10-30T15:42:15.138Z",
+          "attempt_count": 3,
+          "attempts": [
+            {
+              "number": 1,
+              "success": false,
+              "http_status": 503,
+              "duration_ms": 321.09,
+              "error_code": "http_503",
+              "recorded_at": "2026-10-30T15:42:13.522Z"
+            },
+            {
+              "number": 2,
+              "success": false,
+              "http_status": 503,
+              "duration_ms": 35.69,
+              "error_code": "http_503",
+              "recorded_at": "2026-10-30T15:42:14.072Z"
+            },
+            {
+              "number": 3,
+              "success": false,
+              "http_status": 503,
+              "duration_ms": 30.02,
+              "error_code": "http_503",
+              "recorded_at": "2026-10-30T15:42:15.123Z"
+            }
+          ]
+        },
+        "recent_samples": [
+          false,
+          false,
+          true,
+          true,
+          false
+        ]
+      },
+      "passed": true
+    },
+    {
+      "scenario": "support acknowledgement through Flutter",
+      "expected": "acknowledged, not recovered",
+      "actual": [
+        {
+          "id": 2,
+          "endpoint_id": 4,
+          "endpoint_name": "Billing API",
+          "status": "acknowledged",
+          "owner_group": "support",
+          "opened_at": "2026-10-30T15:42:15.163Z",
+          "acknowledged_at": "2026-10-30T15:44:42.057Z",
+          "acknowledged_by": "support-demo",
+          "note": "Investigating the controlled service.",
+          "recovered_at": null,
+          "opening_run_id": "ebef135d-6096-461f-b0aa-9d87d76dc625",
+          "recovery_run_id": null,
+          "recovery_streak": 0
+        },
+        {
+          "id": 1,
+          "endpoint_id": 4,
+          "endpoint_name": "Billing API",
+          "status": "recovered",
+          "owner_group": "support",
+          "opened_at": "2026-10-30T15:39:56.812Z",
+          "acknowledged_at": "2026-10-30T15:40:00.080Z",
+          "acknowledged_by": "support-demo",
+          "note": "Controlled dependency repair.",
+          "recovered_at": "2026-10-30T15:40:04.458Z",
+          "opening_run_id": "57785358-45b6-4f40-bd91-b5d0b11ce097",
+          "recovery_run_id": "88299197-62c7-4cf0-9dad-5d252012b459",
+          "recovery_streak": 0
+        }
+      ],
+      "passed": true
+    },
+    {
+      "scenario": "browser recovery interrupted",
+      "passed": false,
+      "error": "Locator.wait_for: Timeout 30000ms exceeded.\nCall log:\n  - waiting for get_by_text(\"Demo repaired. Run two successful checks to verify recovery.\", exact=True).first to be visible\n"
+    }
+  ]
+}
