@@ -1,0 +1,47 @@
+{
+  "checked_at": "2026-10-29T18:06:32.437Z",
+  "markdown_files_checked": 34,
+  "local_links_checked": 166,
+  "problems": [],
+  "latest_executions": [
+    {
+      "kind": "api",
+      "path": "evidence/runs/2026-10-29T18-00-20-548Z",
+      "statuses": [
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS"
+      ]
+    },
+    {
+      "kind": "browser",
+      "path": "evidence/browser/2026-10-29T18-00-44-208Z",
+      "statuses": [
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS",
+        "PASS"
+      ]
+    },
+    {
+      "kind": "restart",
+      "path": "evidence/restart/2026-10-29T18-00-20-589Z",
+      "statuses": [
+        "PASS"
+      ]
+    }
+  ]
+}

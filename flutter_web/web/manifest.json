@@ -1,0 +1,9 @@
+{
+  "name": "Pulseboard API Health Monitor",
+  "short_name": "Pulseboard",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#f2f5f8",
+  "theme_color": "#142635",
+  "description": "Module 13 fictional-data local monitoring demo."
+}

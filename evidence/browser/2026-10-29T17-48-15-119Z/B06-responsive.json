@@ -1,0 +1,12 @@
+{
+  "id": "B06-responsive",
+  "expected": "Endpoint list and incident/report navigation remain usable at 768 and 390 CSS pixels without document horizontal overflow.",
+  "expected_recorded_at": "2026-10-29T17:48:54.344Z",
+  "status": "FAIL",
+  "started_at": "2026-10-29T17:48:54.344Z",
+  "error": {
+    "name": "TimeoutError",
+    "message": "locator.click: Timeout 12000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: 'Incidents', exact: true }).first()\u001b[22m\n"
+  },
+  "finished_at": "2026-10-29T17:49:07.291Z"
+}

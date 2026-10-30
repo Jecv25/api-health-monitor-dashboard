@@ -1,0 +1,104 @@
+{
+  "captured_at": "2026-10-29T17:43:02.678Z",
+  "config": {
+    "max_attempts": 3,
+    "retry_delay_ms": 700,
+    "timeout_ms": 3000,
+    "concurrency": 2,
+    "scheduler_tick_ms": 1000,
+    "seed": false,
+    "transport": "real_loopback_http",
+    "api_origin": "http://127.0.0.1:44217",
+    "fixture_origin": "http://127.0.0.1:44216"
+  },
+  "records": [
+    {
+      "id": "N01",
+      "title": "Successful execution",
+      "status": "PASS",
+      "started_at": "2026-10-29T17:42:47.605Z",
+      "finished_at": "2026-10-29T17:42:47.671Z",
+      "artifact": "N01.json"
+    },
+    {
+      "id": "I01",
+      "title": "Invalid input rejected server-side",
+      "status": "PASS",
+      "started_at": "2026-10-29T17:42:47.672Z",
+      "finished_at": "2026-10-29T17:42:47.680Z",
+      "artifact": "I01.json"
+    },
+    {
+      "id": "U01",
+      "title": "Unauthorized mutation rejected",
+      "status": "PASS",
+      "started_at": "2026-10-29T17:42:47.681Z",
+      "finished_at": "2026-10-29T17:42:47.683Z",
+      "artifact": "U01.json"
+    },
+    {
+      "id": "U02",
+      "title": "Viewer mutation and forged role rejected",
+      "status": "PASS",
+      "started_at": "2026-10-29T17:42:47.684Z",
+      "finished_at": "2026-10-29T17:42:47.686Z",
+      "artifact": "U02.json"
+    },
+    {
+      "id": "D01",
+      "title": "Transient failure recovered by retry",
+      "status": "PASS",
+      "started_at": "2026-10-29T17:42:47.687Z",
+      "finished_at": "2026-10-29T17:42:49.144Z",
+      "artifact": "D01.json"
+    },
+    {
+      "id": "D02",
+      "title": "Persistent failure routed to a person and deduplicated",
+      "status": "PASS",
+      "started_at": "2026-10-29T17:42:49.145Z",
+      "finished_at": "2026-10-29T17:42:52.082Z",
+      "artifact": "D02.json"
+    },
+    {
+      "id": "R01",
+      "title": "Human repair followed by verified recovery",
+      "status": "PASS",
+      "started_at": "2026-10-29T17:42:52.083Z",
+      "finished_at": "2026-10-29T17:42:52.110Z",
+      "artifact": "R01.json"
+    },
+    {
+      "id": "D03",
+      "title": "Non-retryable HTTP failure",
+      "status": "PASS",
+      "started_at": "2026-10-29T17:42:52.112Z",
+      "finished_at": "2026-10-29T17:42:52.133Z",
+      "artifact": "D03.json"
+    },
+    {
+      "id": "X01",
+      "title": "Idempotent accepted request replay",
+      "status": "PASS",
+      "started_at": "2026-10-29T17:42:52.134Z",
+      "finished_at": "2026-10-29T17:42:52.135Z",
+      "artifact": "X01.json"
+    },
+    {
+      "id": "F01",
+      "title": "Actual HTTP timeout injection",
+      "status": "PASS",
+      "started_at": "2026-10-29T17:42:52.136Z",
+      "finished_at": "2026-10-29T17:43:02.624Z",
+      "artifact": "F01.json"
+    },
+    {
+      "id": "F02",
+      "title": "Atomic result/recovery rollback on controlled storage fault",
+      "status": "PASS",
+      "started_at": "2026-10-29T17:43:02.624Z",
+      "finished_at": "2026-10-29T17:43:02.678Z",
+      "artifact": "F02.json"
+    }
+  ]
+}

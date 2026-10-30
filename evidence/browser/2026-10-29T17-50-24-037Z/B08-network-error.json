@@ -1,0 +1,12 @@
+{
+  "id": "B08-network-error",
+  "expected": "An explicitly injected browser transport refusal produces network feedback while retaining last confirmed records.",
+  "expected_recorded_at": "2026-10-29T17:50:40.401Z",
+  "status": "PASS",
+  "started_at": "2026-10-29T17:50:40.401Z",
+  "actual": {
+    "injection": "Playwright abort(connectionrefused) at browser transport; not represented as backend failure.",
+    "endpoint_records_retained": 3
+  },
+  "finished_at": "2026-10-29T17:50:40.758Z"
+}

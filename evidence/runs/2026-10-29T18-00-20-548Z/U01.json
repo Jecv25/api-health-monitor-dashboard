@@ -1,0 +1,48 @@
+{
+  "id": "U01",
+  "title": "Unauthorized mutation rejected",
+  "expected": {
+    "status": 401,
+    "no_run_or_fixture_call_added": true
+  },
+  "expected_recorded_at": "2026-10-29T18:00:20.778Z",
+  "status": "PASS",
+  "exchanges": [
+    {
+      "requested_at": "2026-10-29T18:00:20.779Z",
+      "completed_at": "2026-10-29T18:00:20.783Z",
+      "request": {
+        "method": "POST",
+        "path": "/api/v1/endpoints/1/checks",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "59ad7d0c-4a32-4063-a870-d33e18dc1468"
+        },
+        "demo_persona": "none",
+        "body": {}
+      },
+      "actual": {
+        "status": 401,
+        "headers": {
+          "x-correlation-id": "33e3e0fd-7c34-47aa-ac38-8fd9aa2f582c",
+          "idempotency-replayed": null
+        },
+        "body": {
+          "error": {
+            "code": "SESSION_REQUIRED",
+            "message": "Select a local demo persona to continue."
+          },
+          "correlation_id": "33e3e0fd-7c34-47aa-ac38-8fd9aa2f582c"
+        }
+      }
+    }
+  ],
+  "started_at": "2026-10-29T18:00:20.778Z",
+  "observations": {
+    "before_run_count": 1,
+    "after_run_count": 1,
+    "before_fixture_calls": 1,
+    "after_fixture_calls": 1
+  },
+  "finished_at": "2026-10-29T18:00:20.783Z"
+}

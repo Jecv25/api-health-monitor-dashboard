@@ -1,0 +1,175 @@
+[
+  {
+    "timestamp": "2026-10-29T18:00:46.112Z",
+    "request": {
+      "method": "POST",
+      "path": "/api/v1/demo/session",
+      "body": {
+        "persona": "operator"
+      }
+    },
+    "actual": {
+      "status": 200,
+      "body": {
+        "data": {
+          "persona": "operator",
+          "actor": "demo-operator",
+          "capabilities": [
+            "read",
+            "mutate"
+          ]
+        },
+        "correlation_id": "ed22efc5-da5a-4d36-bd92-f28b37d3cc38"
+      }
+    }
+  },
+  {
+    "timestamp": "2026-10-29T18:00:46.662Z",
+    "request": {
+      "method": "POST",
+      "path": "/api/v1/endpoints/1/checks",
+      "body": {}
+    },
+    "actual": {
+      "status": 202,
+      "body": {
+        "data": {
+          "id": 1,
+          "endpoint_id": 1,
+          "state": "RUNNING",
+          "correlation_id": "7fc5f20d-9ce3-4baf-bb9d-d68b593f7e8f",
+          "status_url": "/api/v1/checks/1"
+        },
+        "correlation_id": "7fc5f20d-9ce3-4baf-bb9d-d68b593f7e8f"
+      }
+    }
+  },
+  {
+    "timestamp": "2026-10-29T18:00:47.360Z",
+    "request": {
+      "method": "POST",
+      "path": "/api/v1/endpoints/2/checks",
+      "body": {}
+    },
+    "actual": {
+      "status": 202,
+      "body": {
+        "data": {
+          "id": 2,
+          "endpoint_id": 2,
+          "state": "RUNNING",
+          "correlation_id": "a5d6e21c-dcd5-4981-867c-c8c4325167b3",
+          "status_url": "/api/v1/checks/2"
+        },
+        "correlation_id": "a5d6e21c-dcd5-4981-867c-c8c4325167b3"
+      }
+    }
+  },
+  {
+    "timestamp": "2026-10-29T18:00:49.608Z",
+    "request": {
+      "method": "POST",
+      "path": "/api/v1/endpoints/3/checks",
+      "body": {}
+    },
+    "actual": {
+      "status": 202,
+      "body": {
+        "data": {
+          "id": 3,
+          "endpoint_id": 3,
+          "state": "RUNNING",
+          "correlation_id": "198ec402-c5c6-4bb5-92cf-62999657f93f",
+          "status_url": "/api/v1/checks/3"
+        },
+        "correlation_id": "198ec402-c5c6-4bb5-92cf-62999657f93f"
+      }
+    }
+  },
+  {
+    "timestamp": "2026-10-29T18:00:51.722Z",
+    "request": {
+      "method": "POST",
+      "path": "/api/v1/incidents/1/acknowledge",
+      "body": {}
+    },
+    "actual": {
+      "status": 200,
+      "body": {
+        "data": {
+          "id": 1,
+          "endpoint_id": 3,
+          "state": "ACKNOWLEDGED",
+          "reason": "Down after 3 attempts (503); human action required",
+          "opening_check_id": 3,
+          "opened_at": "2026-10-29T18:00:51.046Z",
+          "acknowledged_by": "demo-operator",
+          "acknowledged_at": "2026-10-29T18:00:51.692Z",
+          "recovery_check_id": null,
+          "recovered_at": null
+        },
+        "correlation_id": "f48e5b12-d58a-40cb-bae8-02f68ca3e746"
+      }
+    }
+  },
+  {
+    "timestamp": "2026-10-29T18:00:52.124Z",
+    "request": {
+      "method": "PATCH",
+      "path": "/api/v1/endpoints/3/demo-behavior",
+      "body": {
+        "demo_behavior": "stable"
+      }
+    },
+    "actual": {
+      "status": 200,
+      "body": {
+        "data": {
+          "id": 3,
+          "name": "Payments sandbox",
+          "url": "https://api.sandbox.example/pay/health",
+          "interval_seconds": 60,
+          "demo_behavior": "stable",
+          "status": "DOWN",
+          "created_at": "2026-10-29T18:00:44.277Z",
+          "last_completed_at": "2026-10-29T18:00:51.046Z",
+          "next_due_at": "2026-10-29T18:01:51.046Z",
+          "checking": false,
+          "active_check_id": null,
+          "active_incident_id": 1,
+          "recent_runs": [
+            {
+              "id": 3,
+              "state": "COMPLETED",
+              "started_at": "2026-10-29T18:00:49.574Z",
+              "finished_at": "2026-10-29T18:00:51.046Z",
+              "interruption_reason": null
+            }
+          ]
+        },
+        "correlation_id": "2f47e234-0e62-48f4-83a5-b85687e09c2b"
+      }
+    }
+  },
+  {
+    "timestamp": "2026-10-29T18:00:52.456Z",
+    "request": {
+      "method": "POST",
+      "path": "/api/v1/endpoints/3/checks",
+      "body": {}
+    },
+    "actual": {
+      "status": 202,
+      "body": {
+        "data": {
+          "id": 4,
+          "endpoint_id": 3,
+          "state": "RUNNING",
+          "correlation_id": "d1330f4d-fd17-4e5e-aafe-c5e7aae15892",
+          "status_url": "/api/v1/checks/4"
+        },
+        "correlation_id": "d1330f4d-fd17-4e5e-aafe-c5e7aae15892"
+      }
+    }
+  }
+]

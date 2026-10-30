@@ -1,0 +1,40 @@
+{
+  "id": "B05-report",
+  "expected": "Report displays persisted completed-check ratios; browser demo Payments has 1 fail + 1 pass = 50%.",
+  "expected_recorded_at": "2026-10-29T18:00:52.773Z",
+  "status": "PASS",
+  "started_at": "2026-10-29T18:00:52.773Z",
+  "actual": {
+    "basis": "completed_check_ratio",
+    "window": "current_dataset",
+    "dataset_start": "2026-10-29T18:00:44.277Z",
+    "as_of": "2026-10-29T18:00:52.960Z",
+    "endpoints": [
+      {
+        "endpoint_id": 1,
+        "name": "Library API",
+        "total_checks": 1,
+        "passed_checks": 1,
+        "failed_checks": 0,
+        "uptime_percent": 100
+      },
+      {
+        "endpoint_id": 2,
+        "name": "Enrollment API",
+        "total_checks": 1,
+        "passed_checks": 1,
+        "failed_checks": 0,
+        "uptime_percent": 100
+      },
+      {
+        "endpoint_id": 3,
+        "name": "Payments sandbox",
+        "total_checks": 2,
+        "passed_checks": 1,
+        "failed_checks": 1,
+        "uptime_percent": 50
+      }
+    ]
+  },
+  "finished_at": "2026-10-29T18:00:52.960Z"
+}

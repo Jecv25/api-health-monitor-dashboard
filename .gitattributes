@@ -1,0 +1,4 @@
+# Keep source snapshots consistent across Windows/Linux checkouts.
+* text=auto eol=lf
+# Evidence hashes and raw failed output refer to these exact captured bytes.
+evidence/** -text

@@ -1,0 +1,11 @@
+[
+  {
+    "name": "flutter-tests",
+    "command": "flutter.bat test --reporter expanded",
+    "started_at": "2026-10-29T17:42:48.675Z",
+    "finished_at": "2026-10-29T17:42:52.682Z",
+    "exit_code": 0,
+    "signal": null,
+    "output": "evidence/validation/2026-10-29T17-42-48-674Z-layout-fix/flutter-tests.log"
+  }
+]

@@ -1,0 +1,65 @@
+{
+  "id": "B03-transient-demo",
+  "expected": "Enrollment API shows 503, 503, 200 and one passed result.",
+  "expected_recorded_at": "2026-10-29T17:48:17.623Z",
+  "status": "PASS",
+  "started_at": "2026-10-29T17:48:17.623Z",
+  "actual": {
+    "run": {
+      "id": 2,
+      "endpoint_id": 2,
+      "trigger": "manual",
+      "state": "COMPLETED",
+      "correlation_id": "ae043e58-f232-400a-bb8b-ae92943b7573",
+      "parent_correlation_id": null,
+      "schedule_key": null,
+      "behavior": "flaky",
+      "started_at": "2026-10-29T17:48:17.880Z",
+      "finished_at": "2026-10-29T17:48:19.313Z",
+      "interruption_reason": null,
+      "attempts": [
+        {
+          "id": 2,
+          "check_id": 2,
+          "ordinal": 1,
+          "started_at": "2026-10-29T17:48:17.881Z",
+          "finished_at": "2026-10-29T17:48:17.884Z",
+          "status_code": 503,
+          "error_category": "retryable_http",
+          "latency_ms": 2.94
+        },
+        {
+          "id": 3,
+          "check_id": 2,
+          "ordinal": 2,
+          "started_at": "2026-10-29T17:48:18.599Z",
+          "finished_at": "2026-10-29T17:48:18.602Z",
+          "status_code": 503,
+          "error_category": "retryable_http",
+          "latency_ms": 2.56
+        },
+        {
+          "id": 4,
+          "check_id": 2,
+          "ordinal": 3,
+          "started_at": "2026-10-29T17:48:19.309Z",
+          "finished_at": "2026-10-29T17:48:19.311Z",
+          "status_code": 200,
+          "error_category": null,
+          "latency_ms": 1.78
+        }
+      ],
+      "result": {
+        "id": 2,
+        "check_id": 2,
+        "endpoint_id": 2,
+        "ok": true,
+        "attempt_count": 3,
+        "final_category": "healthy",
+        "completed_at": "2026-10-29T17:48:19.313Z"
+      },
+      "incident_id": null
+    }
+  },
+  "finished_at": "2026-10-29T17:48:20.354Z"
+}

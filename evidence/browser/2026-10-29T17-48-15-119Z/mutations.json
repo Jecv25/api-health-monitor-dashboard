@@ -1,0 +1,89 @@
+[
+  {
+    "timestamp": "2026-10-29T17:48:16.821Z",
+    "request": {
+      "method": "POST",
+      "path": "/api/v1/demo/session",
+      "body": {
+        "persona": "operator"
+      }
+    },
+    "actual": {
+      "status": 200,
+      "body": {
+        "data": {
+          "persona": "operator",
+          "actor": "demo-operator",
+          "capabilities": [
+            "read",
+            "mutate"
+          ]
+        },
+        "correlation_id": "82958842-19e2-44ed-ac92-30189276a8c0"
+      }
+    }
+  },
+  {
+    "timestamp": "2026-10-29T17:48:17.306Z",
+    "request": {
+      "method": "POST",
+      "path": "/api/v1/endpoints/1/checks",
+      "body": {}
+    },
+    "actual": {
+      "status": 202,
+      "body": {
+        "data": {
+          "id": 1,
+          "endpoint_id": 1,
+          "state": "RUNNING",
+          "correlation_id": "7a0dba05-e14e-4f05-b761-d3a53b2345dd",
+          "status_url": "/api/v1/checks/1"
+        },
+        "correlation_id": "7a0dba05-e14e-4f05-b761-d3a53b2345dd"
+      }
+    }
+  },
+  {
+    "timestamp": "2026-10-29T17:48:17.908Z",
+    "request": {
+      "method": "POST",
+      "path": "/api/v1/endpoints/2/checks",
+      "body": {}
+    },
+    "actual": {
+      "status": 202,
+      "body": {
+        "data": {
+          "id": 2,
+          "endpoint_id": 2,
+          "state": "RUNNING",
+          "correlation_id": "ae043e58-f232-400a-bb8b-ae92943b7573",
+          "status_url": "/api/v1/checks/2"
+        },
+        "correlation_id": "ae043e58-f232-400a-bb8b-ae92943b7573"
+      }
+    }
+  },
+  {
+    "timestamp": "2026-10-29T17:48:20.650Z",
+    "request": {
+      "method": "POST",
+      "path": "/api/v1/endpoints/3/checks",
+      "body": {}
+    },
+    "actual": {
+      "status": 202,
+      "body": {
+        "data": {
+          "id": 3,
+          "endpoint_id": 3,
+          "state": "RUNNING",
+          "correlation_id": "841dff03-99a0-4e69-9461-713e9f5c3aad",
+          "status_url": "/api/v1/checks/3"
+        },
+        "correlation_id": "841dff03-99a0-4e69-9461-713e9f5c3aad"
+      }
+    }
+  }
+]

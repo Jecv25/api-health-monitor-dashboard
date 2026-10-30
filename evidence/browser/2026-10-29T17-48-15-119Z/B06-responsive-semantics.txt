@@ -1,0 +1,14 @@
+Pulseboard
+Loading the monitoring dashboard…
+Pulseboard
+API HEALTH MONITOR
+Endpoints
+Register endpoint
+Unacknowledged incidents Incidents 1
+Uptime report
+Structured logs
+Evidence guide
+SANDBOX MODE
+Fictional data only. No production services.
+Leave demo
+Dismiss

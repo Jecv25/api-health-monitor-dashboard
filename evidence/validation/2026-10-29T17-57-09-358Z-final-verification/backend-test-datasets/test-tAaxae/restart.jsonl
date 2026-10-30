@@ -1,0 +1,5 @@
+{"timestamp":"2026-10-29T17:57:30.828Z","level":"info","source":"system","correlation_id":"5a29a986-1af8-4abd-9379-9fa1ef04d378","previous_scheduler_enabled":false,"scheduler_enabled":false,"max_attempts":3,"timeout_ms":3000,"retry_delay_ms":700,"concurrency":2,"event":"process_started"}
+{"timestamp":"2026-10-29T17:57:30.828Z","level":"info","source":"system","correlation_id":"b97b935f-2e9e-44bd-b34c-8ce1574a1665","check_id":2,"endpoint_id":1,"reason":"process_restart","event":"run_interrupted"}
+{"timestamp":"2026-10-29T17:57:30.830Z","level":"info","source":"system","correlation_id":"f4647254-9ef3-4592-92d9-2a52034d0fb2","port":55168,"event":"api_listening"}
+{"timestamp":"2026-10-29T17:57:30.832Z","level":"info","source":"api","correlation_id":"57844668-8a5d-4b73-b28f-d9ab685cfa5c","status_code":401,"method":"GET","event":"authorization_denied"}
+{"timestamp":"2026-10-29T17:57:30.832Z","level":"warn","source":"api","correlation_id":"57844668-8a5d-4b73-b28f-d9ab685cfa5c","status_code":401,"error_category":"SESSION_REQUIRED","event":"request_rejected"}

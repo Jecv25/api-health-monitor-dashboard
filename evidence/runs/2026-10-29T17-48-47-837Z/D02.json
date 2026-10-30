@@ -1,0 +1,626 @@
+{
+  "id": "D02",
+  "title": "Persistent failure routed to a person and deduplicated",
+  "expected": {
+    "two_runs_each": [
+      503,
+      503,
+      503
+    ],
+    "active_incidents_for_endpoint": 1,
+    "opening_notices": 1,
+    "acknowledged_health": "DOWN"
+  },
+  "expected_recorded_at": "2026-10-29T17:48:49.506Z",
+  "status": "PASS",
+  "exchanges": [
+    {
+      "requested_at": "2026-10-29T17:48:49.507Z",
+      "completed_at": "2026-10-29T17:48:49.511Z",
+      "request": {
+        "method": "POST",
+        "path": "/api/v1/endpoints",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "50b18dbc-ae19-4d56-9c0a-dbc7654d34e2"
+        },
+        "demo_persona": "operator",
+        "body": {
+          "name": "payments Demo",
+          "url": "https://api.sandbox.example/payments/health",
+          "interval_seconds": 60,
+          "demo_behavior": "dead"
+        }
+      },
+      "actual": {
+        "status": 201,
+        "headers": {
+          "x-correlation-id": "eaf17978-3c43-49dd-a6ba-7b44ebe38c19",
+          "idempotency-replayed": null
+        },
+        "body": {
+          "data": {
+            "id": 3,
+            "name": "payments Demo",
+            "url": "https://api.sandbox.example/payments/health",
+            "interval_seconds": 60,
+            "demo_behavior": "dead",
+            "status": "UNKNOWN",
+            "created_at": "2026-10-29T17:48:49.508Z",
+            "last_completed_at": null,
+            "next_due_at": null,
+            "checking": false,
+            "active_check_id": null,
+            "active_incident_id": null,
+            "recent_runs": []
+          },
+          "correlation_id": "eaf17978-3c43-49dd-a6ba-7b44ebe38c19"
+        }
+      }
+    },
+    {
+      "requested_at": "2026-10-29T17:48:49.511Z",
+      "completed_at": "2026-10-29T17:48:49.514Z",
+      "request": {
+        "method": "POST",
+        "path": "/api/v1/endpoints/3/checks",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "2cf312c4-e94f-4699-b020-8712dc84e996"
+        },
+        "demo_persona": "operator",
+        "body": {}
+      },
+      "actual": {
+        "status": 202,
+        "headers": {
+          "x-correlation-id": "f369986c-e668-424e-a948-54475941e327",
+          "idempotency-replayed": null
+        },
+        "body": {
+          "data": {
+            "id": 3,
+            "endpoint_id": 3,
+            "state": "RUNNING",
+            "correlation_id": "f369986c-e668-424e-a948-54475941e327",
+            "status_url": "/api/v1/checks/3"
+          },
+          "correlation_id": "f369986c-e668-424e-a948-54475941e327"
+        }
+      }
+    },
+    {
+      "requested_at": "2026-10-29T17:48:50.973Z",
+      "completed_at": "2026-10-29T17:48:50.974Z",
+      "request": {
+        "method": "GET",
+        "path": "/api/v1/checks/3",
+        "headers": {},
+        "demo_persona": "operator"
+      },
+      "actual": {
+        "status": 200,
+        "headers": {
+          "x-correlation-id": "67a66344-f700-4dfa-8b01-95a506a70696",
+          "idempotency-replayed": null
+        },
+        "body": {
+          "data": {
+            "id": 3,
+            "endpoint_id": 3,
+            "trigger": "manual",
+            "state": "COMPLETED",
+            "correlation_id": "f369986c-e668-424e-a948-54475941e327",
+            "parent_correlation_id": null,
+            "schedule_key": null,
+            "behavior": "dead",
+            "started_at": "2026-10-29T17:48:49.512Z",
+            "finished_at": "2026-10-29T17:48:50.933Z",
+            "interruption_reason": null,
+            "attempts": [
+              {
+                "id": 5,
+                "check_id": 3,
+                "ordinal": 1,
+                "started_at": "2026-10-29T17:48:49.514Z",
+                "finished_at": "2026-10-29T17:48:49.515Z",
+                "status_code": 503,
+                "error_category": "retryable_http",
+                "latency_ms": 1.74
+              },
+              {
+                "id": 6,
+                "check_id": 3,
+                "ordinal": 2,
+                "started_at": "2026-10-29T17:48:50.219Z",
+                "finished_at": "2026-10-29T17:48:50.221Z",
+                "status_code": 503,
+                "error_category": "retryable_http",
+                "latency_ms": 2.34
+              },
+              {
+                "id": 7,
+                "check_id": 3,
+                "ordinal": 3,
+                "started_at": "2026-10-29T17:48:50.928Z",
+                "finished_at": "2026-10-29T17:48:50.931Z",
+                "status_code": 503,
+                "error_category": "retryable_http",
+                "latency_ms": 3.03
+              }
+            ],
+            "result": {
+              "id": 3,
+              "check_id": 3,
+              "endpoint_id": 3,
+              "ok": false,
+              "attempt_count": 3,
+              "final_category": "retry_exhausted",
+              "completed_at": "2026-10-29T17:48:50.933Z"
+            },
+            "incident_id": 1
+          },
+          "correlation_id": "67a66344-f700-4dfa-8b01-95a506a70696"
+        }
+      }
+    },
+    {
+      "requested_at": "2026-10-29T17:48:50.974Z",
+      "completed_at": "2026-10-29T17:48:50.975Z",
+      "request": {
+        "method": "GET",
+        "path": "/api/v1/incidents?state=active",
+        "headers": {},
+        "demo_persona": "operator"
+      },
+      "actual": {
+        "status": 200,
+        "headers": {
+          "x-correlation-id": "06f5f203-650f-4787-abd8-921df25e1a50",
+          "idempotency-replayed": null
+        },
+        "body": {
+          "data": [
+            {
+              "id": 1,
+              "endpoint_id": 3,
+              "state": "OPEN",
+              "reason": "Down after 3 attempts (503); human action required",
+              "opening_check_id": 3,
+              "opened_at": "2026-10-29T17:48:50.933Z",
+              "acknowledged_by": null,
+              "acknowledged_at": null,
+              "recovery_check_id": null,
+              "recovered_at": null
+            }
+          ],
+          "correlation_id": "06f5f203-650f-4787-abd8-921df25e1a50"
+        }
+      }
+    },
+    {
+      "requested_at": "2026-10-29T17:48:50.975Z",
+      "completed_at": "2026-10-29T17:48:50.977Z",
+      "request": {
+        "method": "POST",
+        "path": "/api/v1/incidents/1/acknowledge",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "4a729799-f20c-4828-9b2f-576ff56c189c"
+        },
+        "demo_persona": "operator",
+        "body": {}
+      },
+      "actual": {
+        "status": 200,
+        "headers": {
+          "x-correlation-id": "7137d3bd-b332-48a6-ab32-a72561eaf92c",
+          "idempotency-replayed": null
+        },
+        "body": {
+          "data": {
+            "id": 1,
+            "endpoint_id": 3,
+            "state": "ACKNOWLEDGED",
+            "reason": "Down after 3 attempts (503); human action required",
+            "opening_check_id": 3,
+            "opened_at": "2026-10-29T17:48:50.933Z",
+            "acknowledged_by": "demo-operator",
+            "acknowledged_at": "2026-10-29T17:48:50.975Z",
+            "recovery_check_id": null,
+            "recovered_at": null
+          },
+          "correlation_id": "7137d3bd-b332-48a6-ab32-a72561eaf92c"
+        }
+      }
+    },
+    {
+      "requested_at": "2026-10-29T17:48:50.977Z",
+      "completed_at": "2026-10-29T17:48:50.981Z",
+      "request": {
+        "method": "POST",
+        "path": "/api/v1/endpoints/3/checks",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "78211371-1e35-47fb-a172-10fad4d89237"
+        },
+        "demo_persona": "operator",
+        "body": {}
+      },
+      "actual": {
+        "status": 202,
+        "headers": {
+          "x-correlation-id": "a4fb4470-e5e3-4134-a939-9144b1df21ac",
+          "idempotency-replayed": null
+        },
+        "body": {
+          "data": {
+            "id": 4,
+            "endpoint_id": 3,
+            "state": "RUNNING",
+            "correlation_id": "a4fb4470-e5e3-4134-a939-9144b1df21ac",
+            "status_url": "/api/v1/checks/4"
+          },
+          "correlation_id": "a4fb4470-e5e3-4134-a939-9144b1df21ac"
+        }
+      }
+    },
+    {
+      "requested_at": "2026-10-29T17:48:52.455Z",
+      "completed_at": "2026-10-29T17:48:52.457Z",
+      "request": {
+        "method": "GET",
+        "path": "/api/v1/checks/4",
+        "headers": {},
+        "demo_persona": "operator"
+      },
+      "actual": {
+        "status": 200,
+        "headers": {
+          "x-correlation-id": "939694af-ca77-44bf-b551-795ae23d3522",
+          "idempotency-replayed": null
+        },
+        "body": {
+          "data": {
+            "id": 4,
+            "endpoint_id": 3,
+            "trigger": "manual",
+            "state": "COMPLETED",
+            "correlation_id": "a4fb4470-e5e3-4134-a939-9144b1df21ac",
+            "parent_correlation_id": null,
+            "schedule_key": null,
+            "behavior": "dead",
+            "started_at": "2026-10-29T17:48:50.978Z",
+            "finished_at": "2026-10-29T17:48:52.410Z",
+            "interruption_reason": null,
+            "attempts": [
+              {
+                "id": 8,
+                "check_id": 4,
+                "ordinal": 1,
+                "started_at": "2026-10-29T17:48:50.980Z",
+                "finished_at": "2026-10-29T17:48:50.982Z",
+                "status_code": 503,
+                "error_category": "retryable_http",
+                "latency_ms": 2.12
+              },
+              {
+                "id": 9,
+                "check_id": 4,
+                "ordinal": 2,
+                "started_at": "2026-10-29T17:48:51.685Z",
+                "finished_at": "2026-10-29T17:48:51.688Z",
+                "status_code": 503,
+                "error_category": "retryable_http",
+                "latency_ms": 3.25
+              },
+              {
+                "id": 10,
+                "check_id": 4,
+                "ordinal": 3,
+                "started_at": "2026-10-29T17:48:52.401Z",
+                "finished_at": "2026-10-29T17:48:52.404Z",
+                "status_code": 503,
+                "error_category": "retryable_http",
+                "latency_ms": 3.3
+              }
+            ],
+            "result": {
+              "id": 4,
+              "check_id": 4,
+              "endpoint_id": 3,
+              "ok": false,
+              "attempt_count": 3,
+              "final_category": "retry_exhausted",
+              "completed_at": "2026-10-29T17:48:52.410Z"
+            },
+            "incident_id": null
+          },
+          "correlation_id": "939694af-ca77-44bf-b551-795ae23d3522"
+        }
+      }
+    },
+    {
+      "requested_at": "2026-10-29T17:48:52.457Z",
+      "completed_at": "2026-10-29T17:48:52.458Z",
+      "request": {
+        "method": "GET",
+        "path": "/api/v1/incidents?state=active",
+        "headers": {},
+        "demo_persona": "operator"
+      },
+      "actual": {
+        "status": 200,
+        "headers": {
+          "x-correlation-id": "e1615713-6d36-43eb-8933-fdd21307aeed",
+          "idempotency-replayed": null
+        },
+        "body": {
+          "data": [
+            {
+              "id": 1,
+              "endpoint_id": 3,
+              "state": "ACKNOWLEDGED",
+              "reason": "Down after 3 attempts (503); human action required",
+              "opening_check_id": 3,
+              "opened_at": "2026-10-29T17:48:50.933Z",
+              "acknowledged_by": "demo-operator",
+              "acknowledged_at": "2026-10-29T17:48:50.975Z",
+              "recovery_check_id": null,
+              "recovered_at": null
+            }
+          ],
+          "correlation_id": "e1615713-6d36-43eb-8933-fdd21307aeed"
+        }
+      }
+    },
+    {
+      "requested_at": "2026-10-29T17:48:52.458Z",
+      "completed_at": "2026-10-29T17:48:52.459Z",
+      "request": {
+        "method": "GET",
+        "path": "/api/v1/notifications",
+        "headers": {},
+        "demo_persona": "operator"
+      },
+      "actual": {
+        "status": 200,
+        "headers": {
+          "x-correlation-id": "13651441-3e40-42fa-a329-f0cee80d49e5",
+          "idempotency-replayed": null
+        },
+        "body": {
+          "data": [
+            {
+              "id": 1,
+              "incident_id": 1,
+              "check_id": 3,
+              "event": "opened",
+              "audience": "support",
+              "channel": "in_app_demo",
+              "created_at": "2026-10-29T17:48:50.933Z"
+            }
+          ],
+          "correlation_id": "13651441-3e40-42fa-a329-f0cee80d49e5"
+        }
+      }
+    },
+    {
+      "requested_at": "2026-10-29T17:48:52.459Z",
+      "completed_at": "2026-10-29T17:48:52.459Z",
+      "request": {
+        "method": "GET",
+        "path": "/api/v1/endpoints/3",
+        "headers": {},
+        "demo_persona": "operator"
+      },
+      "actual": {
+        "status": 200,
+        "headers": {
+          "x-correlation-id": "70afbf84-614c-4875-8333-dd1fe53ca2b0",
+          "idempotency-replayed": null
+        },
+        "body": {
+          "data": {
+            "id": 3,
+            "name": "payments Demo",
+            "url": "https://api.sandbox.example/payments/health",
+            "interval_seconds": 60,
+            "demo_behavior": "dead",
+            "status": "DOWN",
+            "created_at": "2026-10-29T17:48:49.508Z",
+            "last_completed_at": "2026-10-29T17:48:52.410Z",
+            "next_due_at": "2026-10-29T17:49:52.410Z",
+            "checking": false,
+            "active_check_id": null,
+            "active_incident_id": 1,
+            "recent_runs": [
+              {
+                "id": 4,
+                "state": "COMPLETED",
+                "started_at": "2026-10-29T17:48:50.978Z",
+                "finished_at": "2026-10-29T17:48:52.410Z",
+                "interruption_reason": null
+              },
+              {
+                "id": 3,
+                "state": "COMPLETED",
+                "started_at": "2026-10-29T17:48:49.512Z",
+                "finished_at": "2026-10-29T17:48:50.933Z",
+                "interruption_reason": null
+              }
+            ]
+          },
+          "correlation_id": "70afbf84-614c-4875-8333-dd1fe53ca2b0"
+        }
+      }
+    }
+  ],
+  "started_at": "2026-10-29T17:48:49.506Z",
+  "observations": {
+    "first": {
+      "id": 3,
+      "endpoint_id": 3,
+      "trigger": "manual",
+      "state": "COMPLETED",
+      "correlation_id": "f369986c-e668-424e-a948-54475941e327",
+      "parent_correlation_id": null,
+      "schedule_key": null,
+      "behavior": "dead",
+      "started_at": "2026-10-29T17:48:49.512Z",
+      "finished_at": "2026-10-29T17:48:50.933Z",
+      "interruption_reason": null,
+      "attempts": [
+        {
+          "id": 5,
+          "check_id": 3,
+          "ordinal": 1,
+          "started_at": "2026-10-29T17:48:49.514Z",
+          "finished_at": "2026-10-29T17:48:49.515Z",
+          "status_code": 503,
+          "error_category": "retryable_http",
+          "latency_ms": 1.74
+        },
+        {
+          "id": 6,
+          "check_id": 3,
+          "ordinal": 2,
+          "started_at": "2026-10-29T17:48:50.219Z",
+          "finished_at": "2026-10-29T17:48:50.221Z",
+          "status_code": 503,
+          "error_category": "retryable_http",
+          "latency_ms": 2.34
+        },
+        {
+          "id": 7,
+          "check_id": 3,
+          "ordinal": 3,
+          "started_at": "2026-10-29T17:48:50.928Z",
+          "finished_at": "2026-10-29T17:48:50.931Z",
+          "status_code": 503,
+          "error_category": "retryable_http",
+          "latency_ms": 3.03
+        }
+      ],
+      "result": {
+        "id": 3,
+        "check_id": 3,
+        "endpoint_id": 3,
+        "ok": false,
+        "attempt_count": 3,
+        "final_category": "retry_exhausted",
+        "completed_at": "2026-10-29T17:48:50.933Z"
+      },
+      "incident_id": 1
+    },
+    "second": {
+      "id": 4,
+      "endpoint_id": 3,
+      "trigger": "manual",
+      "state": "COMPLETED",
+      "correlation_id": "a4fb4470-e5e3-4134-a939-9144b1df21ac",
+      "parent_correlation_id": null,
+      "schedule_key": null,
+      "behavior": "dead",
+      "started_at": "2026-10-29T17:48:50.978Z",
+      "finished_at": "2026-10-29T17:48:52.410Z",
+      "interruption_reason": null,
+      "attempts": [
+        {
+          "id": 8,
+          "check_id": 4,
+          "ordinal": 1,
+          "started_at": "2026-10-29T17:48:50.980Z",
+          "finished_at": "2026-10-29T17:48:50.982Z",
+          "status_code": 503,
+          "error_category": "retryable_http",
+          "latency_ms": 2.12
+        },
+        {
+          "id": 9,
+          "check_id": 4,
+          "ordinal": 2,
+          "started_at": "2026-10-29T17:48:51.685Z",
+          "finished_at": "2026-10-29T17:48:51.688Z",
+          "status_code": 503,
+          "error_category": "retryable_http",
+          "latency_ms": 3.25
+        },
+        {
+          "id": 10,
+          "check_id": 4,
+          "ordinal": 3,
+          "started_at": "2026-10-29T17:48:52.401Z",
+          "finished_at": "2026-10-29T17:48:52.404Z",
+          "status_code": 503,
+          "error_category": "retryable_http",
+          "latency_ms": 3.3
+        }
+      ],
+      "result": {
+        "id": 4,
+        "check_id": 4,
+        "endpoint_id": 3,
+        "ok": false,
+        "attempt_count": 3,
+        "final_category": "retry_exhausted",
+        "completed_at": "2026-10-29T17:48:52.410Z"
+      },
+      "incident_id": null
+    },
+    "active_incident": {
+      "id": 1,
+      "endpoint_id": 3,
+      "state": "ACKNOWLEDGED",
+      "reason": "Down after 3 attempts (503); human action required",
+      "opening_check_id": 3,
+      "opened_at": "2026-10-29T17:48:50.933Z",
+      "acknowledged_by": "demo-operator",
+      "acknowledged_at": "2026-10-29T17:48:50.975Z",
+      "recovery_check_id": null,
+      "recovered_at": null
+    },
+    "notices": [
+      {
+        "id": 1,
+        "incident_id": 1,
+        "check_id": 3,
+        "event": "opened",
+        "audience": "support",
+        "channel": "in_app_demo",
+        "created_at": "2026-10-29T17:48:50.933Z"
+      }
+    ],
+    "endpoint": {
+      "id": 3,
+      "name": "payments Demo",
+      "url": "https://api.sandbox.example/payments/health",
+      "interval_seconds": 60,
+      "demo_behavior": "dead",
+      "status": "DOWN",
+      "created_at": "2026-10-29T17:48:49.508Z",
+      "last_completed_at": "2026-10-29T17:48:52.410Z",
+      "next_due_at": "2026-10-29T17:49:52.410Z",
+      "checking": false,
+      "active_check_id": null,
+      "active_incident_id": 1,
+      "recent_runs": [
+        {
+          "id": 4,
+          "state": "COMPLETED",
+          "started_at": "2026-10-29T17:48:50.978Z",
+          "finished_at": "2026-10-29T17:48:52.410Z",
+          "interruption_reason": null
+        },
+        {
+          "id": 3,
+          "state": "COMPLETED",
+          "started_at": "2026-10-29T17:48:49.512Z",
+          "finished_at": "2026-10-29T17:48:50.933Z",
+          "interruption_reason": null
+        }
+      ]
+    }
+  },
+  "finished_at": "2026-10-29T17:48:52.459Z"
+}

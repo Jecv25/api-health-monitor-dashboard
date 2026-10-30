@@ -1,0 +1,348 @@
+{
+  "id": "F02",
+  "title": "Atomic result/recovery rollback on controlled storage fault",
+  "expected": {
+    "fault_point": "after result insertion, before transaction commit",
+    "state": "INTERRUPTED",
+    "result": null,
+    "no_recovery_notice": true,
+    "dispatch_paused": true
+  },
+  "expected_recorded_at": "2026-10-29T18:00:35.802Z",
+  "status": "PASS",
+  "exchanges": [
+    {
+      "requested_at": "2026-10-29T18:00:35.802Z",
+      "completed_at": "2026-10-29T18:00:35.807Z",
+      "request": {
+        "method": "PATCH",
+        "path": "/api/v1/endpoints/4/demo-behavior",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "5f91cabd-980a-4728-99cf-de8cedb839f7"
+        },
+        "demo_persona": "operator",
+        "body": {
+          "demo_behavior": "stable"
+        }
+      },
+      "actual": {
+        "status": 200,
+        "headers": {
+          "x-correlation-id": "b071c8a4-39ef-43a6-a2f9-50dfe03821ee",
+          "idempotency-replayed": null
+        },
+        "body": {
+          "data": {
+            "id": 4,
+            "name": "wrong-path Demo",
+            "url": "https://api.sandbox.example/wrong-path/health",
+            "interval_seconds": 60,
+            "demo_behavior": "stable",
+            "status": "DOWN",
+            "created_at": "2026-10-29T18:00:25.261Z",
+            "last_completed_at": "2026-10-29T18:00:25.269Z",
+            "next_due_at": "2026-10-29T18:01:25.270Z",
+            "checking": false,
+            "active_check_id": null,
+            "active_incident_id": 2,
+            "recent_runs": [
+              {
+                "id": 6,
+                "state": "COMPLETED",
+                "started_at": "2026-10-29T18:00:25.264Z",
+                "finished_at": "2026-10-29T18:00:25.269Z",
+                "interruption_reason": null
+              }
+            ]
+          },
+          "correlation_id": "b071c8a4-39ef-43a6-a2f9-50dfe03821ee"
+        }
+      }
+    },
+    {
+      "requested_at": "2026-10-29T18:00:35.807Z",
+      "completed_at": "2026-10-29T18:00:35.812Z",
+      "request": {
+        "method": "POST",
+        "path": "/api/v1/endpoints/4/checks",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "0ce581b3-7b37-49dd-a786-6a6aaeb96b50"
+        },
+        "demo_persona": "operator",
+        "body": {}
+      },
+      "actual": {
+        "status": 202,
+        "headers": {
+          "x-correlation-id": "f51cc43a-9834-4341-87b5-ffb2be8e1603",
+          "idempotency-replayed": null
+        },
+        "body": {
+          "data": {
+            "id": 8,
+            "endpoint_id": 4,
+            "state": "RUNNING",
+            "correlation_id": "f51cc43a-9834-4341-87b5-ffb2be8e1603",
+            "status_url": "/api/v1/checks/8"
+          },
+          "correlation_id": "f51cc43a-9834-4341-87b5-ffb2be8e1603"
+        }
+      }
+    },
+    {
+      "requested_at": "2026-10-29T18:00:35.851Z",
+      "completed_at": "2026-10-29T18:00:35.853Z",
+      "request": {
+        "method": "GET",
+        "path": "/api/v1/checks/8",
+        "headers": {},
+        "demo_persona": "operator"
+      },
+      "actual": {
+        "status": 200,
+        "headers": {
+          "x-correlation-id": "03d7bed6-0b08-472d-983f-00245689dfb1",
+          "idempotency-replayed": null
+        },
+        "body": {
+          "data": {
+            "id": 8,
+            "endpoint_id": 4,
+            "trigger": "manual",
+            "state": "INTERRUPTED",
+            "correlation_id": "f51cc43a-9834-4341-87b5-ffb2be8e1603",
+            "parent_correlation_id": null,
+            "schedule_key": null,
+            "behavior": "stable",
+            "started_at": "2026-10-29T18:00:35.808Z",
+            "finished_at": "2026-10-29T18:00:35.817Z",
+            "interruption_reason": "STORAGE_UNAVAILABLE",
+            "attempts": [
+              {
+                "id": 16,
+                "check_id": 8,
+                "ordinal": 1,
+                "started_at": "2026-10-29T18:00:35.811Z",
+                "finished_at": "2026-10-29T18:00:35.814Z",
+                "status_code": 200,
+                "error_category": null,
+                "latency_ms": 3.32
+              }
+            ],
+            "result": null,
+            "incident_id": null
+          },
+          "correlation_id": "03d7bed6-0b08-472d-983f-00245689dfb1"
+        }
+      }
+    },
+    {
+      "requested_at": "2026-10-29T18:00:35.853Z",
+      "completed_at": "2026-10-29T18:00:35.854Z",
+      "request": {
+        "method": "GET",
+        "path": "/api/v1/incidents",
+        "headers": {},
+        "demo_persona": "operator"
+      },
+      "actual": {
+        "status": 200,
+        "headers": {
+          "x-correlation-id": "566dffbf-1f8a-4e7d-80d4-20eb5ced13a1",
+          "idempotency-replayed": null
+        },
+        "body": {
+          "data": [
+            {
+              "id": 3,
+              "endpoint_id": 5,
+              "state": "OPEN",
+              "reason": "Down after 3 attempts (timeout); human action required",
+              "opening_check_id": 7,
+              "opened_at": "2026-10-29T18:00:35.792Z",
+              "acknowledged_by": null,
+              "acknowledged_at": null,
+              "recovery_check_id": null,
+              "recovered_at": null
+            },
+            {
+              "id": 2,
+              "endpoint_id": 4,
+              "state": "OPEN",
+              "reason": "Non-retryable HTTP 404; needs a person",
+              "opening_check_id": 6,
+              "opened_at": "2026-10-29T18:00:25.269Z",
+              "acknowledged_by": null,
+              "acknowledged_at": null,
+              "recovery_check_id": null,
+              "recovered_at": null
+            },
+            {
+              "id": 1,
+              "endpoint_id": 3,
+              "state": "RECOVERED",
+              "reason": "Down after 3 attempts (503); human action required",
+              "opening_check_id": 3,
+              "opened_at": "2026-10-29T18:00:23.739Z",
+              "acknowledged_by": "demo-operator",
+              "acknowledged_at": "2026-10-29T18:00:23.766Z",
+              "recovery_check_id": 5,
+              "recovered_at": "2026-10-29T18:00:25.252Z"
+            }
+          ],
+          "correlation_id": "566dffbf-1f8a-4e7d-80d4-20eb5ced13a1"
+        }
+      }
+    },
+    {
+      "requested_at": "2026-10-29T18:00:35.854Z",
+      "completed_at": "2026-10-29T18:00:35.855Z",
+      "request": {
+        "method": "GET",
+        "path": "/api/v1/notifications",
+        "headers": {},
+        "demo_persona": "operator"
+      },
+      "actual": {
+        "status": 200,
+        "headers": {
+          "x-correlation-id": "8a013f3a-aa22-4d26-a89a-35730af55099",
+          "idempotency-replayed": null
+        },
+        "body": {
+          "data": [
+            {
+              "id": 4,
+              "incident_id": 3,
+              "check_id": 7,
+              "event": "opened",
+              "audience": "support",
+              "channel": "in_app_demo",
+              "created_at": "2026-10-29T18:00:35.792Z"
+            },
+            {
+              "id": 3,
+              "incident_id": 2,
+              "check_id": 6,
+              "event": "opened",
+              "audience": "support",
+              "channel": "in_app_demo",
+              "created_at": "2026-10-29T18:00:25.269Z"
+            },
+            {
+              "id": 2,
+              "incident_id": 1,
+              "check_id": 5,
+              "event": "recovered",
+              "audience": "support",
+              "channel": "in_app_demo",
+              "created_at": "2026-10-29T18:00:25.252Z"
+            },
+            {
+              "id": 1,
+              "incident_id": 1,
+              "check_id": 3,
+              "event": "opened",
+              "audience": "support",
+              "channel": "in_app_demo",
+              "created_at": "2026-10-29T18:00:23.739Z"
+            }
+          ],
+          "correlation_id": "8a013f3a-aa22-4d26-a89a-35730af55099"
+        }
+      }
+    },
+    {
+      "requested_at": "2026-10-29T18:00:35.855Z",
+      "completed_at": "2026-10-29T18:00:35.857Z",
+      "request": {
+        "method": "GET",
+        "path": "/api/v1/scheduler",
+        "headers": {},
+        "demo_persona": "operator"
+      },
+      "actual": {
+        "status": 200,
+        "headers": {
+          "x-correlation-id": "6a48dc05-70cb-478b-ad01-eaf3c3e7a678",
+          "idempotency-replayed": null
+        },
+        "body": {
+          "data": {
+            "enabled": false,
+            "tick_ms": 1000,
+            "capacity": 2,
+            "active_count": 0,
+            "last_error": "STORAGE_UNAVAILABLE"
+          },
+          "correlation_id": "6a48dc05-70cb-478b-ad01-eaf3c3e7a678"
+        }
+      }
+    }
+  ],
+  "started_at": "2026-10-29T18:00:35.802Z",
+  "observations": {
+    "run": {
+      "id": 8,
+      "endpoint_id": 4,
+      "trigger": "manual",
+      "state": "INTERRUPTED",
+      "correlation_id": "f51cc43a-9834-4341-87b5-ffb2be8e1603",
+      "parent_correlation_id": null,
+      "schedule_key": null,
+      "behavior": "stable",
+      "started_at": "2026-10-29T18:00:35.808Z",
+      "finished_at": "2026-10-29T18:00:35.817Z",
+      "interruption_reason": "STORAGE_UNAVAILABLE",
+      "attempts": [
+        {
+          "id": 16,
+          "check_id": 8,
+          "ordinal": 1,
+          "started_at": "2026-10-29T18:00:35.811Z",
+          "finished_at": "2026-10-29T18:00:35.814Z",
+          "status_code": 200,
+          "error_category": null,
+          "latency_ms": 3.32
+        }
+      ],
+      "result": null,
+      "incident_id": null
+    },
+    "before_results": 7,
+    "after_results": 7,
+    "incident": {
+      "id": 2,
+      "endpoint_id": 4,
+      "state": "OPEN",
+      "reason": "Non-retryable HTTP 404; needs a person",
+      "opening_check_id": 6,
+      "opened_at": "2026-10-29T18:00:25.269Z",
+      "acknowledged_by": null,
+      "acknowledged_at": null,
+      "recovery_check_id": null,
+      "recovered_at": null
+    },
+    "notices": [
+      {
+        "id": 3,
+        "incident_id": 2,
+        "check_id": 6,
+        "event": "opened",
+        "audience": "support",
+        "channel": "in_app_demo",
+        "created_at": "2026-10-29T18:00:25.269Z"
+      }
+    ],
+    "scheduler": {
+      "enabled": false,
+      "tick_ms": 1000,
+      "capacity": 2,
+      "active_count": 0,
+      "last_error": "STORAGE_UNAVAILABLE"
+    }
+  },
+  "finished_at": "2026-10-29T18:00:35.857Z"
+}

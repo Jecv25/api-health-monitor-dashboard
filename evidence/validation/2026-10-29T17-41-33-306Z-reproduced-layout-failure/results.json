@@ -1,0 +1,11 @@
+[
+  {
+    "name": "flutter-tests",
+    "command": "flutter.bat test --reporter expanded",
+    "started_at": "2026-10-29T17:41:33.307Z",
+    "finished_at": "2026-10-29T17:41:37.640Z",
+    "exit_code": 1,
+    "signal": null,
+    "output": "evidence/validation/2026-10-29T17-41-33-306Z-reproduced-layout-failure/flutter-tests.log"
+  }
+]

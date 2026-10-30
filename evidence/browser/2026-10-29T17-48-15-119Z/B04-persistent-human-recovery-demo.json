@@ -1,0 +1,12 @@
+{
+  "id": "B04-persistent-human-recovery-demo",
+  "expected": "Payments fails after three attempts, operator acknowledges and simulates repair; only a new passing check recovers the incident and records a notice.",
+  "expected_recorded_at": "2026-10-29T17:48:20.354Z",
+  "status": "FAIL",
+  "started_at": "2026-10-29T17:48:20.355Z",
+  "error": {
+    "name": "TimeoutError",
+    "message": "locator.click: Timeout 12000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: 'Incidents', exact: true }).first()\u001b[22m\n"
+  },
+  "finished_at": "2026-10-29T17:48:36.246Z"
+}

@@ -1,0 +1,224 @@
+{
+  "id": "F01",
+  "title": "Actual HTTP timeout injection",
+  "expected": {
+    "per_attempt_timeout_ms": 3000,
+    "injected_fixture_delay_ms": 3500,
+    "attempts": 3,
+    "final_ok": false
+  },
+  "expected_recorded_at": "2026-10-29T18:00:25.278Z",
+  "status": "PASS",
+  "exchanges": [
+    {
+      "requested_at": "2026-10-29T18:00:25.278Z",
+      "completed_at": "2026-10-29T18:00:25.282Z",
+      "request": {
+        "method": "POST",
+        "path": "/api/v1/endpoints",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "c5d4668a-905d-4f93-a854-8575e2998b98"
+        },
+        "demo_persona": "operator",
+        "body": {
+          "name": "timeout-demo Demo",
+          "url": "https://api.sandbox.example/timeout-demo/health",
+          "interval_seconds": 60,
+          "demo_behavior": "stable"
+        }
+      },
+      "actual": {
+        "status": 201,
+        "headers": {
+          "x-correlation-id": "23295e6a-4aaa-4828-8073-da0533c8b932",
+          "idempotency-replayed": null
+        },
+        "body": {
+          "data": {
+            "id": 5,
+            "name": "timeout-demo Demo",
+            "url": "https://api.sandbox.example/timeout-demo/health",
+            "interval_seconds": 60,
+            "demo_behavior": "stable",
+            "status": "UNKNOWN",
+            "created_at": "2026-10-29T18:00:25.279Z",
+            "last_completed_at": null,
+            "next_due_at": null,
+            "checking": false,
+            "active_check_id": null,
+            "active_incident_id": null,
+            "recent_runs": []
+          },
+          "correlation_id": "23295e6a-4aaa-4828-8073-da0533c8b932"
+        }
+      }
+    },
+    {
+      "requested_at": "2026-10-29T18:00:25.282Z",
+      "completed_at": "2026-10-29T18:00:25.286Z",
+      "request": {
+        "method": "POST",
+        "path": "/api/v1/endpoints/5/checks",
+        "headers": {
+          "Content-Type": "application/json",
+          "Idempotency-Key": "19dbefaf-998e-468c-bf95-d456db91516c"
+        },
+        "demo_persona": "operator",
+        "body": {}
+      },
+      "actual": {
+        "status": 202,
+        "headers": {
+          "x-correlation-id": "10fe4ffa-e263-4ac8-9f90-e58ff17af163",
+          "idempotency-replayed": null
+        },
+        "body": {
+          "data": {
+            "id": 7,
+            "endpoint_id": 5,
+            "state": "RUNNING",
+            "correlation_id": "10fe4ffa-e263-4ac8-9f90-e58ff17af163",
+            "status_url": "/api/v1/checks/7"
+          },
+          "correlation_id": "10fe4ffa-e263-4ac8-9f90-e58ff17af163"
+        }
+      }
+    },
+    {
+      "requested_at": "2026-10-29T18:00:35.798Z",
+      "completed_at": "2026-10-29T18:00:35.800Z",
+      "request": {
+        "method": "GET",
+        "path": "/api/v1/checks/7",
+        "headers": {},
+        "demo_persona": "operator"
+      },
+      "actual": {
+        "status": 200,
+        "headers": {
+          "x-correlation-id": "a5016de0-f3fc-4dab-9e13-0f7153dd3032",
+          "idempotency-replayed": null
+        },
+        "body": {
+          "data": {
+            "id": 7,
+            "endpoint_id": 5,
+            "trigger": "manual",
+            "state": "COMPLETED",
+            "correlation_id": "10fe4ffa-e263-4ac8-9f90-e58ff17af163",
+            "parent_correlation_id": null,
+            "schedule_key": null,
+            "behavior": "stable",
+            "started_at": "2026-10-29T18:00:25.283Z",
+            "finished_at": "2026-10-29T18:00:35.792Z",
+            "interruption_reason": null,
+            "attempts": [
+              {
+                "id": 13,
+                "check_id": 7,
+                "ordinal": 1,
+                "started_at": "2026-10-29T18:00:25.285Z",
+                "finished_at": "2026-10-29T18:00:28.293Z",
+                "status_code": null,
+                "error_category": "timeout",
+                "latency_ms": 3008.51
+              },
+              {
+                "id": 14,
+                "check_id": 7,
+                "ordinal": 2,
+                "started_at": "2026-10-29T18:00:29.028Z",
+                "finished_at": "2026-10-29T18:00:32.033Z",
+                "status_code": null,
+                "error_category": "timeout",
+                "latency_ms": 3004.84
+              },
+              {
+                "id": 15,
+                "check_id": 7,
+                "ordinal": 3,
+                "started_at": "2026-10-29T18:00:32.763Z",
+                "finished_at": "2026-10-29T18:00:35.770Z",
+                "status_code": null,
+                "error_category": "timeout",
+                "latency_ms": 3006.75
+              }
+            ],
+            "result": {
+              "id": 7,
+              "check_id": 7,
+              "endpoint_id": 5,
+              "ok": false,
+              "attempt_count": 3,
+              "final_category": "retry_exhausted",
+              "completed_at": "2026-10-29T18:00:35.792Z"
+            },
+            "incident_id": 3
+          },
+          "correlation_id": "a5016de0-f3fc-4dab-9e13-0f7153dd3032"
+        }
+      }
+    }
+  ],
+  "started_at": "2026-10-29T18:00:25.278Z",
+  "observations": {
+    "run": {
+      "id": 7,
+      "endpoint_id": 5,
+      "trigger": "manual",
+      "state": "COMPLETED",
+      "correlation_id": "10fe4ffa-e263-4ac8-9f90-e58ff17af163",
+      "parent_correlation_id": null,
+      "schedule_key": null,
+      "behavior": "stable",
+      "started_at": "2026-10-29T18:00:25.283Z",
+      "finished_at": "2026-10-29T18:00:35.792Z",
+      "interruption_reason": null,
+      "attempts": [
+        {
+          "id": 13,
+          "check_id": 7,
+          "ordinal": 1,
+          "started_at": "2026-10-29T18:00:25.285Z",
+          "finished_at": "2026-10-29T18:00:28.293Z",
+          "status_code": null,
+          "error_category": "timeout",
+          "latency_ms": 3008.51
+        },
+        {
+          "id": 14,
+          "check_id": 7,
+          "ordinal": 2,
+          "started_at": "2026-10-29T18:00:29.028Z",
+          "finished_at": "2026-10-29T18:00:32.033Z",
+          "status_code": null,
+          "error_category": "timeout",
+          "latency_ms": 3004.84
+        },
+        {
+          "id": 15,
+          "check_id": 7,
+          "ordinal": 3,
+          "started_at": "2026-10-29T18:00:32.763Z",
+          "finished_at": "2026-10-29T18:00:35.770Z",
+          "status_code": null,
+          "error_category": "timeout",
+          "latency_ms": 3006.75
+        }
+      ],
+      "result": {
+        "id": 7,
+        "check_id": 7,
+        "endpoint_id": 5,
+        "ok": false,
+        "attempt_count": 3,
+        "final_category": "retry_exhausted",
+        "completed_at": "2026-10-29T18:00:35.792Z"
+      },
+      "incident_id": 3
+    },
+    "injection": "Fixture delayed response headers by 3500 ms; worker aborted each request at configured 3000 ms."
+  },
+  "finished_at": "2026-10-29T18:00:35.801Z"
+}

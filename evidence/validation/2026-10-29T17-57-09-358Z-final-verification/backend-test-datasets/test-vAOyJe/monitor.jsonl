@@ -1,0 +1,10 @@
+{"timestamp":"2026-10-29T17:57:11.603Z","level":"info","source":"system","correlation_id":"db85e4ee-6d37-4097-a5c7-f77c1f96347e","previous_scheduler_enabled":false,"scheduler_enabled":false,"max_attempts":3,"timeout_ms":3000,"retry_delay_ms":700,"concurrency":2,"event":"process_started"}
+{"timestamp":"2026-10-29T17:57:11.605Z","level":"info","source":"system","correlation_id":"3ee34ac4-70a2-4258-adcf-579b75896460","port":28789,"event":"api_listening"}
+{"timestamp":"2026-10-29T17:57:11.611Z","level":"info","source":"api","correlation_id":"db42fa27-e83a-44a4-9dd9-6f5ffc8aca28","actor_id":"demo-operator","event":"demo_session_selected"}
+{"timestamp":"2026-10-29T17:57:11.615Z","level":"info","source":"api","correlation_id":"1a59f555-e900-49f4-9aa3-29dcd7006a0d","endpoint_id":1,"event":"endpoint_registered"}
+{"timestamp":"2026-10-29T17:57:11.620Z","level":"warn","source":"api","correlation_id":"cbff16dc-0067-447c-8b86-206cf1d27e9c","status_code":422,"error_category":"VALIDATION_ERROR","event":"request_rejected"}
+{"timestamp":"2026-10-29T17:57:11.622Z","level":"info","source":"api","correlation_id":"237c3265-1505-4752-868b-c69036340256","status_code":401,"method":"POST","event":"authorization_denied"}
+{"timestamp":"2026-10-29T17:57:11.622Z","level":"warn","source":"api","correlation_id":"237c3265-1505-4752-868b-c69036340256","status_code":401,"error_category":"SESSION_REQUIRED","event":"request_rejected"}
+{"timestamp":"2026-10-29T17:57:11.624Z","level":"info","source":"api","correlation_id":"76720b3f-d7d0-4a05-9878-23b3cd95f3d7","actor_id":"demo-viewer","event":"demo_session_selected"}
+{"timestamp":"2026-10-29T17:57:11.625Z","level":"info","source":"api","correlation_id":"22019438-a353-4bd4-ba84-6e3d9c43f949","actor_id":"demo-viewer","status_code":403,"method":"POST","event":"authorization_denied"}
+{"timestamp":"2026-10-29T17:57:11.626Z","level":"warn","source":"api","correlation_id":"22019438-a353-4bd4-ba84-6e3d9c43f949","status_code":403,"error_category":"FORBIDDEN","event":"request_rejected"}

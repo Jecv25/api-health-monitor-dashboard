@@ -1,0 +1,23 @@
+Pulseboard
+Loading the monitoring dashboard…
+Pulseboard
+WORKSPACE / FICTIONAL SANDBOX
+OP
+Demo operator
+Refresh records
+API HEALTH MONITOR
+Endpoints
+Register endpoint
+Unacknowledged incidents Incidents 1
+Uptime report
+Structured logs
+Evidence guide
+SANDBOX MODE
+Fictional data only. No production services.
+Leave demo
+Uptime report
+Passed completed checks ÷ all completed checks. A sample ratio across this dataset, not elapsed availability.
+Each check counts once, even when it needed retries. In-progress and interrupted runs are excluded. Earlier failures stay in the report.
+Dataset since 2026-10-30 01:48:15 PHT
+MODULE 13 · CONTROLLED LOCAL DEMO
+Last refreshed 2026-10-30 01:48:53 PHT

@@ -1,0 +1,12 @@
+{
+  "id": "B01-login",
+  "expected": "Actual Flutter release app displays labeled placeholder login; operator enters dashboard.",
+  "expected_recorded_at": "2026-10-29T17:45:55.235Z",
+  "status": "FAIL",
+  "started_at": "2026-10-29T17:45:55.236Z",
+  "error": {
+    "name": "TimeoutError",
+    "message": "locator.waitFor: Timeout 18000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByText('Enter the local demo').first() to be visible\u001b[22m\n"
+  },
+  "finished_at": "2026-10-29T17:46:13.292Z"
+}

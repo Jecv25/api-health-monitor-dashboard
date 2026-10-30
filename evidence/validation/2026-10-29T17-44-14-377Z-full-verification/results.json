@@ -1,0 +1,38 @@
+[
+  {
+    "name": "backend-tests",
+    "command": "npm.cmd test",
+    "started_at": "2026-10-29T17:44:14.378Z",
+    "finished_at": "2026-10-29T17:44:34.197Z",
+    "exit_code": 0,
+    "signal": null,
+    "output": "evidence/validation/2026-10-29T17-44-14-377Z-full-verification/backend-tests.log"
+  },
+  {
+    "name": "flutter-analyze",
+    "command": "flutter.bat analyze",
+    "started_at": "2026-10-29T17:44:34.199Z",
+    "finished_at": "2026-10-29T17:44:41.821Z",
+    "exit_code": 0,
+    "signal": null,
+    "output": "evidence/validation/2026-10-29T17-44-14-377Z-full-verification/flutter-analyze.log"
+  },
+  {
+    "name": "flutter-tests",
+    "command": "flutter.bat test --reporter expanded",
+    "started_at": "2026-10-29T17:44:41.822Z",
+    "finished_at": "2026-10-29T17:44:45.659Z",
+    "exit_code": 0,
+    "signal": null,
+    "output": "evidence/validation/2026-10-29T17-44-14-377Z-full-verification/flutter-tests.log"
+  },
+  {
+    "name": "flutter-build",
+    "command": "flutter.bat build web --release --no-web-resources-cdn",
+    "started_at": "2026-10-29T17:44:45.659Z",
+    "finished_at": "2026-10-29T17:45:15.702Z",
+    "exit_code": 0,
+    "signal": null,
+    "output": "evidence/validation/2026-10-29T17-44-14-377Z-full-verification/flutter-build.log"
+  }
+]
